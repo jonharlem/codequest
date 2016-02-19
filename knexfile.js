@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'postgres',
     connection: {
-      database: 'dev-testing'
+      database: 'codequest_db'
     }
   },
 
