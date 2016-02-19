@@ -39,5 +39,10 @@ codequest.io is the go to site for interview questions. Used by developers looki
 - User profile (job, companies applied to, linked-in, resume, etc.)
 - Company profile (info about company, jobs users interviewed for, popular questions or categories)
 
+##Group Workflow
+We will be using a feature branch workflow. Each feature will have a separate branch which can be worked on by the team and eventually merged into the master branch upon QA testing.
+
+
+
 
 
