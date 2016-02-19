@@ -43,6 +43,27 @@ codequest.io is the go to site for interview questions. Used by developers looki
 We will be using a feature branch workflow. Each feature will have a separate branch which can be worked on by the team and eventually merged into the master branch upon QA testing.
 
 
+####GitHub
+
+Always have the latest version of the repo:
+
+```
+git pull origin master
+```
+
+When starting a new feature, create a new branch:
+
+```
+$ git checkout -b [name_of_new_branch]
+```
+
+Push the branch to github:
+
+```
+$ git push origin [name_of_new_branch]
+```
+
+Create a pull request.
 
 
 
