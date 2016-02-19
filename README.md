@@ -65,5 +65,22 @@ $ git push origin [name_of_new_branch]
 
 Create a pull request.
 
+#####Fetch other peoples branches
 
+Fetch all the branches:
+
+```
+$ git fetch -a
+```
+
+See all the branches:
+
+```
+$ git branch -a
+```
+
+Switch branches:
+```
+$ git checkout branchName
+```
 
