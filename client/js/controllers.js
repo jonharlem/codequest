@@ -48,8 +48,8 @@ app.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$r
          	};
 
          	$scope.signedIn = function(){
-         		$scope.showModal = !$scope.showModal;
-         		$scope.showSignInModal = !$scope.showSignInModal;
+         		$scope.showModal = false;
+         		$scope.showSignInModal = false;
          	}
          	
 }]);
