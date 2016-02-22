@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='codequest'>
   <head>
     <meta charset="utf-8">
     <title>CodeQuest</title>
+    <!-- AngularJS source -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
+     <!-- insert bootsrap and jQuery here -->
   </head>
   <body>
     <h1>Hello from Index Page</h1>
+    <div ng-view>
+
+    </div>
+    <!-- insert scripts here -->
+    <script src="/client/app.js"></script>
+    <script src="/client/js/controllers.js"></script>
+    <script src="/client/js/services.js"></script>
+    <script src="/client/js/filters.js"></script>
   </body>
 </html>
