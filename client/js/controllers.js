@@ -1,8 +1,14 @@
 // get app
 var app = angular.module('codequest');
 
-app.controller('IndexController', function(){
-  console.log('IndexController');
+app.controller('IndexController', function($scope, $auth){
+  console.log("IndexController");
+});
+
+app.controller('NavbarController', function($scope, $auth){
+  $scope.isAuthenticated = function() {
+    return $auth.isAuthenticated();
+  };
 });
 
 app.controller('LoginController', function($scope, $auth, $location) {
@@ -14,7 +20,7 @@ app.controller('LoginController', function($scope, $auth, $location) {
   }
 });
 
-app.controller('LogoutController', function($location, $auth, toastr) {
+app.controller('LogoutController', function($location, $auth) {
     if (!$auth.isAuthenticated()) { return; }
     $auth.logout()
       .then(function() {
