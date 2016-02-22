@@ -26,7 +26,6 @@ codequest.controller('IndexController', ['$scope', '$http', '$parse', '$location
          	        data: $scope.user
          	    }).then(function(data) {
          	        // Save the JWT to localStorage so we can use it later
-         	        console.log(data.data.jwt);
          	        localStorage.setItem('jwt', data.data.jwt);
          	    }).catch(function(err){
          	        console.log(err);

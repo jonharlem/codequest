@@ -36,7 +36,13 @@ router.post('/users', function(req, res) {
 	      });
 	    });
 	  }
-	});
+	}).catch(function(err){
+	        console.log(err);
+	        res.json({
+	            error: JSON.stringify(err),
+	            message: "Error connecting to Database"
+	        })
+    	});
 });
 
 // LOGIN
