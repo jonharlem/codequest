@@ -1,6 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var qs = require('querystring');
+var request = require("request");
 var jwt = require('jsonwebtoken');
+
+var knex = require("../db/knex");
+var User = function() {
+  return knex('users');
+}
+
+require('locus')
 
 function isAuthenticated(req, res, next) {
   if (!req.header("Authorization")) {
@@ -10,14 +19,14 @@ function isAuthenticated(req, res, next) {
   var token = req.header("Authorization").split(" ")[1];
   var payload = jwt.decode(token, process.env.TOKEN_SECRET);
 
-  req.user = payload.sub;
+  req.user = payload.id;
   next();
 }
 
 function createJWT(user) {
   var payload = {
     id: user.id,
-    name: user.displayName
+    name: user.name
   };
 
   return jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: "7d" });
@@ -28,7 +37,7 @@ function createJWT(user) {
  | Login with GitHub
  |--------------------------------------------------------------------------
  */
-router.post('/auth/github', function(req, res) {
+router.post('/github', function(req, res) {
   var accessTokenUrl = 'https://github.com/login/oauth/access_token';
   var userApiUrl = 'https://api.github.com/user';
   var params = {
@@ -48,19 +57,20 @@ router.post('/auth/github', function(req, res) {
 
       // Step 3a. Link user accounts.
       if (req.header('Authorization')) {
-        User.findOne({ github: profile.id }, function(err, existingUser) {
+        User().where({ github: profile.id }).first().then(function(existingUser) {
           if (existingUser) {
             return res.status(409).send({ message: 'There is already a GitHub account that belongs to you' });
           }
           var token = req.header('Authorization').split(' ')[1];
           var payload = jwt.decode(token, process.env.TOKEN_SECRET);
-          User.findById(payload.sub, function(err, user) {
+          User().where('id', payload.id).first().then(function(user) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.github = profile.id;
-            user.displayName = user.displayName || profile.name;
-            user.save(function() {
+            user.image = profile.avatar_url;
+            user.name = user.name || profile.name;
+            User().insert(user).then(function() {
               var token = createJWT(user);
               res.send({ token: token });
             });
@@ -68,15 +78,16 @@ router.post('/auth/github', function(req, res) {
         });
       } else {
         // Step 3b. Create a new user account or return an existing one.
-        User.findOne({ github: profile.id }, function(err, existingUser) {
+        User().where({ github: profile.id }).first().then(function(existingUser) {
           if (existingUser) {
             var token = createJWT(existingUser);
             return res.send({ token: token });
           }
-          var user = new User();
+          var user = {};
           user.github = profile.id;
-          user.displayName = profile.name;
-          user.save(function() {
+          user.image = profile.avatar_url;
+          user.name = profile.name;
+          knex('users').insert(user).then(function() {
             var token = createJWT(user);
             res.send({ token: token });
           });
@@ -91,7 +102,7 @@ router.post('/auth/github', function(req, res) {
  | Login with LinkedIn
  |--------------------------------------------------------------------------
  */
-router.post('/auth/linkedin', function(req, res) {
+router.post('/linkedin', function(req, res) {
   var accessTokenUrl = 'https://www.linkedin.com/uas/oauth2/accessToken';
   var peopleApiUrl = 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,email-address,picture-url)';
   var params = {
@@ -117,19 +128,20 @@ router.post('/auth/linkedin', function(req, res) {
 
       // Step 3a. Link user accounts.
       if (req.header('Authorization')) {
-        User.findOne({ linkedin: profile.id }, function(err, existingUser) {
+        User().where({ linkedin: profile.id }).first().then(function(existingUser) {
           if (existingUser) {
             return res.status(409).send({ message: 'There is already a LinkedIn account that belongs to you' });
           }
           var token = req.header('Authorization').split(' ')[1];
           var payload = jwt.decode(token, process.env.TOKEN_SECRET);
-          User.findById(payload.sub, function(err, user) {
+          User().where('id', payload.id).first().then(function(user) {
             if (!user) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.linkedin = profile.id;
-            user.displayName = user.displayName || profile.firstName + ' ' + profile.lastName;
-            user.save(function() {
+            user.image = profile.pictureUrl;
+            user.name = user.name || profile.firstName + ' ' + profile.lastName;
+            User().insert(user).then(function() {
               var token = createJWT(user);
               res.send({ token: token });
             });
@@ -137,14 +149,15 @@ router.post('/auth/linkedin', function(req, res) {
         });
       } else {
         // Step 3b. Create a new user account or return an existing one.
-        User.findOne({ linkedin: profile.id }, function(err, existingUser) {
+        User().where({ linkedin: profile.id }).first().then(function(existingUser) {
           if (existingUser) {
             return res.send({ token: createJWT(existingUser) });
           }
-          var user = new User();
+          var user = {};
           user.linkedin = profile.id;
-          user.displayName = profile.firstName + ' ' + profile.lastName;
-          user.save(function() {
+          user.image = profile.pictureUrl;
+          user.name = profile.firstName + ' ' + profile.lastName;
+          User().insert(user).then(function() {
             var token = createJWT(user);
             res.send({ token: token });
           });

@@ -6,10 +6,6 @@ app.controller('IndexController', function(){
 });
 
 app.controller('LoginController', function($scope, $auth, $location) {
-  $scope.isAuthenticated = function() {
-    return $auth.isAuthenticated();
-  }
-
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function() {
@@ -17,3 +13,11 @@ app.controller('LoginController', function($scope, $auth, $location) {
       });
   }
 });
+
+app.controller('LogoutController', function($location, $auth, toastr) {
+    if (!$auth.isAuthenticated()) { return; }
+    $auth.logout()
+      .then(function() {
+        $location.path('/');
+      });
+  });
