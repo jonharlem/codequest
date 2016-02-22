@@ -1,5 +1,7 @@
 var index = require('./index');
+var auth  = require('./auth');
 
 module.exports = {
-  index: index
+  index: index,
+  auth: auth
 }
