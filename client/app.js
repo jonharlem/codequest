@@ -1,6 +1,6 @@
-var codequest = angular.module('codequest', ['ngRoute', 'ngAnimate', 'ngResource']);
+var app = angular.module('codequest', ['ngRoute', 'ngAnimate', 'ngResource']);
 
-codequest.config(function($routeProvider, $locationProvider, $httpProvider){
+app.config(function($routeProvider, $locationProvider, $httpProvider){
   $routeProvider
   .when('/', {
     templateUrl:'/client/templates/landingPage.html',
@@ -9,8 +9,6 @@ codequest.config(function($routeProvider, $locationProvider, $httpProvider){
   .otherwise({
     redirectTo: '/'
   });
-
-  $locationProvider.html5Mode(true);
   
   // Registed the interceptor for our application
   $httpProvider.interceptors.push("Interceptor");

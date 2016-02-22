@@ -1,4 +1,6 @@
-codequest.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$routeParams',
+var app = angular.module('codequest');
+
+app.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$routeParams',
 	                                     function($scope,  $http,  $parse,  $location,   $routeParams) {
 
          	$scope.showModal = false;
