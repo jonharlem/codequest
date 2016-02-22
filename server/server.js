@@ -6,6 +6,7 @@ var jwt = require('jsonwebtoken');
 var bodyParser = require("body-parser");
 var router = require('./controllers/routes');
 
+// load dotenv
 require('dotenv').load();
 
 //create app instance
