@@ -12,6 +12,8 @@ app.controller('NavbarController', function($scope, $auth){
 });
 
 app.controller('LoginController', function($scope, $auth, $location) {
+
+  //  authentication function for GitHub and LinkedIn
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function() {
@@ -21,9 +23,10 @@ app.controller('LoginController', function($scope, $auth, $location) {
 });
 
 app.controller('LogoutController', function($location, $auth) {
-    if (!$auth.isAuthenticated()) { return; }
-    $auth.logout()
-      .then(function() {
-        $location.path('/');
-      });
-  });
+  if (!$auth.isAuthenticated()) { return; }
+
+  $auth.logout()
+    .then(function() {
+      $location.path('/');
+    });
+});

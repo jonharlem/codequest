@@ -9,20 +9,7 @@ var User = function() {
   return knex('users');
 }
 
-require('locus')
-
-function isAuthenticated(req, res, next) {
-  if (!req.header("Authorization")) {
-    res.status(401).send({ message: "You are not authenticated." });
-  }
-
-  var token = req.header("Authorization").split(" ")[1];
-  var payload = jwt.decode(token, process.env.TOKEN_SECRET);
-
-  req.user = payload.id;
-  next();
-}
-
+//  create and return a json web token
 function createJWT(user) {
   var payload = {
     id: user.id,
@@ -68,7 +55,7 @@ router.post('/github', function(req, res) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.github = profile.id;
-            user.image = profile.avatar_url;
+            user.image = user.image || profile.avatar_url;
             user.name = user.name || profile.name;
             User().insert(user).then(function() {
               var token = createJWT(user);
@@ -139,7 +126,7 @@ router.post('/linkedin', function(req, res) {
               return res.status(400).send({ message: 'User not found' });
             }
             user.linkedin = profile.id;
-            user.image = profile.pictureUrl;
+            user.image = user.image || profile.pictureUrl;
             user.name = user.name || profile.firstName + ' ' + profile.lastName;
             User().insert(user).then(function() {
               var token = createJWT(user);
