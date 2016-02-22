@@ -33,8 +33,12 @@ app.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$r
          	        console.log(err);
          	        console.log("BAD THING ^^^");
          	    });
-         	}
-         	
+         	}    	         	
+
+         	$scope.logout = function() {
+         	        localStorage.removeItem('jwt');
+         	}    	
+
          	$scope.toggleModal = function(){
          	        $scope.showModal = !$scope.showModal;
          	};         	
@@ -42,4 +46,10 @@ app.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$r
          	$scope.toggleModalSignIn = function(){
          	        $scope.showSignInModal = !$scope.showSignInModal;
          	};
+
+         	$scope.signedIn = function(){
+         		$scope.showModal = !$scope.showModal;
+         		$scope.showSignInModal = !$scope.showSignInModal;
+         	}
+         	
 }]);
