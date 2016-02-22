@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html ng-app='codequest'>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>CodeQuest</title>
     <!-- AngularJS source -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
-     <!-- insert bootsrap and jQuery here -->
-  </head>
-  <body>
-    <h1>Hello from Index Page</h1>
-    <div ng-view>
+    <!-- insert bootsrap and jQuery here -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
 
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Codequest</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div ng-view>
     </div>
     <!-- insert scripts here -->
     <script src="/client/app.js"></script>
     <script src="/client/js/controllers.js"></script>
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
-  </body>
+</body>
+
 </html>
