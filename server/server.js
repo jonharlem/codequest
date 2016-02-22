@@ -21,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 // set the routes path
 app.use('/api', router.index);
+app.use('/auth', router.auth);
 
 // always redirect to angular app for routes
 // are not registered
