@@ -17,7 +17,7 @@
       </form>
                 <div class="nav navbar-nav navbar-right">
                 <a class="navbar-brand" ng-click="toggleModal()">Sign-Up</a>
-                <a class="navbar-brand" ng-click="toggleModal()" >Sign-In</a>
+                <a class="navbar-brand" ng-click="toggleModalSignIn()" >Sign-In</a>
               </div>
     </div><!-- /.navbar-collapse -->
 
@@ -43,7 +43,7 @@
         </form>
       </modal>
 
-      <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showModal">
+      <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showSignInModal">
         <form role="form">
           <div class="form-group">
             <label for="username">Username</label>
