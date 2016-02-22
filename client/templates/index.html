@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse" ng-controller="NavbarController">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">CodeQuest</a>
@@ -26,14 +26,16 @@
                 <li><a href="#">Contact</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-if="!isAuthenticated()"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li ng-if="!isAuthenticated()"><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li ng-if="isAuthenticated()"><a href="/#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
         </div>
     </nav>
     <div ng-view>
     </div>
     <!-- insert scripts here -->
+    <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
     <script src="/client/js/controllers.js"></script>
     <script src="/client/js/services.js"></script>
