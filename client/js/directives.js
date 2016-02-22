@@ -1,4 +1,4 @@
-codequest.directive('modal', function () {
+app.directive('modal', function () {
     return {
       template: '<div class="modal fade">' + 
           '<div class="modal-dialog">' + 

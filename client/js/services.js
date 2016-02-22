@@ -2,7 +2,7 @@
 // the $http service. Specifically, it adds a single header
 // of the form:
 // Authorization: 'Bearer jwtString'
-codequest.service("Interceptor", function($window,$location,$q){
+app.service("Interceptor", function($window,$location,$q){
   return {
     request: function(config){
       var token = localStorage.getItem('jwt');
