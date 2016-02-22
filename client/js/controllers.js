@@ -1,6 +1,9 @@
-// get app
-var app = angular.module('codequest');
-
-app.controller('IndexController', function(){
-  console.log('IndexController');
-});
+codequest.controller('IndexController', ['$scope', '$http', '$parse', '$location', '$routeParams',
+	                                     function($scope,  $http,  $parse,  $location,   $routeParams) {
+	                                     	
+         	$scope.showModal = false;
+         	
+         	$scope.toggleModal = function(){
+         	        $scope.showModal = !$scope.showModal;
+         	};
+}]);

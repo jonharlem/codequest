@@ -1,6 +1,6 @@
-var app = angular.module('codequest', ['ngRoute', 'ngResource']);
+var codequest = angular.module('codequest', ['ngRoute', 'ngAnimate', 'ngResource']);
 
-app.config(function($routeProvider){
+codequest.config(function($routeProvider, $locationProvider){
   $routeProvider
   .when('/', {
     templateUrl:'/client/templates/landingPage.html',
