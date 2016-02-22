@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 // set the routes path
-// app.use('/api', router.index);
+app.use('/api', router.index);
 
 // always redirect to angular app for routes
 // are not registered
