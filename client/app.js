@@ -2,14 +2,6 @@ var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'n
 
 app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider){
   $routeProvider
-  .when('/login', {
-    templateUrl: '/client/templates/login.html',
-    controller: 'LoginController'
-  })
-  .when('/logout', {
-    template: null,
-    controller: 'LogoutController'
-  })
   .otherwise({
     redirectTo: '/'
   });
