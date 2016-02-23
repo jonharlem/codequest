@@ -17,7 +17,7 @@ app.controller('IndexController', function($scope, $auth, $location, $routeParam
 					console.log(err);
 					console.log("BAD THING ^^^");
 			});
-	}
+	};
 
 	$scope.login = function() {
 			$http({
@@ -31,11 +31,11 @@ app.controller('IndexController', function($scope, $auth, $location, $routeParam
 					console.log(err);
 					console.log("BAD THING ^^^");
 			});
-	}
+	};
 
 	$scope.logout = function() {
 					localStorage.removeItem('jwt');
-	}
+	};
 
 	$scope.toggleModal = function(){
 					$scope.showModal = !$scope.showModal;
@@ -48,7 +48,7 @@ app.controller('IndexController', function($scope, $auth, $location, $routeParam
 	$scope.signedIn = function(){
 		$scope.showModal = false;
 		$scope.showSignInModal = false;
-	}
+	};
 });
 
 app.controller('NavbarController', function($scope, $auth){
@@ -63,9 +63,9 @@ app.controller('LoginController', function($scope, $auth, $location) {
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
       .then(function() {
-        $location.path("/")
+        $location.path("/");
       });
-  }
+  };
 });
 
 app.controller('LogoutController', function($location, $auth) {
@@ -90,4 +90,4 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 		// fill out location of dashboard
 		$location.path("/");
 	};
-})
+});
