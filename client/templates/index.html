@@ -24,9 +24,7 @@
               <a class="navbar-brand" href="#">CodeQuest</a>
           </div>
           <ul class="nav navbar-nav">
-              <li><a href="#">Home</a></li>
               <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
           </ul>
 
         <ul class="nav navbar-nav navbar-right">
@@ -85,6 +83,36 @@
       <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
     </form>
   </modal>
+<!-- SEARCH -->
+   <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Add filters...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Search</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div>
+    </div>
+
+    <!-- D3 DASHBOARD -->
+    <div class="container" ng-controller="D3dashboard">
+      <div class="jumbotron text-center">
+        <h1>D3js Graph</h1>
+        <div class="text-center">
+          <div class="btn-group" role="group" aria-label="...">
+            <button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button>
+            <button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button>
+            <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
 
 
 

@@ -18,7 +18,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 				console.log(err);
 				console.log("BAD THING ^^^");
 		});
-	}
+	};
 
 	$scope.login = function() {
 		$http({
@@ -32,7 +32,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 				console.log(err);
 				console.log("BAD THING ^^^");
 		});
-	}
+	};
 
 	$scope.logout = function() {
 		localStorage.removeItem('jwt');
@@ -43,7 +43,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
       .then(function() {
         $location.path('/');
       });
-	}
+	};
 
 	$scope.toggleModal = function(){
 		$scope.showModal = !$scope.showModal;
@@ -56,7 +56,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	$scope.signedIn = function(){
 		$scope.showModal = false;
 		$scope.showSignInModal = false;
-	}
+	};
 
   //  authentication function for GitHub and LinkedIn
   $scope.authenticate = function(provider) {
@@ -65,11 +65,26 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 
     $auth.authenticate(provider)
       .then(function() {
-        $location.path("/")
+        $location.path("/");
       });
-  }
+  };
 
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
-  }
+  };
 });
+
+// app.controller('D3dashboard', function($scope, $location, $http) {
+// 	$scope.goToTagsBar = function() {
+// 		// fill out location of dashboard
+// 		$location.path("/");
+// 	};
+// 	$scope.goToCompaniesBar = function() {
+// 		// fill out location of dashboard
+// 		$location.path("/");
+// 	};
+// 	$scope.goToPositionsBar = function() {
+// 		// fill out location of dashboard
+// 		$location.path("/");
+// 	};
+// });
