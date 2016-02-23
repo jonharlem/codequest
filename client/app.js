@@ -2,10 +2,6 @@ var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'n
 
 app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider){
   $routeProvider
-  .when('/', {
-    templateUrl:'/client/templates/landingPage.html',
-    controller:'IndexController'
-  })
   .when('/login', {
     templateUrl: '/client/templates/login.html',
     controller: 'LoginController'

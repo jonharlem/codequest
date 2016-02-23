@@ -1,6 +1,7 @@
 var app = angular.module('codequest');
 
-app.controller('IndexController', function($scope, $auth, $location, $routeParams, $parse, $http){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $parse, $http){
+
 	$scope.showModal = false;
 	$scope.user = {};
 	$scope.posts = [];
@@ -39,6 +40,7 @@ app.controller('IndexController', function($scope, $auth, $location, $routeParam
 
 	$scope.toggleModal = function(){
 					$scope.showModal = !$scope.showModal;
+          console.log("toggle")
 	};
 
 	$scope.toggleModalSignIn = function(){
@@ -49,16 +51,7 @@ app.controller('IndexController', function($scope, $auth, $location, $routeParam
 		$scope.showModal = false;
 		$scope.showSignInModal = false;
 	}
-});
 
-app.controller('NavbarController', function($scope, $auth){
-  $scope.isAuthenticated = function() {
-    return $auth.isAuthenticated();
-  };
-});
-
-
-app.controller('LoginController', function($scope, $auth, $location) {
   //  authentication function for GitHub and LinkedIn
   $scope.authenticate = function(provider) {
     $auth.authenticate(provider)
@@ -67,6 +60,23 @@ app.controller('LoginController', function($scope, $auth, $location) {
       });
   }
 });
+
+// app.controller('NavbarController', function($scope, $auth){
+//   $scope.isAuthenticated = function() {
+//     return $auth.isAuthenticated();
+//   };
+// });
+
+
+// app.controller('LoginController', function($scope, $auth, $location) {
+//   //  authentication function for GitHub and LinkedIn
+//   $scope.authenticate = function(provider) {
+//     $auth.authenticate(provider)
+//       .then(function() {
+//         $location.path("/")
+//       });
+//   }
+// });
 
 app.controller('LogoutController', function($location, $auth) {
   if (!$auth.isAuthenticated()) { return; }
