@@ -6,6 +6,7 @@ exports.up = function(knex, Promise) {
     table.text('interviewer');
     table.dateTime('date');
     table.string('rating');
+
   });
 };
 
