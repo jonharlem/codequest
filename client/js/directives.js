@@ -40,8 +40,8 @@ app.directive('modal', function () {
     };
   });
 
-app.directive('d3Tags', function(d3tagsService) {
-  return {
+// app.directive('d3Tags', function(d3tagsService) {
+//   return {
 
-  };
-});
+//   };
+// });
