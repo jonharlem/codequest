@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var locus = require('locus');
 var bcrypt = require('bcrypt');
-var knex = require('../../db/knex');
+var knex = require('../db/knex');
 var  jwt = require('jsonwebtoken');
 
 // SIGNUP
@@ -19,8 +19,8 @@ router.post('/users', function(req, res) {
 	        bcrypt.hash(req.body.password, salt, function(err, hash){
 
 	        knex('users').insert({name: req.body.name, email: req.body.email, password: hash}).returning('id').then(function(id){
-	        	// We sign enough information to determine if 
-	            // the user is valid in the future. 
+	        	// We sign enough information to determine if
+	            // the user is valid in the future.
 	            // In our case, username and password are required
 	        	var token = jwt.sign({ email: req.body.email,
 		        	                   password: hash
@@ -52,8 +52,8 @@ router.post('/login', function(req, res) {
     		var pass = req.body.password;
     		bcrypt.compare(pass, user.password, function(err, result){
     			if(result){
-    				// We sign enough information to determine if 
-    				// the user is valid in the future. 
+    				// We sign enough information to determine if
+    				// the user is valid in the future.
     				// In our case, username and password are required
     				var token = jwt.sign({ email: user.email,
     				                   password: user.password
