@@ -11,17 +11,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<<<<<<< HEAD
   </head>
   <body>
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">codequest</a>
-=======
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+
+     <!--  bootsrap and jQuery here -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <base href="/">
+>>>>>>> 5dd522bb22cba2b43bdaa3c18e15aafb02bcf62c
 </head>
 
 <body>
+  <!-- navbar  -->
     <nav class="navbar navbar-inverse" ng-controller="NavbarController">
         <div class="container">
             <div class="navbar-header">
@@ -37,7 +44,6 @@
                 <li ng-if="!isAuthenticated()"><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
                 <li ng-if="isAuthenticated()"><a href="/#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
             </ul>
->>>>>>> 4de16216a4b2d07141b3973c6e4143e72cf5427c
         </div>
         <ul class="nav navbar-nav">
           <li><a href="#">Home</a></li>
@@ -69,10 +75,11 @@
         <h1>D3js Graph</h1>
       </div>
     </div>
-    
+
     <div ng-view>
     </div>
-    <!-- insert scripts here -->
+
+    <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
     <script src="/client/js/controllers.js"></script>
@@ -80,3 +87,10 @@
     <script src="/client/js/filters.js"></script>
   </body>
 </html>
+=======
+    <script src="/client/js/directives.js"></script>
+    
+</body>
+
+</html>
+>>>>>>> 5dd522bb22cba2b43bdaa3c18e15aafb02bcf62c

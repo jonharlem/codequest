@@ -1,6 +1,6 @@
-var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer']);
+var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate']);
 
-app.config(function($routeProvider, $authProvider, $locationProvider){
+app.config(function($routeProvider, $locationProvider, $httpProvider, ngAnimate){
   $routeProvider
   .when('/', {
     templateUrl:'/client/templates/landingPage.html',
@@ -17,9 +17,9 @@ app.config(function($routeProvider, $authProvider, $locationProvider){
   .otherwise({
     redirectTo: '/'
   });
-<<<<<<< HEAD
+
 });
-=======
+
 
   $authProvider.github({
     clientId: 'ac8daf97790baadd5e1f'
@@ -28,5 +28,7 @@ app.config(function($routeProvider, $authProvider, $locationProvider){
   $authProvider.linkedin({
     clientId: '75hckaydg5jr06'
   });
+  
+  // Registed the interceptor for our application
+  $httpProvider.interceptors.push("Interceptor");
 });
->>>>>>> 4de16216a4b2d07141b3973c6e4143e72cf5427c
