@@ -8,13 +8,16 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
-    <!-- insert bootsrap and jQuery here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+
+     <!--  bootsrap and jQuery here -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+     <base href="/">
 </head>
 
 <body>
+  <!-- navbar  -->
     <nav class="navbar navbar-inverse" ng-controller="NavbarController">
         <div class="container">
             <div class="navbar-header">
@@ -32,14 +35,19 @@
             </ul>
         </div>
     </nav>
+
+    <!-- ng-view -->
     <div ng-view>
     </div>
-    <!-- insert scripts here -->
+
+    <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
     <script src="/client/js/controllers.js"></script>
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
+    <script src="/client/js/directives.js"></script>
+    
 </body>
 
 </html>
