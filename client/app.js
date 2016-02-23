@@ -2,7 +2,9 @@ var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'n
 
 app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider){
   $routeProvider
-  .otherwise({
+  .when('/about', {
+    templateUrl: '/client/templates/about.html'
+  }).otherwise({
     redirectTo: '/'
   });
 
