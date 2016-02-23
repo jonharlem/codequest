@@ -1,25 +1,13 @@
 <!DOCTYPE html>
 <html ng-app='codequest'>
-  <head>
+
+<head>
     <meta charset="utf-8">
-    <title>codeQuest</title>
+    <title>CodeQuest</title>
     <!-- AngularJS source -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
-    <!-- insert bootsrap and jQuery here -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- D3js -->
-    <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">codequest</a>
-
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
 
      <!--  bootsrap and jQuery here -->
@@ -27,67 +15,8 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <base href="/">
-
 </head>
 
-<<<<<<< HEAD
-<body>
-  <!-- navbar  -->
-    <nav class="navbar navbar-inverse" ng-controller="NavbarController">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">CodeQuest</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-if="!isAuthenticated()"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li ng-if="!isAuthenticated()"><a href="/#/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li ng-if="isAuthenticated()"><a href="/#/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-            </ul>
-        </div>
-        <ul class="nav navbar-nav">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container">
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Add filters...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">Search</button>
-              </span>
-            </div><!-- /input-group -->
-          </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-      </div>
-    </div>
-    <div class="container" ng-controller="D3dashboard">
-      <div class="jumbotron">
-        <h1>D3js Graph</h1>
-        <div class="center-block">
-          <div class="btn-group" role="group" aria-label="...">
-            <button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button>
-            <button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button>
-            <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button>
-          </div>
-        </div>
-       
-      </div>
-    </div>
-=======
 <body ng-controller="NavbarController">
   <nav class="navbar navbar-inverse">
       <div class="container">
@@ -156,10 +85,40 @@
       <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
     </form>
   </modal>
+<!-- SEARCH -->
+   <div class="container">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Add filters...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">Search</button>
+              </span>
+            </div><!-- /input-group -->
+          </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+      </div>
+    </div>
+
+    <!-- D3 DASHBOARD -->
+    <div class="container" ng-controller="D3dashboard">
+      <div class="jumbotron">
+        <h1>D3js Graph</h1>
+        <div class="center-block">
+          <div class="btn-group" role="group" aria-label="...">
+            <button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button>
+            <button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button>
+            <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button>
+          </div>
+        </div>
+       
+      </div>
+    </div>
 
 
->>>>>>> bb737deb5739014bc031a432e18301eea229bd02
 
+    <!-- ng-view -->
     <div ng-view>
     </div>
 
@@ -169,11 +128,8 @@
     <script src="/client/js/controllers.js"></script>
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
-  </body>
-</html>
     <script src="/client/js/directives.js"></script>
 
 </body>
 
 </html>
-
