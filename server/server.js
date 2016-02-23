@@ -6,6 +6,9 @@ var jwt = require('jsonwebtoken');
 var bodyParser = require("body-parser");
 var router = require('./controllers/routes');
 
+// load dotenv
+require('dotenv').load();
+
 //create app instance
 var app = express();
 
@@ -18,6 +21,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 // set the routes path
 app.use('/api', router.index);
+app.use('/auth', router.auth);
 
 // always redirect to angular app for routes
 // are not registered

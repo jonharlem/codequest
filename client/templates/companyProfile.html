@@ -1,0 +1,14 @@
+<h1>{{ name }}</h1>
+<img src="{{ original }}">
+<h5>Company Website: {{ company_url }}</h5>
+<h5>Locations: {{ locations }}</h5>
+<h5>Specialty: {{ product_desc }}</h5>
+
+<!-- all questions relating to company here -->
+<div ng-repeat="question in questions">
+	<ul>
+		<li>
+			• {{ question }}
+		</li>
+	</ul>
+</div>
