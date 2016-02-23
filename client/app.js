@@ -6,9 +6,6 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
     redirectTo: '/'
   });
 
-});
-
-
   $authProvider.github({
     clientId: 'ac8daf97790baadd5e1f'
   });
