@@ -1,7 +1,6 @@
-
 var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate']);
 
-app.config(function($routeProvider, $authProvider, $locationProvider, ngAnimate){
+app.config(function($routeProvider, $locationProvider, $httpProvider, ngAnimate){
   $routeProvider
   .when('/', {
     templateUrl:'/client/templates/landingPage.html',
@@ -26,4 +25,7 @@ app.config(function($routeProvider, $authProvider, $locationProvider, ngAnimate)
   $authProvider.linkedin({
     clientId: '75hckaydg5jr06'
   });
+  
+  // Registed the interceptor for our application
+  $httpProvider.interceptors.push("Interceptor");
 });
