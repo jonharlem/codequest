@@ -1,6 +1,6 @@
 
 exports.up = function(knex, Promise) {
-  knex.schema.createTable('interviews', function(){
+  return knex.schema.createTable('interviews', function(table){
     table.increments();
     table.text('description');
     table.text('interviewer');
