@@ -76,3 +76,18 @@ app.controller('LogoutController', function($location, $auth) {
       $location.path('/');
     });
 });
+
+app.controller('D3dashboard', function($scope, $location, $http) {
+	$scope.goToTagsBar = function() {
+		// fill out location of dashboard
+		$location.path("/");
+	};
+	$scope.goToCompaniesBar = function() {
+		// fill out location of dashboard
+		$location.path("/");
+	};
+	$scope.goToPositionsBar = function() {
+		// fill out location of dashboard
+		$location.path("/");
+	};
+})
