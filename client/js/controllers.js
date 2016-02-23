@@ -1,6 +1,6 @@
 var app = angular.module('codequest');
 
-app.controller('IndexController', function($scope, $auth, $location, $routeParams, $parse){
+app.controller('IndexController', function($scope, $auth, $location, $routeParams, $parse, $http){
 	$scope.showModal = false;
 	$scope.user = {};
 	$scope.posts = [];
