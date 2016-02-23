@@ -24,11 +24,15 @@
   "homepage": "https://github.com/jonharlem/codequest#readme",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "jsonwebtoken": "^5.7.0",
     "knex": "^0.10.0",
+    "locus": "^1.2.0",
     "method-override": "^2.3.5",
     "path": "^0.12.7",
-    "pg": "^4.4.6"
+    "pg": "^4.4.6",
+    "querystring": "^0.2.0",
+    "request": "^2.69.0"
   }
 }
