@@ -83,16 +83,4 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	               $scope.$apply();
 	           };
 	           $scope.barValue = 'None';
-	// $scope.goToTagsBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
-	// $scope.goToCompaniesBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
-	// $scope.goToPositionsBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
 });
