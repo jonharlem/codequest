@@ -6,6 +6,11 @@ module.exports = {
     client: 'postgresql',
     connection: {
       database: 'codequest'
+    },
+    debug: true,
+    pool: {
+      min: 1,
+      max: 1
     }
   },
 
