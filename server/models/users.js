@@ -29,14 +29,14 @@ var updateUser = function(user){
   });
 }
 // delete user
-var deleteUser = function(userID){
+var deleteUser = function(user){
   return Users().where({
-    id: userID
+    id: user.id
   }).first().del();
 }
 // get user by id
 var user = function(userID){
-  return Users().where({id: user.id}).first().then(function(user){
+  return Users().where({id: userID}).first().then(function(user){
     return user;
   });
 }
