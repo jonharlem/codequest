@@ -97,16 +97,12 @@ app.controller('InterviewController', function($scope, $location, $http, $uibMod
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
-	// $scope.goToTagsBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
-	// $scope.goToCompaniesBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
-	// $scope.goToPositionsBar = function() {
-	// 	// fill out location of dashboard
-	// 	$location.path("/");
-	// };
+	
+	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
+	           $scope.data = [1, 2, 3, 4];
+	           $scope.hovered = function(d){
+	               $scope.barValue = d;
+	               $scope.$apply();
+	           };
+	           $scope.barValue = 'None';
 });
