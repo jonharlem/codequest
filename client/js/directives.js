@@ -81,10 +81,8 @@ app.directive('chartForm', function(){
             }
         },
           template: '<div class="form">' +
-                    'Height: {{options.height}}<br />' +
-                    '<input type="range" ng-model="options.height" min="100" max="800"/>' +
                     '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
-                    '<br />Hovered bar data: {{barValue}}</div>'
+                    '<br />Number of Questions: {{barValue}}</div>'
         }
 });
 
