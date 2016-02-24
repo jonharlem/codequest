@@ -14,7 +14,6 @@ var tagsData = [
 ];
 
 $("#searchBar").select2({
-
     tags: true,
     multiple: true,
     data: tagsData
