@@ -88,6 +88,12 @@ app.controller('InterviewController', function($scope, $location, $http, $uibMod
 	$scope.cancel = function() {
 		$uibModalInstance.dismiss();
 	}
+	
+	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
+	$scope.selectedType = $scope.types[0];
+
+	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
+	$scope.selectedPosition = $scope.positions[0];
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {

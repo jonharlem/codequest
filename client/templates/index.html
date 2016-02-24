@@ -111,12 +111,13 @@
                     <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
                 </div>
                 <div class="form-group">
-                    <label for="round">Interview Round</label>
-                    <input id="round" ng-model="interview.round" class="form-control" type="text" placeholder="e.g. 1st round or 2nd round" required>
-                </div>
-                <div class="form-group">
                     <label for="type">Type</label>
-                    <input id="type" ng-model="interview.type" class="form-control" type="text" placeholder="e.g. Telephone or In-Person" required>
+                    <select ng-options="type for type in types" ng-model="selectedType">
+                    </select>
+                    
+                    <label for="position">Position</label>
+                    <select ng-options="position for position in positions" ng-model="selectedPosition">
+                    </select>
                 </div>
             </form>
         </div>
