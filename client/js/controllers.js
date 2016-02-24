@@ -84,3 +84,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           };
 	           $scope.barValue = 'None';
 });
+
+app.controller('SearchController', function($scope){
+
+})
