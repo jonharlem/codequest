@@ -30,6 +30,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
           <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >Sign In</a></li>
+          <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
           <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
         </ul>
       </div>

@@ -4,6 +4,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
   $routeProvider
   .when('/about', {
     templateUrl: '/client/templates/about.html'
+  }).when('/settings', {
+    templateUrl: '/client/templates/userProfile.html'
   }).otherwise({
     redirectTo: '/'
   });
