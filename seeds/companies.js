@@ -353,5 +353,6 @@ knex('companies').insert({name: "Sinclair Oil",
 			    size: 7000,
 			    industry: "Oil & Gas Operations",
 			    logo: "http://i.forbesimg.com/media/lists/companies/sinclair-oil_100x100.jpg"})
+
 );
 }
