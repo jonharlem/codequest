@@ -1,4 +1,4 @@
-var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate']);
+var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate', 'ui.bootstrap']);
 
 app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider){
   $routeProvider

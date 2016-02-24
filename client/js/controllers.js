@@ -1,6 +1,6 @@
 var app = angular.module('codequest');
 
-app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
 
 	$scope.showModal = false;
 	$scope.user = {};
@@ -72,6 +72,22 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
+  	$scope.open = function() {
+  		 var modalInstance = $uibModal.open({
+      templateUrl: 'interviewForm.html',
+      controller: 'InterviewController',
+    });
+
+  	}
+});
+
+app.controller('InterviewController', function($scope, $location, $http, $uibModalInstance) {
+	$scope.submit = function() {
+		$uibModalInstance.close();
+	}
+	$scope.cancel = function() {
+		$uibModalInstance.dismiss();
+	}
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {

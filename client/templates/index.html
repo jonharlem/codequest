@@ -9,133 +9,145 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
-
-     <!--  bootsrap and jQuery here -->
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <base href="/">
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-
+    <!--  bootstrap and jQuery here -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <base href="/">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- ui bootstrap for angular -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
     <!-- select 2 for search functionality -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
-
 </head>
 
 <body ng-controller="NavbarController">
-  <nav class="navbar navbar-inverse">
-      <div class="container">
-          <div class="navbar-header">
-              <a class="navbar-brand" href="#">CodeQuest</a>
-          </div>
-          <ul class="nav navbar-nav">
-              <li><a href="/#/about">About</a></li>
-          </ul>
-
-        <ul class="nav navbar-nav navbar-right">
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >Sign In</a></li>
-          <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
-          <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
-        </ul>
-      </div>
-  </nav>
-
-  <!-- Sign up form -->
-  <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showModal">
-
-    <form role="form" ng-submit="signup()">
-
-      <div  class="form-group">
-        <label for="name">Name</label>
-         <input id="name"  ng-model="user.name" class="form-control" type="text" name="username" placeholder="Name" required>
-      </div>
-
-      <div class="form-group">
-        <label for="email" >E-mail</label>
-         <input id="email"  ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
-      </div>
-
-      <div class="form-group">
-        <label for="password" >Confirm Password</label>
-        <input id="password" ng-model="user.passwordConfirm" class="form-control" type="password" name="password" placeholder="Password" required>
-      </div>
-
-      <button type="submit" class="btn btn-default" ng-click='signedIn()'>Submit</button>
-    </form>
-  </modal>
-
-  <!-- Sign in Form -->
-  <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showSignInModal">
-    <form role="form" ng-submit="login()">
-
-      <div class="form-group">
-          <label for="email" >E-mail</label>
-          <input id="email"  ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
-      </div>
-
-      <div class="form-group">
-          <label for="password">Password</label>
-          <input id="password"  ng-model="user.password"  class="form-control" type="password" name="password" placeholder="Password" required>
-      </div>
-
-      <button type="submit" class="btn btn-default" ng-click="signedIn()">Submit</button>
-      <button class="btn btn-primary" ng-click="authenticate('github')">Sign in with GitHub</button>
-      <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
-    </form>
-  </modal>
-<!-- SEARCH -->
-   <div class="container">
-      <div class="jumbotron">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="input-group select2-bootstrap-append">
-              <select id="searchBar" type="text" class="form-control" placeholder="Search for..."></select>
-              <span class="input-group-btn">
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">CodeQuest</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/#/about">About</a></li>
+                <li><a ng-click="open()">Add Interview</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
+                <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()">Sign In</a></li>
+                <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
+                <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Sign up form -->
+    <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showModal">
+        <form role="form" ng-submit="signup()">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input id="name" ng-model="user.name" class="form-control" type="text" name="username" placeholder="Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Confirm Password</label>
+                <input id="password" ng-model="user.passwordConfirm" class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click='signedIn()'>Submit</button>
+        </form>
+    </modal>
+    <!-- Sign in Form -->
+    <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showSignInModal">
+        <form role="form" ng-submit="login()">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input id="email" ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="signedIn()">Submit</button>
+            <button class="btn btn-primary" ng-click="authenticate('github')">Sign in with GitHub</button>
+            <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
+        </form>
+    </modal>
+    <!-- SEARCH -->
+    <div class="container">
+        <div class="jumbotron">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="input-group select2-bootstrap-append">
+                        <select id="searchBar" type="text" class="form-control" placeholder="Search for..."></select>
+                        <span class="input-group-btn">
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
-            </div><!-- /input-group -->
-          </div><!-- / .col-lg-12 -->
-        </div><!-- /.row -->
-      </div>
-    </div>
-
-    <!-- D3 DASHBOARD -->
-    <div class="container" >
-      <div class="jumbotron text-center">
-        <h1>D3js Graph</h1>
-        <div class="text-center">
-          <div class="btn-group" role="group" aria-label="...">
-            <button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button>
-            <button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button>
-            <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button>
-          </div>
+                    </div>
+                    <!-- /input-group -->
+                </div>
+                <!-- / .col-lg-12 -->
+            </div>
+            <!-- /.row -->
         </div>
-
-      </div>
     </div>
-
-
-
+    <!-- INTERVIEW FORM -->
+    <script type="text/ng-template" id="interviewForm.html">
+        <div class="modal-header">
+            <h3 class="modal-title">Add Interview!</h3>
+        </div>
+        <div class="modal-body">
+            <form role="form" ng-submit="login()">
+                <div class="form-group">
+                    <label for="questions">Questions</label>
+                    <input id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required>
+                </div>
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
+                </div>
+                <div class="form-group">
+                    <label for="round">Interview Round</label>
+                    <input id="round" ng-model="interview.round" class="form-control" type="text" placeholder="e.g. 1st round or 2nd round" required>
+                </div>
+                <div class="form-group">
+                    <label for="type">Type</label>
+                    <input id="type" ng-model="interview.type" class="form-control" type="text" placeholder="e.g. Telephone or In-Person" required>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="button" ng-click="submit()">Submit</button>
+            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </script>
+    <!-- D3 DASHBOARD -->
+    <div class="container">
+        <div class="jumbotron text-center">
+            <h1>D3js Graph</h1>
+            <div class="text-center">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button>
+                    <button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button>
+                    <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- ng-view -->
     <div ng-view>
     </div>
-
     <!--  scripts here -->
-
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
     <script src="/client/js/controllers.js"></script>
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
     <script src="/client/js/directives.js"></script>
-
     <script type="text/javascript" src="/client/js/search.js"></script>
 </body>
 
