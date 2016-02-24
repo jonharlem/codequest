@@ -34,7 +34,8 @@
     "path": "^0.12.7",
     "pg": "^4.4.6",
     "querystring": "^0.2.0",
-    "request": "^2.69.0"
+    "request": "^2.69.0",
+    "select2-bootstrap-css": "^1.4.6"
   },
   "devDependencies": {
     "jasmine": "^2.4.1",
