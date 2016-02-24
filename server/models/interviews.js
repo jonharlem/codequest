@@ -36,7 +36,7 @@ var deleteInterview = function(interview){
 }
 // get interview by id
 var interview = function(interviewID){
-  return Companies().where({id: interviewID}).first().then(function(interview){
+  return Interviews().where({id: interviewID}).first().then(function(interview){
     return interview;
   });
 }

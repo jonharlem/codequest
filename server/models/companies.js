@@ -7,7 +7,7 @@ var Companies = function(){
 
 // create company
 var addCompany = function(company){
-  //check if user already exist
+  //check if company already exist
   return Companies().where({id: company.id}).first().then(function(foundCompany){
     if(!foundCompany){
       return Companies().insert(company).first().then(function(newCompany){
