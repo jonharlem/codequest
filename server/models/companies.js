@@ -1,6 +1,6 @@
 var  knex = require('../../db/knex');
 
-// getting all users
+// getting all companies
 var Companies = function(){
   return knex('companies');
 }
