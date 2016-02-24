@@ -47,10 +47,10 @@ var userByEmail = function(){
   });
 }
 module.exports = {
-  allUsers: Users(),
-  addUser: addUser(),
-  updateUser: updateUser(),
-  deleteUser: deleteUser(),
-  user:user(),
-  userByEmail: userByEmail()
+  allUsers: Users,
+  addUser: addUser,
+  updateUser: updateUser,
+  deleteUser: deleteUser,
+  user:user,
+  userByEmail: userByEmail
 }
