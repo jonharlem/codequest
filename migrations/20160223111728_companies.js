@@ -8,6 +8,7 @@ exports.up = function(knex, Promise) {
     table.string('size');
     table.string('image');
     table.string('logo');
+    table.string('location');
     table.date('foundedDate');
     // could be anything
     table.text('contactInfo');
