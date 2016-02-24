@@ -112,7 +112,7 @@
             <h3 class="modal-title">Add Interview!</h3>
         </div>
         <div class="modal-body">
-            <form role="form" ng-submit="login()">
+            <form role="form" ng-submit="submit(interviewForm)" name="interviewForm">
                 <div class="form-group">
                     <label for="questions">Questions</label>
                     <input id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required>
@@ -123,17 +123,19 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label>
-                    <select ng-options="type for type in types" ng-model="selectedType">
+                    <select ng-options="type for type in types" ng-model="selectedType" name="selectedType" ng-required="true">
                     </select>
                     <label for="position">Position</label>
-                    <select ng-options="position for position in positions" ng-model="selectedPosition">
+                    <select ng-options="position for position in positions" ng-model="selectedPosition" name="selectedPosition" required>
                     </select>
+                    <p class="error" ng-show="interviewForm.selectedType.$error.required && submitted">Type is required</p>
+                    <p class="error" ng-show="interviewForm.selectedPosition.$error.required && submitted">Position is required</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+                    <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
             </form>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" type="button" ng-click="submit()">Submit</button>
-            <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
         </div>
     </script>
     <!-- D3 DASHBOARD -->
