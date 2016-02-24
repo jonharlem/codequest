@@ -40,6 +40,52 @@ app.directive('modal', function () {
     };
   });
 
+app.directive('barChart', function(){
+    var chart = d3.custom.barChart();
+    return {
+        restrict: 'E',
+        replace: true,
+        template: '<div class="chart"></div>',
+        scope:{
+            height: '=height',
+            data: '=data',
+            hovered: '&hovered'
+        },
+        link: function(scope, element, attrs) {
+            var chartEl = d3.select(element[0]);
+            chart.on('customHover', function(d, i){
+                scope.hovered({args:d});
+            });
+
+            scope.$watch('data', function (newVal, oldVal) {
+                chartEl.datum(newVal).call(chart);
+            });
+
+            scope.$watch('height', function(d, i){
+                chartEl.call(chart.height(scope.height));
+            })
+        }
+    }
+});
+
+app.directive('chartForm', function(){
+    return {
+        restrict: 'E',
+        replace: true,
+        controller: function AppCtrl ($scope) {
+            $scope.goToTagsBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToCompaniesBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToPositionsBar = function(d, i){ $scope.data = randomData(); };
+            function randomData(){
+                return d3.range(~~(Math.random()*50)+1).map(function(d, i){return ~~(Math.random()*1000);});
+            }
+        },
+          template: '<div class="form">' +
+                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
+                    '<br />Number of Questions: {{barValue}}</div>'
+        }
+});
+
 // app.directive('d3Tags', function(d3tagsService) {
 //   return {
 
