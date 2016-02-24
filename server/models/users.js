@@ -9,10 +9,13 @@ var Users = function(){
 var addUser = function(user){
   //check if user already exist
   return Users().where({id: user.id}).first().then(function(foundUser){
-    if(!user){
-      return Users().insert(user).first().then(function(user){
-        return user;
+    if(!foundUser){
+      return Users().insert(user).first().then(function(newUser){
+        return newUser;
       });
+    }
+    else{
+      return 'user is already there'
     }
   })
 
