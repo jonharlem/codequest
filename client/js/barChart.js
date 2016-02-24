@@ -2,7 +2,7 @@ d3.custom = {};
 
 d3.custom.barChart = function module() {
     var margin = {top: 20, right: 20, bottom: 40, left: 40},
-        width = 700,
+        width = parseInt(d3.select('.chart-group').style('width'), 10),
         height = 500,
         gap = 0,
         ease = 'cubic-in-out';

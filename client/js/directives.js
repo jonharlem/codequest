@@ -85,9 +85,3 @@ app.directive('chartForm', function(){
                     '<br />Number of Questions: {{barValue}}</div>'
         }
 });
-
-// app.directive('d3Tags', function(d3tagsService) {
-//   return {
-
-//   };
-// });
