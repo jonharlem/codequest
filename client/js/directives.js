@@ -73,17 +73,19 @@ app.directive('chartForm', function(){
         restrict: 'E',
         replace: true,
         controller: function AppCtrl ($scope) {
-            $scope.update = function(d, i){ $scope.data = randomData(); };
+            $scope.goToTagsBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToCompaniesBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToPositionsBar = function(d, i){ $scope.data = randomData(); };
             function randomData(){
                 return d3.range(~~(Math.random()*50)+1).map(function(d, i){return ~~(Math.random()*1000);});
             }
         },
-        template: '<div class="form">' +
-                'Height: {{options.height}}<br />' +
-                '<input type="range" ng-model="options.height" min="100" max="800"/>' +
-                '<br /><button ng-click="update()">Update Data</button>' +
-                '<br />Hovered bar data: {{barValue}}</div>'
-    }
+          template: '<div class="form">' +
+                    'Height: {{options.height}}<br />' +
+                    '<input type="range" ng-model="options.height" min="100" max="800"/>' +
+                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
+                    '<br />Hovered bar data: {{barValue}}</div>'
+        }
 });
 
 // app.directive('d3Tags', function(d3tagsService) {
