@@ -36,6 +36,16 @@ var company = function(companyID){
   });
 }
 
+for(var i = 0; i < companiesData.length; i++){
+  addCompany({
+            name: companiesData[i].name,
+            contactInfo: companiesData[i].contactInfo,
+            logo: companiesData[i].logo,
+            size: companiesData[i].size.toString(),
+            industry: companiesData[i].industry
+  });
+}
+
 module.exports = {
   AllCompanies: Companies,
   addCompany: addCompany,
