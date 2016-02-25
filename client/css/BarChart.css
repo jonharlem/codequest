@@ -1,7 +1,7 @@
 .jumbotron .text-center {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   position: relative;
-  width: 960px;
+  width: max-width;
 }
 
 .axis text {

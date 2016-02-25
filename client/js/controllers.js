@@ -85,6 +85,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   }
 
 	$scope.submitInterview = function(interviewForm) {
+    //  to access the selects tags: $scope.multipleDemo.colors
     $scope.showInterviewModal = !$scope.showInterviewModal;
 	}
 });

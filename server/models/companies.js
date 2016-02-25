@@ -10,8 +10,7 @@ var Companies = function(){
 // create company
 var addCompany = function(company){
 
-  return Companies().insert(company).then(function(newCompany){
-    return newCompany;
+   Companies().insert(company).then(function(newCompany){
   });
 
 }
@@ -35,6 +34,26 @@ var company = function(companyID){
     return company;
   });
 }
+
+var  deleteAllCompanies = function(){
+    knex('companies').del();
+}
+
+// populated comapanies table with node server/models/companies
+var populatedDb = function(){
+  for(var i =0; i < companiesData.length; i++){
+    addCompany({
+      name: companiesData[i].name,
+      contactInfo: companiesData[i].contactInfo,
+      logo: companiesData[i].logo,
+      size: companiesData[i].size.toString(),
+      industry: companiesData[i].industry
+    });
+  }
+}
+
+// invoked
+populatedDb();
 
 module.exports = {
   AllCompanies: Companies,
