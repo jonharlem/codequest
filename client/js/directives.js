@@ -64,6 +64,7 @@ app.directive('barChart', function(){
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
             })
+            
         }
     }
 });
@@ -85,9 +86,3 @@ app.directive('chartForm', function(){
                     '<br />Number of Questions: {{barValue}}</div>'
         }
 });
-
-// app.directive('d3Tags', function(d3tagsService) {
-//   return {
-
-//   };
-// });
