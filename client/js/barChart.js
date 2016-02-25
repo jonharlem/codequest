@@ -2,7 +2,7 @@ d3.custom = {};
 
 d3.custom.barChart = function module() {
     var margin = {top: 20, right: 20, bottom: 40, left: 40},
-        width = parseInt(d3.select('.chart-group').style('width'), 10),
+        width = 700,
         height = 500,
         gap = 0,
         ease = 'cubic-in-out';
@@ -112,3 +112,7 @@ d3.custom.barChart = function module() {
     d3.rebind(exports, dispatch, 'on');
     return exports;
 };
+
+// d3.select(window).on('resize', function(){
+ 
+// }); 

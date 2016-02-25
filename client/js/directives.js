@@ -64,6 +64,7 @@ app.directive('barChart', function(){
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
             })
+            
         }
     }
 });
