@@ -40,7 +40,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="/#/about">About</a></li>
-                <li><a ng-click="toggleModalInterview()">Add Interview</a></li>
+                <li><a ng-click="toggleModalInterview()">Add Question</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
@@ -108,37 +108,35 @@
     </div>
     <!-- INTERVIEW FORM -->
     <modal type="text/ng-template" id="interviewForm" title="Add Interview" visible="showInterviewModal">
-        <div class="modal-body">
-            <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
-                <div class="form-group">
-                    <label for="questions">Questions</label>
-                    <input id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required>
+        <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
+            <div class="form-group">
+                <label for="questions">Questions</label>
+                <input id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required>
 
-                    <div class="input-group select2-bootstrap-append">
-                        <select id="tagSearch" type="text" class="form-control" placeholder="Search for..."></select>
-                    </div>
+                <div class="input-group select2-bootstrap-append">
+                    <select id="tagSearch" type="text" class="form-control" placeholder="Search for..."></select>
+                </div>
 
-                </div>
-                <div class="form-group">
-                    <label for="companyName">Company Name</label>
-                    <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
-                </div>
-                <div class="form-group">
-                    <label for="type">Type</label>
-                    <select ng-options="type for type in types" ng-model="selectedType" name="selectedType" ng-required="true">
-                    </select>
-                    <label for="position">Position</label>
-                    <select ng-options="position for position in positions" ng-model="selectedPosition" name="selectedPosition" required>
-                    </select>
-                    <p class="error" ng-show="interviewForm.selectedType.$error.required && submitted">Type is required</p>
-                    <p class="error" ng-show="interviewForm.selectedPosition.$error.required && submitted">Position is required</p>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-warning" type="button" ng-click="toggleModalInterview()">Cancel</button>
-                    <button class="btn btn-primary" type="submit">Submit</button>
-                </div>
-            </form>
-        </div>
+            </div>
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type</label>
+                <select ng-options="type for type in types" ng-model="selectedType" name="selectedType" ng-required="true">
+                </select>
+                <label for="position">Position</label>
+                <select ng-options="position for position in positions" ng-model="selectedPosition" name="selectedPosition" required>
+                </select>
+                <p class="error" ng-show="interviewForm.selectedType.$error.required && submitted">Type is required</p>
+                <p class="error" ng-show="interviewForm.selectedPosition.$error.required && submitted">Position is required</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" type="button" ng-click="toggleModalInterview()">Cancel</button>
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
     </modal>
     <!-- D3 DASHBOARD -->
     <div class="container">
