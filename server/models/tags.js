@@ -1,4 +1,5 @@
 var  knex = require('../../db/knex');
+var tagsData = require('./../../seeds/questions.json');
 
 // getting all tags
 var Tags = function(){
@@ -7,15 +8,14 @@ var Tags = function(){
 
 // create tag
 var addTag = function(tag){
-  return Tags().insert(tag).then(function(newTag){
-    return newTag;
+   Tags().insert(tag).then(function(newTag){
   });
 
 }
 // update tag
 var updateTag = function(tag){
   return Tags().where({
-    id: interview.id
+    id: tag.id
   }).first().update(tag).then(function(updatedTag){
     return updatedTag;
   });
@@ -33,10 +33,42 @@ var tag = function(tagID){
   });
 }
 
+var  deleteAllTags = function(){
+    knex('tags').del();
+}
+
+// populated comapanies table with node server/models/companies
+var populatedDb = function(){
+  var tags = [];
+  for(var i =0; i < tagsData.length; i++){
+    // get all tags and push them to tags array
+    tags.push(tagsData[i].tag);
+  }
+
+  // remove dublicates
+  var uniqueTags = makeUniqueTags(tags);
+
+  // populated db
+  for(var i =0; i < uniqueTags.length; i++){
+    addTag({
+      name: uniqueTags[i]
+    });
+  }
+}
+
+var makeUniqueTags = function(a) {
+          return a.reduce(function(p, c) {
+              if (p.indexOf(c) < 0) p.push(c);
+              return p;
+          }, []);
+        }
+
+
 module.exports = {
   allTags: Tags,
   addTag: addTag,
   updateTag: updateTag,
   deleteTag: deleteTag,
-  tag:tag
+  tag:tag,
+  populateTags: populatedDb
 }

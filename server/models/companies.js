@@ -1,6 +1,5 @@
 var  knex = require('../../db/knex');
 var companiesData = require('./../../seeds/companies.json');
-var fs = require('fs');
 
 // getting all companies
 var Companies = function(){
@@ -9,9 +8,7 @@ var Companies = function(){
 
 // create company
 var addCompany = function(company){
-
-  return Companies().insert(company).then(function(newCompany){
-    return newCompany;
+  Companies().insert(company).then(function(newCompany){
   });
 
 }
@@ -37,16 +34,22 @@ var company = function(companyID){
   });
 }
 
-// for(var i = 0; i < companiesData.length; i++){
-//   addCompany({
-//             name: companiesData[i].name,
-//             contactInfo: companiesData[i].contactInfo,
-//             logo: companiesData[i].logo,
-//             size: companiesData[i].size.toString(),
-//             industry: companiesData[i].industry
-//   });
-// }
+var  deleteAllCompanies = function(){
+    knex('companies').del();
+}
 
+// populated comapanies table with node server/models/companies
+var populatedDb = function(){
+  for(var i =0; i < companiesData.length; i++){
+    addCompany({
+      name: companiesData[i].name,
+      contactInfo: companiesData[i].contactInfo,
+      logo: companiesData[i].logo,
+      size: companiesData[i].size.toString(),
+      industry: companiesData[i].industry
+    });
+  }
+}
 
 
 module.exports = {
@@ -54,5 +57,6 @@ module.exports = {
   addCompany: addCompany,
   updateCompany: updateCompany,
   deleteCompany: deleteCompany,
-  company:company
+  company:company,
+  populateCompanies: populatedDb
 }
