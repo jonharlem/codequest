@@ -45,7 +45,7 @@ var populateTypesDB = function(){
   }
 }
 
-populateTypesDB()
+// populateTypesDB()
 
 module.exports = {
   allTypes: Types,

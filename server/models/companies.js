@@ -51,7 +51,7 @@ var populatedDb = function(){
 }
 
 // invoked
-populatedDb();
+// populatedDb();
 
 module.exports = {
   AllCompanies: Companies,

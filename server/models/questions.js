@@ -47,7 +47,7 @@ var populatedDb = function(){
   }
 }
 
-populatedDb();
+// populatedDb();
 
 module.exports = {
   allQuestions: Questions,

@@ -122,8 +122,8 @@
                     <label for="type">Type of Interview</label>
                     <div class="radio" ng-repeat="type in types">
                       <label>
-                        <input type="radio" name="type" ng-model="interview.type" value="{{type}}" required>
-                        {{type}}
+                        <input type="radio" name="type" ng-model="interview.type" value="{{type.id}}" required>
+                        {{type.name}}
                       </label>
                     </div>
                 </div>

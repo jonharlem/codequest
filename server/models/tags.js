@@ -62,7 +62,7 @@ var makeUniqueTags = function(a) {
           }, []);
         }
 
-populatedDb();
+// populatedDb();
 module.exports = {
   allTags: Tags,
   addTag: addTag,

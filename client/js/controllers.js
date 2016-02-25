@@ -75,7 +75,9 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   };
 
   //  For the interview question form
-	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
+	$http.get('/interviewTypes').then(function(response) {
+		$scope.types = response.data;
+	});
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
   $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
   $scope.multipleDemo = {};
