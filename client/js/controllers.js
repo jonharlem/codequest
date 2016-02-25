@@ -90,9 +90,11 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   }
 
 	$scope.submitInterview = function(interviewForm) {
-    $scope.interview = {};
-    $scope.interview.tags = [];
-    $scope.showInterviewModal = !$scope.showInterviewModal;
+		$http.post('/interview', $scope.interview).then(function() {
+		    $scope.interview = {};
+		    $scope.interview.tags = [];
+		    $scope.showInterviewModal = !$scope.showInterviewModal;
+		});
 	}
 });
 
