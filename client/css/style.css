@@ -1,3 +1,5 @@
+/*NAV BAR*/
+
 .navbar-inverse {
 	background-color: white;
 	border-color: white;
@@ -8,4 +10,13 @@
 	color: #4A4A4A;
 	font-size: 1.5em;
 	line-height: 65px;
+}
+
+/*SEARCH*/
+#searchJumbo {
+	background-color: #698cbb;
+}
+
+.ui-select-multiple.ui-select-bootstrap input.ui-select-search {
+	height: 2em;
 }
