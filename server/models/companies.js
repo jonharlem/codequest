@@ -2,7 +2,6 @@ var  knex = require('../../db/knex');
 var companiesData = require('./../../seeds/companies.json');
 var fs = require('fs');
 
-console.log(companiesData);
 // getting all companies
 var Companies = function(){
   return knex('companies');

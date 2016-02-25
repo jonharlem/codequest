@@ -7,8 +7,6 @@ var Users = function(){
 
 // create user
 var addUser = function(user){
-  //check if user already exist
-
   return Users().insert(user).first().then(function(newUser){
     return newUser;
   });
