@@ -194,6 +194,7 @@ body > .ui-select-bootstrap.open {
 .ui-select-multiple.ui-select-bootstrap .ui-select-match-item {
   outline: 0;
   margin: 0 3px 3px 0;
+  font-size: 1em;
 }
 
 .ui-select-multiple .ui-select-match-item {
