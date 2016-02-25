@@ -1,0 +1,622 @@
+[
+  {
+    "tag": "algorithm",
+    "question": "Given an integer matrix, find the length of the longest increasing path. From each cell, you can either move to four directions: left, right, up or down. You may NOT move diagonally or move outside of the boundary (i.e. wrap-around is not allowed). Example 1: nums = [ [ 9 ,9,4], [ 6 ,6,8], [ 2 , 1 ,1] ] Return 4 The longest increasing path is [1, 2, 6, 9] . Example 2: nums = [ [ 3 , 4 , 5 ], [3,2, 6 ], [2,2,1] ] Return 4 The longest increasing path is [3, 4, 5, 6] . Moving diagonally is not allowed. Credits: Special thanks to @dietpepsi for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Tags Depth-first Search Topological Sort Memoization"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given an unsorted array return whether an increasing subsequence of length 3 exists or not in the array. Formally the function should: Return true if there exists i, j, k such that arr[i] < arr[j] < arr[k] given 0 ≤ i < j < k ≤ n -1 else return false. Your algorithm should run in O( n ) time complexity and O( 1 ) space complexity. Examples: Given [1, 2, 3, 4, 5] , return true . Given [5, 4, 3, 2, 1] , return false . Credits: Special thanks to @DjangoUnchained for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Similar Problems (M) Longest Increasing Subsequence"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a positive integer n , find the least number of perfect square numbers (for example, 1, 4, 9, 16, ... ) which sum to n . For example, given n = 12 , return 3 because 12 = 4 + 4 + 4 ; given n = 13 , return 2 because 13 = 4 + 9 . Credits: Special thanks to @jianchao.li.fighter for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Tags Dynamic Programming Breadth-first Search Math Show Similar Problems (E) Count Primes (M) Ugly Number II"
+  },
+  {
+    "tag": "algorithm",
+    "question": "There are N gas stations along a circular route, where the amount of gas at station i is gas[i] . You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next station ( i +1). You begin the journey with an empty tank at one of the gas stations. Return the starting gas station's index if you can travel around the circuit once, otherwise return -1. Note: The solution is guaranteed to be unique. Subscribe to see which companies asked this question Show Tags Greedy"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Clone an undirected graph. Each node in the graph contains a label and a list of its neighbors . OJ's undirected graph serialization: Nodes are labeled uniquely. We use # as a separator for each node, and , as a separator for node label and each neighbor of the node. As an example, consider the serialized graph { 0 ,1,2# 1 ,2# 2 ,2} . The graph has a total of three nodes, and therefore contains three parts as separated by # . First node is labeled as 0 . Connect node 0 to both nodes 1 and 2 . Second node is labeled as 1 . Connect node 1 to node 2 . Third node is labeled as 2 . Connect node 2 to node 2 (itself), thus forming a self-cycle. Visually, the graph looks like the following: 1 / \\ / \\ 0 --- 2 / \\ \\_/ Subscribe to see which companies asked this question Show Tags Depth-first Search Breadth-first Search Graph Show Similar Problems (H) Copy List with Random Pointer"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Table: Person +-------------+---------+ | Column Name | Type | +-------------+---------+ | PersonId | int | | FirstName | varchar | | LastName | varchar | +-------------+---------+ PersonId is the primary key column for this table. Table: Address +-------------+---------+ | Column Name | Type | +-------------+---------+ | AddressId | int | | PersonId | int | | City | varchar | | State | varchar | +-------------+---------+ AddressId is the primary key column for this table. Write a SQL query for a report that provides the following information for each person in the Person table, regardless if there is an address for each of those people: FirstName, LastName, City, State Subscribe to see which companies asked this question"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a string which contains only lowercase letters, remove duplicate letters so that every letter appear once and only once. You must make sure your result is the smallest in lexicographical order among all possible results. Example: Given \"bcabc\" Return \"abc\" Given \"cbacdcbc\" Return \"acdb\" Credits: Special thanks to @dietpepsi for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Tags Stack Greedy"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Write an efficient algorithm that searches for a value in an m x n matrix. This matrix has the following properties: Integers in each row are sorted in ascending from left to right. Integers in each column are sorted in ascending from top to bottom. For example, Consider the following matrix: [ [1, 4, 7, 11, 15], [2, 5, 8, 12, 19], [3, 6, 9, 16, 22], [10, 13, 14, 17, 24], [18, 21, 23, 26, 30] ] Given target = 5 , return true . Given target = 20 , return false . Subscribe to see which companies asked this question Show Tags Divide and Conquer Binary Search Show Similar Problems (M) Search a 2D Matrix"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a 2D board containing 'X' and 'O' , capture all regions surrounded by 'X' . A region is captured by flipping all 'O' s into 'X' s in that surrounded region. For example, X X X X X O O X X X O X X O X X After running your function, the board should be: X X X X X X X X X X X X X O X X Subscribe to see which companies asked this question Show Tags Breadth-first Search Union Find Show Similar Problems (M) Number of Islands (M) Walls and Gates"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a list of airline tickets represented by pairs of departure and arrival airports [from, to] , reconstruct the itinerary in order. All of the tickets belong to a man who departs from JFK . Thus, the itinerary must begin with JFK . Note: If there are multiple valid itineraries, you should return the itinerary that has the smallest lexical order when read as a single string. For example, the itinerary [\"JFK\", \"LGA\"] has a smaller lexical order than [\"JFK\", \"LGB\"] . All airports are represented by three capital letters (IATA code). You may assume all tickets form at least one valid itinerary. Example 1: tickets = [[\"MUC\", \"LHR\"], [\"JFK\", \"MUC\"], [\"SFO\", \"SJC\"], [\"LHR\", \"SFO\"]] Return [\"JFK\", \"MUC\", \"LHR\", \"SFO\", \"SJC\"] . Example 2: tickets = [[\"JFK\",\"SFO\"],[\"JFK\",\"ATL\"],[\"SFO\",\"ATL\"],[\"ATL\",\"JFK\"],[\"ATL\",\"SFO\"]] Return [\"JFK\",\"ATL\",\"JFK\",\"SFO\",\"ATL\",\"SFO\"] . Another possible reconstruction is [\"JFK\",\"SFO\",\"ATL\",\"JFK\",\"ATL\",\"SFO\"] . But it is larger in lexical order. Credits: Special thanks to @dietpepsi for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Tags Depth-first Search Graph"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Say you have an array for which the i th element is the price of a given stock on day i . Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times) with the following restrictions: You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again). After you sell your stock, you cannot buy stock on next day. (ie, cooldown 1 day) Example: prices = [1, 2, 3, 0, 2] maxProfit = 3 transactions = [buy, sell, cooldown, buy, sell] Credits: Special thanks to @dietpepsi for adding this problem and creating all test cases. Subscribe to see which companies asked this question Show Tags Dynamic Programming Show Similar Problems (M) Best Time to Buy and Sell Stock (M) Best Time to Buy and Sell Stock II"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Write a SQL query to rank scores. If there is a tie between two scores, both should have the same ranking. Note that after a tie, the next ranking number should be the next consecutive integer value. In other words, there should be no \"holes\" between ranks. +----+-------+ | Id | Score | +----+-------+ | 1 | 3.50 | | 2 | 3.65 | | 3 | 4.00 | | 4 | 3.85 | | 5 | 4.00 | | 6 | 3.65 | +----+-------+ For example, given the above Scores table, your query should generate the following report (order by highest score): +-------+------+ | Score | Rank | +-------+------+ | 4.00 | 1 | | 4.00 | 1 | | 3.85 | 2 | | 3.65 | 3 | | 3.65 | 3 | | 3.50 | 4 | +-------+------+ Subscribe to see which companies asked this question"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a text file file.txt that contains list of phone numbers (one per line), write a one liner bash script to print all valid phone numbers. You may assume that a valid phone number must appear in one of the following two formats: (xxx) xxx-xxxx or xxx-xxx-xxxx. (x means a digit) You may also assume each line in the text file must not contain leading or trailing white spaces. For example, assume that file.txt has the following content: 987-123-4567 123 456 7890 (123) 456-7890 Your script should output the following valid phone numbers: 987-123-4567 (123) 456-7890 Subscribe to see which companies asked this question"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Given a singly linked list, determine if it is a palindrome. Follow up: Could you do it in O(n) time and O(1) space? Subscribe to see which companies asked this question Show Tags Linked List Two Pointers Show Similar Problems (E) Palindrome Number (E) Valid Palindrome (E) Reverse Linked List"
+  },
+  {
+    "tag": "algorithm",
+    "question": "Writing coding interview questions hasn't made me rich. Maybe trading Apple stocks will. Suppose we could access yesterday's stock prices as a list , where: The indices are the time in minutes past trade opening time, which was 9:30am local time. The values are the price in dollars of Apple stock at that time. So if the stock cost $500 at 10:30am, stock_prices_yesterday[60] = 500 . Write an efficient function that takes stock_prices_yesterday and returns the best profit I could have made from 1 purchase and 1 sale of 1 Apple stock yesterday. For example: stock_prices_yesterday = [ 10 , 7 , 5 , 8 , 11 , 9 ] get_max_profit ( stock_prices_yesterday ) # returns 6 (buying for $5 and selling for $11) Python Ruby Java No \"shorting\"—you must buy before you sell. You may not buy and sell in the same time step (at least 1 minute must pass)."
+  },
+  {
+    "tag": "algorithm",
+    "question": "Write a function for doing an in-place   shuffle of a list . The shuffle must be \"uniform,\" meaning each item in the original list must have the same probability of ending up in each spot in the final list . Assume that you have a function get_random(floor, ceiling) for getting a random integer that is >= floor and <= ceiling ."
+  },
+  {
+    "tag": "algorithm",
+    "question": "I want to learn some big words so people think I'm smart. I opened up a dictionary to a page in the middle and started flipping through, looking for words I didn't know. I put each word I didn't know at increasing indices in a huge list I created in memory. When I reached the end of the dictionary, I started from the beginning and did the same thing until I reached the page I started at. Now I have a list of words that are mostly alphabetical, except they start somewhere in the middle of the alphabet, reach the end, and then start from the beginning of the alphabet. In other words, this is an alphabetically ordered list that has been \"rotated.\" For example: words = [ 'ptolemaic' , 'retrograde' , 'supplant' , 'undulate' , 'xenoepist' , 'asymptote' , # <-- rotates here! 'babka' , 'banoffee' , 'engender' , 'karpatka' , 'othellolagkage' , ] Python Ruby Java Write a function for finding the index of the \"rotation point,\" which is where I started working from the beginning of the dictionary. This list is huge (there are lots of words I don't know) so we want to be efficient here."
+  },
+  {
+    "tag": "algorithm",
+    "question": "You want to build a word cloud, an infographic where the size of a word corresponds to how often it appears in the body of text. To do this, you'll need data. Write code that takes a long string and builds its word cloud data in a dictionary   , where the keys are words and the values are the number of times the words occured. Think about capitalized words . For example, look at these sentences: 'After beating the eggs, Dana read the next step:' 'Add milk and eggs, then add flour and sugar.' Python Ruby Java What do we want to do with \"After\", \"Dana\", and \"add\"? In this example, your final dictionary should include one \"Add\" or \"add\" with a value of 2 2 2 . Make reasonable (not necessarily perfect ) decisions about cases like \"After\" and \"Dana\". Assume the input will only contain words and standard punctuation."
+  },
+  {
+    "tag": "algorithm",
+    "question": "Find a duplicate, Space Edition   . We have a list of integers, where: The integers are in the range 1 . . n 1..n 1 . . n The list has a length of n + 1 n+1 n + 1 It follows that our list has at least one integer which appears at least twice. But it may have several duplicates, and each duplicate may appear more than twice. Write a function which finds any integer that appears more than once in our list . We're going to run this function on our new, super-hip Macbook Pro With Retina Display  . Thing is, the damn thing came with the RAM soldered right to the motherboard, so we can't upgrade our RAM. So we need to optimize for space!"
+  },
+  {
+    "tag": "algorithm",
+    "question": "I have a list where every number in the range 1 . . . n 1...n 1 . . . n appears once except for one number which appears twice. Write a function for finding the number that appears twice."
+  },
+  {
+    "tag": "algorithm",
+    "question": "In order to win the prize for most cookies sold, my friend Alice and I are going to merge our Girl Scout Cookies orders and enter as one unit. Each order is represented by an \"order id\" (an integer). We have our lists of orders sorted numerically already, in list s. Write a function to merge our list s of orders into one sorted list . For example: my_list = [ 3 , 4 , 6 , 10 , 11 , 15 ] alices_list = [ 1 , 5 , 8 , 12 , 14 , 19 ] print merge_lists ( my_list , alices_list ) # prints [1, 3, 4, 5, 6, 8, 10, 11, 12, 14, 15, 19] Python Ruby Java"
+  },
+  {
+    "tag": "algorithm",
+    "question": "I figured out how to get rich: online poker. I suspect the online poker game I'm playing shuffles cards by doing a single \" riffle   .\" To prove this, let's write a function to tell us if a full deck of cards shuffled_deck is a single riffle of two other halves half1 and half2 . We'll represent a stack of cards as a list of integers in the range 1 . . 5 2 1..52 1 . . 5 2 (since there are 5 2 52 5 2 distinct cards in a deck). Why do I care? A single riffle is not a completely random shuffle. If I'm right, I can make more informed bets and get rich and finally prove to my ex that I am not a \"loser with an unhealthy cake obsession\" (even though it's too late now because she let me go and she's never getting me back)."
+  },
+  {
+    "tag": "algorithm",
+    "question": "I want to learn some big words so people think I'm smart. I opened up a dictionary to a page in the middle and started flipping through, looking for words I didn't know. I put each word I didn't know at increasing indices in a huge array I created in memory. When I reached the end of the dictionary, I started from the beginning and did the same thing until I reached the page I started at. Now I have an array of words that are mostly alphabetical, except they start somewhere in the middle of the alphabet, reach the end, and then start from the beginning of the alphabet. In other words, this is an alphabetically ordered array that has been \"rotated.\" For example: String [ ] words = new String [ ] { \"ptolemaic\" , \"retrograde\" , \"supplant\" , \"undulate\" , \"xenoepist\" , \"asymptote\" , // <-- rotates here! \"babka\" , \"banoffee\" , \"engender\" , \"karpatka\" , \"othellolagkage\" , } ; Python Ruby Java Write a function for finding the index of the \"rotation point,\" which is where I started working from the beginning of the dictionary. This array is huge (there are lots of words I don't know) so we want to be efficient here."
+  },
+  {
+    "tag": "algorithm",
+    "question": "If we execute this Javascript, what will the browser's console show? var text = 'outside' ; function logIt ( ) { console . log ( text ) ; var text = 'inside' ; } ; logIt ( ) ; Python Ruby Java JavaScript"
+  },
+  {
+    "tag": "algorithm",
+    "question": "I have an array where every number in the range 1 . . . n 1...n 1 . . . n appears once except for one number which appears twice. Write a function for finding the number that appears twice."
+  },
+  {
+    "tag": "algorithm",
+    "question": "Find a duplicate, Space Edition   . We have an array of integers, where: The integers are in the range 1 . . n 1..n 1 . . n The array has a length of n + 1 n+1 n + 1 It follows that our array has at least one integer which appears at least twice. But it may have several duplicates, and each duplicate may appear more than twice. Write a function which finds any integer that appears more than once in our array . We're going to run this function on our new, super-hip Macbook Pro With Retina Display  . Thing is, the damn thing came with the RAM soldered right to the motherboard, so we can't upgrade our RAM. So we need to optimize for space!"
+  },
+  {
+    "tag": "algorithm",
+    "question": "I figured out how to get rich: online poker. I suspect the online poker game I'm playing shuffles cards by doing a single \" riffle   A \"riffle\" is the standard way people shuffle cards by hand. You know, the thing that looks like this: Here's a rigorous definition of the riffle algorithm: cut the deck into halves half1 and half2 grab a random number of cards from the top of half1 (could be 0, must be less than or equal to the number of cards left in half1 ) and throw them into the shuffledDeck grab a random number of cards from the top of half2 (could be 0, must be less than or equal to the number of cards left in half2 ) and throw them into the shuffledDeck repeat steps 2-3 until half1 and half2 are empty. .\" To prove this, let's write a function to tell us if a full deck of cards shuffledDeck is a single riffle of two other halves half1 and half2 . We'll represent a stack of cards as an array of integers in the range 1 . . 5 2 1..52 1 . . 5 2 (since there are 5 2 52 5 2 distinct cards in a deck). Why do I care? A single riffle is not a completely random shuffle. If I'm right, I can make more informed bets and get rich and finally prove to my ex that I am not a \"loser with an unhealthy cake obsession\" (even though it's too late now because she let me go and she's never getting me back)."
+  },
+  {
+    "tag": "algorithm",
+    "question": "Your company built an in-house calendar tool called HiCal. You want to add a feature to see the times in a day when everyone is available. To do this, you’ll need to know when any team is having a meeting. In HiCal, a meeting is stored as arrays   An array is a low-level data structure that holds an ordered collection of elements . Each position in the array has an index , starting with 0. Confusingly, in Ruby (and some other languages) , there is a high-level data structure called an \"array\" which has a few additional features. In a low level array, you must specify the size of your array when you instantiate it: // instantiate an array to hold 10 integers int gasPrices [ ] = new int [ 10 ] ; gasPrices [ 0 ] = 346 ; gasPrices [ 1 ] = 360 ; gasPrices [ 2 ] = 354 ; Python Ruby Java Java Arrays are efficient for looking up the element at an index, because if you know the address where an array starts in memory, it’s simple math to find the address of any index. This gives arrays an O ( 1 ) O(1) O ( 1 ) lookup time. Low level arrays are the foundation of many other data structures, like dynamic arrays, stacks, and hashes . A dynamic array (simply called an \"array\" in Ruby) doesn’t require you to specify the length, and allows you to seamlessly (although sometimes with time and space costs) insert and delete elements at any index. In Ruby , you can simply say: gas_prices = [ ] gas_prices [ 0 ] = 346 gas_prices [ 1 ] = 360 gas_prices [ 2 ] = 354 Python Ruby Java Ruby Here, the details about the array's length are abstracted out for you. You can add as many prices as you’d like. Fun fact: strings are almost always implemented as arrays of characters. of integers [start_time, end_time] . These integers represent the number of 30-minute blocks past 9:00am. For example: [ 2 , 3 ] # meeting from 10:00 – 10:30 am [ 6 , 9 ] # meeting from 12:00 – 1:30 pm Python Ruby Java Write a function condense_meeting_times () that takes an array of meeting time ranges and returns an array of condensed ranges. For example, given: [ [ 0 , 1 ] , [ 3 , 5 ] , [ 4 , 8 ] , [ 10 , 12 ] , [ 9 , 10 ] ] Python Ruby Java your function would return: [ [ 0 , 1 ] , [ 3 , 8 ] , [ 9 , 12 ] ] Python Ruby Java Do not assume the meetings are in order. The meeting times are coming from multiple teams. In this case the possibilities for start_time and end_time are bounded by the number of 30-minute slots in a day. But soon you plan to refactor HiCal to store times as Unix timestamps (which are big numbers). Write something that's efficient even when we can't put a nice upper bound on the numbers representing our time ranges."
+  },
+  {
+    "tag": "html",
+    "question": "What does a `doctype` do?"
+  },
+  {
+    "tag": "html",
+    "question": "What's the difference between standards mode and quirks mode?"
+  },
+  {
+    "tag": "html",
+    "question": "What's the difference between HTML and XHTML?"
+  },
+  {
+    "tag": "html",
+    "question": "Are there any problems with serving pages as `application/xhtml+xml`?"
+  },
+  {
+    "tag": "html",
+    "question": "How do you serve a page with content in multiple languages?"
+  },
+  {
+    "tag": "html",
+    "question": "What kind of things must you be wary of when design or developing for multilingual sites?"
+  },
+  {
+    "tag": "html",
+    "question": "What are `data-` attributes good for?"
+  },
+  {
+    "tag": "html",
+    "question": "Consider HTML5 as an open web platform. What are the building blocks of HTML5?"
+  },
+  {
+    "tag": "html",
+    "question": "Describe the difference between a `cookie`, `sessionStorage` and `localStorage`."
+  },
+  {
+    "tag": "html",
+    "question": "Describe the difference between `<script>`, `<script async>` and `<script defer>`."
+  },
+  {
+    "tag": "html",
+    "question": "Why is it generally a good idea to position CSS `<link>`s between `<head></head>` and JS `<script>`s just before `</body>`? Do you know any exceptions?"
+  },
+  {
+    "tag": "html",
+    "question": "What is progressive rendering?"
+  },
+  {
+    "tag": "html",
+    "question": "Have you used different HTML templating languages before?"
+  },
+  {
+    "tag": "css",
+    "question": "What is the difference between classes and ID's in CSS?"
+  },
+  {
+    "tag": "css",
+    "question": "What's the difference between \"resetting\" and \"normalizing\" CSS? Which would you choose, and why?"
+  },
+  {
+    "tag": "css",
+    "question": "Describe Floats and how they work."
+  },
+  {
+    "tag": "css",
+    "question": "Describe z-index and how stacking context is formed."
+  },
+  {
+    "tag": "css",
+    "question": "Describe BFC(Block Formatting Context) and how it works."
+  },
+  {
+    "tag": "css",
+    "question": "What are the various clearing techniques and which is appropriate for what context?"
+  },
+  {
+    "tag": "css",
+    "question": "Explain CSS sprites, and how you would implement them on a page or site."
+  },
+  {
+    "tag": "css",
+    "question": "What are your favourite image replacement techniques and which do you use when?"
+  },
+  {
+    "tag": "css",
+    "question": "How would you approach fixing browser-specific styling issues?"
+  },
+  {
+    "tag": "css",
+    "question": "How do you serve your pages for feature-constrained browsers?"
+  },
+  {
+    "tag": "css",
+    "question": "What techniques/processes do you use?"
+  },
+  {
+    "tag": "css",
+    "question": "What are the different ways to visually hide content (and make it available only for screen readers)?"
+  },
+  {
+    "tag": "css",
+    "question": "Have you ever used a grid system, and if so, what do you prefer?"
+  },
+  {
+    "tag": "css",
+    "question": "Have you used or implemented media queries or mobile specific layouts/CSS?"
+  },
+  {
+    "tag": "css",
+    "question": "Are you familiar with styling SVG?"
+  },
+  {
+    "tag": "css",
+    "question": "How do you optimize your webpages for print?"
+  },
+  {
+    "tag": "css",
+    "question": "What are some of the \"gotchas\" for writing efficient CSS?"
+  },
+  {
+    "tag": "css",
+    "question": "What are the advantages/disadvantages of using CSS preprocessors?"
+  },
+  {
+    "tag": "css",
+    "question": "Describe what you like and dislike about the CSS preprocessors you have used."
+  },
+  {
+    "tag": "css",
+    "question": "How would you implement a web design comp that uses non-standard fonts?"
+  },
+  {
+    "tag": "css",
+    "question": "Explain how a browser determines what elements match a CSS selector."
+  },
+  {
+    "tag": "css",
+    "question": "Describe pseudo-elements and discuss what they are used for."
+  },
+  {
+    "tag": "css",
+    "question": "Explain your understanding of the box model and how you would tell the browser in CSS to render your layout in different box models."
+  },
+  {
+    "tag": "css",
+    "question": "What does ```{ box-sizing: border-box; }``` do? What are its advantages?"
+  },
+  {
+    "tag": "css",
+    "question": "List as many values for the display property that you can remember."
+  },
+  {
+    "tag": "css",
+    "question": "What's the difference between inline and inline-block?"
+  },
+  {
+    "tag": "css",
+    "question": "What's the difference between a relative, fixed, absolute and statically positioned element?"
+  },
+  {
+    "tag": "css",
+    "question": "The 'C' in CSS stands for Cascading.  How is priority determined in assigning styles (a few examples)?  How can you use this system to your advantage?"
+  },
+  {
+    "tag": "css",
+    "question": "What existing CSS frameworks have you used locally, or in production? How would you change/improve them?"
+  },
+  {
+    "tag": "css",
+    "question": "Have you played around with the new CSS Flexbox or Grid specs?"
+  },
+  {
+    "tag": "css",
+    "question": "How is responsive design different from adaptive design?"
+  },
+  {
+    "tag": "css",
+    "question": "Have you ever worked with retina graphics? If so, when and what techniques did you use?"
+  },
+  {
+    "tag": "css",
+    "question": "Is there any reason you'd want to use `translate()` instead of *absolute positioning*, or vice-versa? And why?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain event delegation"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain how `this` works in JavaScript"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain how prototypal inheritance works"
+  },
+  {
+    "tag": "javascript",
+    "question": "What do you think of AMD vs CommonJS?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain why the following doesn't work as an IIFE: `function foo(){ }();`."
+  },
+  {
+    "tag": "javascript",
+    "question": "What's the difference between a variable that is: `null`, `undefined` or undeclared?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What is a closure, and how/why would you use one?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What's a typical use case for anonymous functions?"
+  },
+  {
+    "tag": "javascript",
+    "question": "How do you organize your code? (module pattern, classical inheritance?)"
+  },
+  {
+    "tag": "javascript",
+    "question": "What's the difference between host objects and native objects?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What's the difference between `.call` and `.apply`?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain `Function.prototype.bind`."
+  },
+  {
+    "tag": "javascript",
+    "question": "When would you use `document.write()`?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What's the difference between feature detection, feature inference, and using the UA string?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain AJAX in as much detail as possible."
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain how JSONP works (and how it's not really AJAX)."
+  },
+  {
+    "tag": "javascript",
+    "question": "Have you ever used JavaScript templating?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain \"hoisting\"."
+  },
+  {
+    "tag": "javascript",
+    "question": "Describe event bubbling."
+  },
+  {
+    "tag": "javascript",
+    "question": "What's the difference between an \"attribute\" and a \"property\"?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Why is extending built-in JavaScript objects not a good idea?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Difference between document load event and document ready event?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What is the difference between `==` and `===`?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain the same-origin policy with regards to JavaScript."
+  },
+  {
+    "tag": "javascript",
+    "question": "Why is it called a Ternary expression, what does the word \"Ternary\" indicate?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What is `\"use strict\";`? what are the advantages and disadvantages to using it?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Create a for loop that iterates up to `100` while outputting **\"fizz\"*at multiples of `3`, **\"buzz\"*at multiples of `5` and **\"fizzbuzz\"*at multiples of `3` and `5`"
+  },
+  {
+    "tag": "javascript",
+    "question": "Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain what a single page app is and how to make one SEO-friendly."
+  },
+  {
+    "tag": "javascript",
+    "question": "What is the extent of your experience with Promises and/or their polyfills?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What are the pros and cons of using Promises instead of callbacks?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What tools and techniques do you use debugging JavaScript code?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What language constructions do you use for iterating over object properties and array items?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain the difference between mutable and immutable objects."
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain the difference between synchronous and asynchronous functions."
+  },
+  {
+    "tag": "javascript",
+    "question": "What is event loop?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What is the difference between call stack and task queue?"
+  },
+  {
+    "tag": "data structures",
+    "question": "Given a tree write breadth first search and depth first search, and explain the run time and space requirements.Convert a binary search tree into an ordered array.  How do you do this as efficiently as possible?"
+  },
+  {
+    "tag": "data structures",
+    "question": "How do you find the 7th element in a binary search tree?  How do you generalize the function to find the Nth element"
+  },
+  {
+    "tag": "data structures",
+    "question": "Given two binary trees write a function that will compare the two and see if they are equal – both in terms of data and structure."
+  },
+  {
+    "tag": "data structures",
+    "question": "Write a function to determine if a graph contains a cycle."
+  },
+  {
+    "tag": "data structures",
+    "question": "How do hash tables work?What are some examples of real life hash tables? When is a hash table a poor data choice?"
+  },
+  {
+    "tag": "data structures",
+    "question": "Design a queue using stacks as the underlying data structure (solution).  Implement a stack using queues as the underlying data structure"
+  },
+  {
+    "tag": "data structures",
+    "question": "Design and implement a stack. Implement the different methods: push, pop, retrieve the minimum element in constant time."
+  },
+  {
+    "tag": "sql",
+    "question": "What is a primary key?"
+  },
+  {
+    "tag": "sql",
+    "question": "You know that data is in a particular table but you don’t know what the schema is for that table. How could you figure it out?"
+  },
+  {
+    "tag": "sql",
+    "question": "What are some different kinds of joins?  How do they work? Can you give examples?"
+  },
+  {
+    "tag": "sql",
+    "question": "What is the difference between GROUP BY and ORDER BY?"
+  },
+  {
+    "tag": "sql",
+    "question": "Write a query to delete duplicate rows from a table."
+  },
+  {
+    "tag": "sql",
+    "question": "Describe a schema and ask the candidate to query the table in lots of different ways. Try to pick a schema from one of your databases if possible – it is always nice to use real world data. // If you can’t come up with one an employee or student database are easy to grok examples."
+  },
+  {
+    "tag": "javascript",
+    "question": "What JavaScript libraries (or frameworks if you would prefer) have you used?"
+  },
+  {
+    "tag": "javascript",
+    "question": "Explain AJAX in as much detail as possible.  How does it work?  What have you used it for in the past?"
+  },
+  {
+    "tag": "javascript",
+    "question": "You want to get a query string parameter from the browser’s URL, how would you do it?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What is the difference between document load and document ready events?"
+  },
+  {
+    "tag": "javascript",
+    "question": "What are ways to write object oriented JavaScript? For example, explain how inheritance works."
+  },
+  {
+    "tag": "css",
+    "question": "How do you organize CSS files? What are the pros and cons of this approach? Have you ever tried other ways?"
+  },
+  {
+    "tag": "css",
+    "question": "How do you avoid duplicating colors or fonts in CSS, when those colors or fonts are applied to multiple elements? What are the pros and cons of that approach?"
+  },
+  {
+    "tag": "css",
+    "question": "What is the CSS box model? (A: width/padding/border/margin)"
+  },
+  {
+    "tag": "css",
+    "question": "What are some clearing techniques and when is it appropriate to use them?"
+  },
+  {
+    "tag": "css",
+    "question": "What is the difference between “visibility:hidden” and “display:none”? What are the pros and cons of using “display:none”?"
+  },
+  {
+    "tag": "css",
+    "question": "How does the browser determine where to place positioned elements?"
+  },
+  {
+    "tag": "ruby",
+    "question": "What is the use of load and require in ruby?"
+  },
+  {
+    "tag": "ruby",
+    "question": "Explain the use of global variable $"
+  },
+  {
+    "tag": "ruby",
+    "question": "Explain the concepts and capabilities of garbage collection feature of Ruby."
+  },
+  {
+    "tag": "angularjs",
+    "question": "What is data binding in AngularJS?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "What is scope in AngularJS?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "What are the controllers in AngularJS?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "What are the services in AngularJS?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "What are the filters in AngularJS?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "Explain directives in AngularJS."
+  },
+  {
+    "tag": "angularjs",
+    "question": "What is $rootScope?"
+  },
+  {
+    "tag": "angularjs",
+    "question": "What are the differences between service and factory methods?"
+  },
+  {
+    "tag": "ruby",
+    "question": "Explain how (almost) everything is an object in Ruby:"
+  },
+  {
+    "tag": "ruby",
+    "question": "What are Gems and which are some of your favorites?"
+  },
+  {
+    "tag": "ruby",
+    "question": "What is 'self' in Ruby?"
+  },
+  {
+    "tag": "mysql",
+    "question": "when should you use SQL_CACHE and S_NO_CACHE on your queries?"
+  },
+  {
+    "tag": "mysql",
+    "question": "How would you backup and restore data using mysqldump from the command line?"
+  },
+  {
+    "tag": "mysql",
+    "question": "describe five functions that disable cache on queries and describe why."
+  }
+]

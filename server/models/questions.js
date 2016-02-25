@@ -1,4 +1,5 @@
 var  knex = require('../../db/knex');
+var questionsData = require('./../../seeds/questions.json');
 
 // getting all questions
 var Questions = function(){
@@ -7,8 +8,7 @@ var Questions = function(){
 
 // create question
 var addQuestion = function(question){
-  return Questions().insert(question).then(function(newQuestion){
-    return newQuestion;
+   Questions().insert(question).then(function(newQuestion){
   });
 
 }
@@ -32,6 +32,22 @@ var question = function(questionID){
     return question;
   });
 }
+
+
+var  deleteAllCompanies = function(){
+    knex('questions').del();
+}
+
+// populated comapanies table with node server/models/companies
+var populatedDb = function(){
+  for(var i =0; i < questionsData.length; i++){
+    addQuestion({
+      question: questionsData[i].question
+    });
+  }
+}
+
+populatedDb();
 
 module.exports = {
   allQuestions: Questions,

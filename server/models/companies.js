@@ -1,6 +1,5 @@
 var  knex = require('../../db/knex');
 var companiesData = require('./../../seeds/companies.json');
-var fs = require('fs');
 
 // getting all companies
 var Companies = function(){
@@ -9,8 +8,7 @@ var Companies = function(){
 
 // create company
 var addCompany = function(company){
-
-   Companies().insert(company).then(function(newCompany){
+  Companies().insert(company).then(function(newCompany){
   });
 
 }
