@@ -6,6 +6,7 @@
     <title>CodeQuest</title>
     <!-- AngularJS source -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-sanitize.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
@@ -20,8 +21,10 @@
 
 
     <!-- select 2 for search functionality -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
 
     <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
@@ -103,22 +106,77 @@
     </form>
   </modal>
 <!-- SEARCH -->
-   <div class="container">
+   <div class="container" ng-controller="SearchController">
       <div class="jumbotron">
         <div class="row">
           <div class="col-lg-12">
-            <div class="input-group select2-bootstrap-append">
-              <span class="select2 select2-container select2-container--default select2-container--below select2-container--focus select2-container--open" style="width: 98%;">
-                <span id="searchBar" class="select2-selection select2-selection--multiple" role="combobox" aria-haspopup="true" aria-expanded="true" tabindex="-1" aria-owns="select2-16ix-results" aria-activedescendant="select2-16ix-result-4jqz-OR" style="width: 100%;">
-                  <input class="select2-search__field" type="search" tabindex="0" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" role="textbox" aria-autocomplete="list" placeholder="" style="width: 100%;">
-                </span>
-              </span>
-              <span class="input-group-btn">
+            <span class="input-group-btn">
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
+                  <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
+                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                    {{color}}
+                  </ui-select-choices>
+                </ui-select>
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
-            </div><!-- /input-group -->
           </div><!-- / .col-lg-12 -->
         </div><!-- /.row -->
+        <div class="row" style="width: 96%">
+          <div class="col-lg-12">
+            <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
+              
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Position
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="position-tag">Fullstack</a></li>
+                  <li><a href="#" class="position-tag">Frontend</a></li>
+                  <li><a href="#" class="position-tag">Backend</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Javascript</a></li>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Ruby</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Skills
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">jQuery</a></li>
+                  <li><a href="#">Node.js</a></li>
+                  <li><a href="#">Rails</a></li>
+                </ul>
+              </div>
+              
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Company
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Google</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Amazon</a></li>
+                </ul>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 

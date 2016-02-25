@@ -84,3 +84,19 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           };
 	           $scope.barValue = 'None';
 });
+
+app.controller('SearchController', function($scope){
+	$scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+	$scope.multipleDemo = {};
+	// $scope.multipleDemo.colors = ['Blue','Red'];
+	$scope.itemArray = [
+		{id: 1, name: 'first'},
+		{id: 2, name: 'second'},
+		{id: 3, name: 'third'},
+		{id: 4, name: 'fourth'},
+		{id: 5, name: 'fifth'},
+	];
+	$scope.selected = { value: $scope.itemArray[0] };
+})
+
+
