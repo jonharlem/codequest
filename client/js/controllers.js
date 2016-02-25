@@ -73,7 +73,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
-	$scope.submitted = false;
+
 	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 
@@ -82,12 +82,12 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   	}
 
 	$scope.submitInterview = function(interviewForm) {
-		$scope.submitted = true;
-
-		if (interviewForm.$valid) {
-			$scope.showInterviewModal = !$scope.showInterviewModal;
-		}
+    debugger
+    $scope.showInterviewModal = !$scope.showInterviewModal;
 	}
+
+  $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+  $scope.multipleDemo = {};
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
@@ -114,19 +114,4 @@ app.controller('SearchController', function($scope){
 	];
 	$scope.selected = { value: $scope.itemArray[0] };
 })
-
-app.controller('ModalController', function($scope){
-  $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
-  $scope.multipleDemo = {};
-  // $scope.multipleDemo.colors = ['Blue','Red'];
-  $scope.itemArray = [
-    {id: 1, name: 'first'},
-    {id: 2, name: 'second'},
-    {id: 3, name: 'third'},
-    {id: 4, name: 'fourth'},
-    {id: 5, name: 'fifth'},
-  ];
-  $scope.selected = { value: $scope.itemArray[0] };
-})
-
 

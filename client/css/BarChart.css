@@ -24,10 +24,6 @@
   display: none;
 }
 
-label[for = "position"] {
-  padding-left: 20px;
-}
-
 .error {
   color: red;
 }
