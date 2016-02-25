@@ -35,6 +35,17 @@ var interview = function(interviewID){
   });
 }
 
+ var addInterviewWithCompany(interview){
+   // add new interview
+   // get interview ID when done
+  // check if company exits
+  // if not, add new company then get the id
+  // if exits, get the company and it's ID
+  // get array of questions
+  // create questions for each one
+
+ }
+ 
 module.exports = {
   allInterviews: Interviews,
   addInterview: addInterview,
