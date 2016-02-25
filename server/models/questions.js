@@ -33,7 +33,6 @@ var question = function(questionID){
   });
 }
 
-
 var  deleteAllQuestions = function(){
     knex('questions').del();
 }
@@ -47,12 +46,52 @@ var populatedDb = function(){
   }
 }
 
-// populatedDb();
+
+var addTagsToQuestions = function(){
+  //get the question
+
+  for(var i = 0; i < questionsData.length; i++){
+    generateQuestionTagCallback(i);
+  }
+}
+
+function generateQuestionTagCallback(i){
+  var questionID, tagID;
+
+  Questions().where({
+    question: questionsData[i].question
+  }).first().then(function(question){
+     questionID = question.id;
+    console.log(questionID);
+  }).then(function(){
+    knex('tags').where({
+      name: questionsData[i].tag
+    }).first().then(function(tag){
+      tagID = tag.id;
+      // add to questions_tags db
+      knex('question_tags').insert({
+        question_id: questionID,
+        tag_id: tag.id
+      }).then(function(){
+        console.log('tag added to Question');
+      });
+    });
+  }).catch(function(error){
+    console.log(error);
+  });
+}
+
+var allQuestionsWithTags = function(){
+  return knex('question_tags');
+}
 
 module.exports = {
   allQuestions: Questions,
   addQuestion: addQuestion,
   updateQuestion: updateQuestion,
   deleteQuestion: deleteQuestion,
-  question:question
+  question:question,
+  populateQuestions:populatedDb,
+  addTagsToQuestions: addTagsToQuestions,
+  allQuestionsWithTags: allQuestionsWithTags
 }

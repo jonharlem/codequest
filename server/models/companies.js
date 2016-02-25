@@ -50,13 +50,12 @@ var populatedDb = function(){
   }
 }
 
-// invoked
-// populatedDb();
 
 module.exports = {
   AllCompanies: Companies,
   addCompany: addCompany,
   updateCompany: updateCompany,
   deleteCompany: deleteCompany,
-  company:company
+  company:company,
+  populateCompanies: populatedDb
 }

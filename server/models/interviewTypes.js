@@ -45,12 +45,12 @@ var populateTypesDB = function(){
   }
 }
 
-// populateTypesDB()
 
 module.exports = {
   allTypes: Types,
   addType: addType,
   updateType: updateType,
   deleteType: deleteType,
-  type:type
+  type:type,
+  populateTypes: populateTypesDB
 }
