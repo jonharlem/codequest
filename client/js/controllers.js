@@ -80,12 +80,15 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
   $scope.multipleDemo = {};
 
+  $scope.interview = {};
+
   $scope.toggleModalInterview = function() {
   	$scope.showInterviewModal = !$scope.showInterviewModal;
   }
 
 	$scope.submitInterview = function(interviewForm) {
-    //  to access the selects tags: $scope.multipleDemo.colors
+    $scope.interview = {};
+    $scope.multipleDemo.colors = [];
     $scope.showInterviewModal = !$scope.showInterviewModal;
 	}
 });

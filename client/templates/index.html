@@ -99,7 +99,7 @@
         <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
             <div class="form-group">
                 <label for="questions">Question</label>
-                <textarea id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
+                <textarea id="questions" ng-model="interview.question" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
             </div>
 
             <div class="form-group">
@@ -122,7 +122,7 @@
                     <label for="type">Type of Interview</label>
                     <div class="radio" ng-repeat="type in types">
                       <label>
-                        <input type="radio" name="type" ng-model="$parent.type" value="{{type}}" required>
+                        <input type="radio" name="type" ng-model="interview.type" value="{{type}}" required>
                         {{type}}
                       </label>
                     </div>
@@ -132,7 +132,7 @@
                     <label for="position">Position</label>
                     <div class="radio" ng-repeat="position in positions">
                       <label>
-                        <input type="radio" name="position" ng-model="$parent.position" value="{{position}}" required>
+                        <input type="radio" name="position" ng-model="interview.position" value="{{position}}" required>
                         {{position}}
                       </label>
                     </div>
