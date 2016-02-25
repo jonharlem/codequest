@@ -6,9 +6,11 @@
     <title>CodeQuest</title>
     <!-- AngularJS source -->
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular-sanitize.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
+
     <!--  bootsrap, jQuery, d3.js here -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="client/css/BarChart.css">
@@ -16,11 +18,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+
     <!-- ui bootstrap for angular -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+
     <!-- select 2 for search functionality -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
+
     <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
@@ -28,8 +35,6 @@
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
     <script src="/client/js/directives.js"></script>
-    <script type="text/javascript" src="/client/js/search.js"></script>
-    <script type="text/javascript" src="/client/js/barChart.js"></script>
 </head>
 
 <body ng-controller="NavbarController">
@@ -88,34 +93,100 @@
             <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
         </form>
     </modal>
-    <!-- SEARCH -->
-    <div class="container">
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="input-group select2-bootstrap-append">
-                        <select id="searchBar" type="text" class="form-control" placeholder="Search for..."></select>
-                        <span class="input-group-btn">
+
+<!-- SEARCH -->
+   <div class="container" ng-controller="SearchController">
+      <div class="jumbotron">
+        <div class="row">
+          <div class="col-lg-12">
+            <span class="input-group-btn">
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
+                  <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
+                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                    {{color}}
+                  </ui-select-choices>
+                </ui-select>
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
-                    </div>
-                    <!-- /input-group -->
-                </div>
-                <!-- / .col-lg-12 -->
+          </div><!-- / .col-lg-12 -->
+        </div><!-- /.row -->
+        <div class="row" style="width: 96%">
+          <div class="col-lg-12">
+            <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Position
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#" class="position-tag">Fullstack</a></li>
+                  <li><a href="#" class="position-tag">Frontend</a></li>
+                  <li><a href="#" class="position-tag">Backend</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Language
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Javascript</a></li>
+                  <li><a href="#">Python</a></li>
+                  <li><a href="#">Ruby</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Skills
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">jQuery</a></li>
+                  <li><a href="#">Node.js</a></li>
+                  <li><a href="#">Rails</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Company
+                <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Google</a></li>
+                  <li><a href="#">Facebook</a></li>
+                  <li><a href="#">Amazon</a></li>
+                </ul>
+              </div>
+
+
             </div>
-            <!-- /.row -->
+          </div>
         </div>
+      </div>
     </div>
     <!-- INTERVIEW FORM -->
-    <modal type="text/ng-template" id="interviewForm" title="Add Interview" visible="showInterviewModal">
+    <modal type="text/ng-template" id="interviewForm" title="Add Interview" visible="showInterviewModal" ng-controller="ModalController">
         <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
             <div class="form-group">
                 <label for="questions">Questions</label>
                 <input id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required>
 
-                <div class="input-group select2-bootstrap-append">
+                <!-- <div class="input-group select2-bootstrap-append">
                     <select id="tagSearch" type="text" class="form-control" placeholder="Search for..."></select>
-                </div>
+                </div> -->
+
+                <span class="input-group-btn">
+                    <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
+                      <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
+                      <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                        {{color}}
+                      </ui-select-choices>
+                    </ui-select>
+                  </span>
 
             </div>
             <div class="form-group">
@@ -151,14 +222,9 @@
     <!-- ng-view -->
     <div ng-view>
     </div>
-    <!--  scripts here -->
-    <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
-    <script src="/client/app.js"></script>
-    <script src="/client/js/controllers.js"></script>
-    <script src="/client/js/services.js"></script>
-    <script src="/client/js/filters.js"></script>
-    <script src="/client/js/directives.js"></script>
+
     <script type="text/javascript" src="/client/js/search.js"></script>
+    <script type="text/javascript" src="/client/js/barChart.js"></script>
 </body>
 
 </html>

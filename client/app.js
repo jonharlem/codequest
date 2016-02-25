@@ -1,6 +1,8 @@
-var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate', 'ui.bootstrap']);
+var app = angular.module('codequest', ['ngRoute', 'ngResource', 'satellizer', 'ngAnimate', 'ui.bootstrap', 'ui.select', 'ngSanitize']);
 
-app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider){
+app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvider, uiSelectConfig){
+  uiSelectConfig.theme = 'select2';
+
   $routeProvider
   .when('/about', {
     templateUrl: '/client/templates/about.html'

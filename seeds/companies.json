@@ -1,0 +1,402 @@
+[
+  {
+    "name": "Cargill",
+    "contactInfo": "http://www.cargill.com/",
+    "location": "Minnesota",
+    "size": 153000,
+    "industry": "Food",
+    "logo": "Drink & Tobacco"
+  },
+  {
+    "name": "Koch Industries",
+    "contactInfo": "http://www.kochind.com/",
+    "location": "Kansas",
+    "size": 100000,
+    "industry": "Multicompany",
+    "logo": "http://i.forbesimg.com/media/lists/companies/koch-industries_100x100.jpg"
+  },
+  {
+    "name": "Dell",
+    "contactInfo": "http://www.dell.com/en-us/",
+    "location": "Texas",
+    "size": 100000,
+    "industry": "Technology Hardware & Equip",
+    "logo": "http://i.forbesimg.com/media/lists/companies/dell_100x100.jpg"
+  },
+  {
+    "name": "Albertsons",
+    "contactInfo": "http://www.albertsons.com/",
+    "location": "Idaho",
+    "size": 265000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/albertsons_100x100.jpg"
+  },
+  {
+    "name": "Bechtel",
+    "contactInfo": "http://www.bechtel.com/",
+    "location": 58000,
+    "size": "California",
+    "industry": "Construction",
+    "logo": "http://i.forbesimg.com/media/lists/companies/bechtel_100x100.jpg"
+  },
+  {
+    "name": "PricewaterhouseCoopers",
+    "contactInfo": "http://www.bechtel.com/",
+    "location": "New York",
+    "size": 208000,
+    "industry": "Business Services & Supplies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/pricewaterhousecoopers_100x100.jpg"
+  },
+  {
+    "name": "Mars",
+    "contactInfo": "http://www.bechtel.com/",
+    "location": "Virginia",
+    "size": 75000,
+    "industry": "Food Drink & Tobacco",
+    "logo": "http://i.forbesimg.com/media/lists/companies/mars_100x100.jpg"
+  },
+  {
+    "name": "Pilot Flying J",
+    "contactInfo": "http://www.pilotflyingj.com/",
+    "location": "Tennessee",
+    "size": 26000,
+    "industry": "Convenience Stores & Gas Stations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/pilot-flying-j_100x100.jpg"
+  },
+  {
+    "name": "Publix",
+    "contactInfo": "http://www.publix.com/",
+    "location": "Florida",
+    "size": 175000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/publix-super-markets_100x100.jpg"
+  },
+  {
+    "name": "C&S Wholesale Grocers",
+    "contactInfo": "http://www.cswg.com/",
+    "location": "New Hampshire",
+    "size": 17000,
+    "industry": "Food",
+    "logo": "Drink & Tobacco"
+  },
+  {
+    "name": "Ernst&Young",
+    "contactInfo": "http://www.ey.com/",
+    "location": "New York",
+    "size": 212000,
+    "industry": "Business Services & Supplies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/ernst-young_100x100.jpg"
+  },
+  {
+    "name": "Reyes Holdings",
+    "contactInfo": "http://www.reyesholdings.com/",
+    "location": "Illinois",
+    "size": 18000,
+    "industry": "Food",
+    "logo": "Drink & Tobacco"
+  },
+  {
+    "name": "US Foods",
+    "contactInfo": "http://www.usfoods.com/index.html",
+    "location": "Illinois",
+    "size": 25000,
+    "industry": "Food",
+    "logo": "Drink & Tobacco"
+  },
+  {
+    "name": "Love's Travel Stops & Country Stores",
+    "contactInfo": "http://www.loves.com/",
+    "location": "Oklahoma",
+    "size": 12000,
+    "industry": "Food Drink & Tobacco",
+    "logo": "http://i.forbesimg.com/media/lists/companies/loves-travel-stops-country-stores_100x100.jpg"
+  },
+  {
+    "name": "HE Butt Grocery",
+    "contactInfo": "https://www.heb.com/",
+    "location": "Texas",
+    "size": 80000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/he-butt-grocery_100x100.jpg"
+  },
+  {
+    "name": "Enterprise Holdings",
+    "contactInfo": "https://www.enterpriseholdings.com/",
+    "location": "Missouri",
+    "size": 91000,
+    "industry": "Services",
+    "logo": "http://i.forbesimg.com/media/lists/companies/enterprise-holdings_100x100.jpg"
+  },
+  {
+    "name": "COX enterprises",
+    "contactInfo": "http://www.coxenterprises.com/",
+    "location": "Georgia",
+    "size": 50000,
+    "industry": "Media",
+    "logo": "http://i.forbesimg.com/media/lists/companies/cox-enterprises_100x100.jpg"
+  },
+  {
+    "name": "Cumberland Gulf Group",
+    "contactInfo": "http://www.forbes.com/companies/cumberland-gulf-group/",
+    "location": "Massachusetts",
+    "size": 50000,
+    "industry": "Convenience Stores & Gas Stations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/cumberland-gulf-group_100x100.jpg"
+  },
+  {
+    "name": "Meijer",
+    "contactInfo": "https://www.meijer.com/",
+    "location": "Michigan",
+    "size": 76000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/meijer_100x100.jpg"
+  },
+  {
+    "name": "Fidelity Investments",
+    "contactInfo": "https://www.fidelity.com/",
+    "location": "Massachusetts",
+    "size": 42000,
+    "industry": "Diversified Financials",
+    "logo": "http://i.forbesimg.com/media/lists/companies/fidelity-investments_100x100.jpg"
+  },
+  {
+    "name": "JM Family Enterprises",
+    "contactInfo": "http://www.jmfamily.com/",
+    "location": "Florida",
+    "size": 4100,
+    "industry": "Consumer Durables",
+    "logo": "http://i.forbesimg.com/media/lists/companies/jm-family-enterprises_100x100.jpg"
+  },
+  {
+    "name": "Platinum Equity",
+    "contactInfo": "http://www.platinumequity.com/",
+    "location": "California",
+    "size": 50000,
+    "industry": "Multicompany",
+    "logo": "http://i.forbesimg.com/media/lists/companies/platinum-equity_100x100.jpg"
+  },
+  {
+    "name": "Toys 'R' Us",
+    "contactInfo": "http://www.toysrus.com/",
+    "location": "New Jersey",
+    "size": 66000,
+    "industry": "Retailing",
+    "logo": "http://i.forbesimg.com/media/lists/companies/toys-r-us_100x100.jpg"
+  },
+  {
+    "name": "Tenaska",
+    "contactInfo": "http://www.tenaska.com/",
+    "location": "Nebraska",
+    "size": 685,
+    "industry": "Multicompany",
+    "logo": "http://i.forbesimg.com/media/lists/companies/tenaska_100x100.jpg"
+  },
+  {
+    "name": "Southern Wine & Spirits",
+    "contactInfo": "http://www.southernwine.com/",
+    "location": "Florida",
+    "size": 14500,
+    "industry": "Food Drink & Tobacco",
+    "logo": "http://i.forbesimg.com/media/lists/companies/southern-wine-spirits_100x100.jpg"
+  },
+  {
+    "name": "Gordon Food Service",
+    "contactInfo": "https://www.gfs.com/en",
+    "location": "Michigan",
+    "size": 15000,
+    "industry": "Food Drink & Tobacco",
+    "logo": "http://i.forbesimg.com/media/lists/companies/gordon-food-service_100x100.jpg"
+  },
+  {
+    "name": "Trammo",
+    "contactInfo": "http://www.trammo.com/",
+    "location": "New York",
+    "size": 465,
+    "industry": "Trading Companies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/trammo_100x100.jpg"
+  },
+  {
+    "name": "QuikTrip",
+    "contactInfo": "http://www.quiktrip.com/",
+    "location": "Oklahoma",
+    "size": 19800,
+    "industry": "Convenience Stores & Gas Stations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/quiktrip_100x100.jpg"
+  },
+  {
+    "name": "allegis group",
+    "contactInfo": "https://www.allegisgroup.com/",
+    "location": "Maryland",
+    "size": 15000,
+    "industry": "Business Services & Supplies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/allegis-group_100x100.jpg"
+  },
+  {
+    "name": "Amway",
+    "contactInfo": "http://www.amway.com/",
+    "location": "Michigan",
+    "size": 20000,
+    "industry": "Household & Personal Products",
+    "logo": "http://i.forbesimg.com/media/lists/companies/allegis-group_100x100.jpg"
+  },
+  {
+    "name": "Southeastern Grocer",
+    "contactInfo": "http://www.segrocers.com/",
+    "location": "Florida",
+    "size": 72000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/southeastern-grocer_100x100.jpg"
+  },
+  {
+    "name": "Kiewit Corporation",
+    "contactInfo": "http://www.kiewit.com/",
+    "location": "Nebraska",
+    "size": 25700,
+    "industry": "Construction",
+    "logo": "http://i.forbesimg.com/media/lists/companies/kiewit-corporation_100x100.jpg"
+  },
+  {
+    "name": "Hearst",
+    "contactInfo": "https://www.hearst.com/",
+    "location": "New York",
+    "size": 20000,
+    "industry": "Media",
+    "logo": "http://i.forbesimg.com/media/lists/companies/hearst_100x100.jpg"
+  },
+  {
+    "name": "Wawa",
+    "contactInfo": "https://www.wawa.com/",
+    "location": "Pennsylvania",
+    "size": 22500,
+    "industry": "Convenience Stores & Gas Stations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/wawa_100x100.jpg"
+  },
+  {
+    "name": "SC Johnson & Son",
+    "contactInfo": "http://www.scjohnson.com/en/home.aspx",
+    "location": "Wisconsin",
+    "size": 13000,
+    "industry": "Household & Personal Products",
+    "logo": "http://i.forbesimg.com/media/lists/companies/sc-johnson-son_100x100.jpg"
+  },
+  {
+    "name": "Giant Eagle",
+    "contactInfo": "https://www.gianteagle.com/",
+    "location": "Pennsylvania",
+    "size": 34000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/giant-eagle_100x100.jpg"
+  },
+  {
+    "name": "Bloomberg",
+    "contactInfo": "http://www.bloomberg.com/",
+    "location": "New York",
+    "size": 15500,
+    "industry": "Business Services & Supplies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/bloomberg_100x100.jpg"
+  },
+  {
+    "name": "RaceTrac Petroleum",
+    "contactInfo": "http://www.racetrac.com/",
+    "location": "Georgia",
+    "size": 6900,
+    "industry": "Convenience Stores & Gas Stations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/racetrac-petroleum_100x100.jpg"
+  },
+  {
+    "name": "Menards",
+    "contactInfo": "https://www.menards.com/main/home.html",
+    "location": "Wisconsin",
+    "size": 42000,
+    "industry": "Retailing",
+    "logo": "http://i.forbesimg.com/media/lists/companies/menard_100x100.jpg"
+  },
+  {
+    "name": "Hy-Vee",
+    "contactInfo": "https://www.hy-vee.com/",
+    "location": "Iowa",
+    "size": 78000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/hy-vee_100x100.jpg"
+  },
+  {
+    "name": "McKinsey & Company",
+    "contactInfo": "http://www.mckinsey.com/",
+    "location": "-",
+    "size": 17000,
+    "industry": "Business Services & Supplies",
+    "logo": "http://i.forbesimg.com/media/lists/companies/mckinsey-company_100x100.jpg"
+  },
+  {
+    "name": "Gulf States Toyota",
+    "contactInfo": "http://www.gstcareers.com/",
+    "location": "Texas",
+    "size": 2000,
+    "industry": "Consumer Durables",
+    "logo": "http://i.forbesimg.com/media/lists/companies/gulf-states-toyota_100x100.jpg"
+  },
+  {
+    "name": "Mansfield Oil",
+    "contactInfo": "http://mansfield.energy/",
+    "location": "Georgia",
+    "size": 545,
+    "industry": "Oil & Gas Operations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/mansfield-oil_100x100.jpg"
+  },
+  {
+    "name": "Advance Publications",
+    "contactInfo": "http://www.advance.net/",
+    "location": "New York",
+    "size": 25000,
+    "industry": "Media",
+    "logo": "http://i.forbesimg.com/media/lists/companies/advance-publications_100x100.jpg"
+  },
+  {
+    "name": "Momentive",
+    "contactInfo": "http://www.advance.net/",
+    "location": "New York",
+    "size": 9800,
+    "industry": "Chemicals",
+    "logo": "http://i.forbesimg.com/media/lists/companies/momentive_100x100.jpg"
+  },
+  {
+    "name": "Wegmans Food Markets",
+    "contactInfo": "http://www.wegmans.com/",
+    "location": "New York",
+    "size": 44000,
+    "industry": "Food Markets",
+    "logo": "http://i.forbesimg.com/media/lists/companies/wegmans-food-markets_100x100.jpg"
+  },
+  {
+    "name": "Capital Group Cos",
+    "contactInfo": "https://www.thecapitalgroup.com/",
+    "location": "California",
+    "size": 7000,
+    "industry": "Diversified Financials",
+    "logo": "http://i.forbesimg.com/media/lists/companies/capital-group-cos_100x100.jpg"
+  },
+  {
+    "name": "Petsmart",
+    "contactInfo": "http://www.petsmart.com/",
+    "location": "Arizona",
+    "size": 7000,
+    "industry": "Retailing",
+    "logo": "http://i.forbesimg.com/media/lists/companies/petsmart_100x100.jpg"
+  },
+  {
+    "name": "Medline Industries",
+    "contactInfo": "http://www.medline.com/home.jsp",
+    "location": "Illinois",
+    "size": 12700,
+    "industry": "Health Care Equipment & Svcs",
+    "logo": "http://i.forbesimg.com/media/lists/companies/medline-industries_100x100.jpg"
+  },
+  {
+    "name": "Sinclair Oil",
+    "contactInfo": "https://www.sinclairoil.com/",
+    "location": "Utah",
+    "size": 7000,
+    "industry": "Oil & Gas Operations",
+    "logo": "http://i.forbesimg.com/media/lists/companies/sinclair-oil_100x100.jpg"
+  }
+]

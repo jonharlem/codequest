@@ -7,17 +7,11 @@ var Interviews = function(){
 
 // create interview
 var addInterview = function(interview){
-  //check if interview already exist
-  return Interviews().where({id: interview.id}).first().then(function(foundInterview){
-    if(!foundInterview){
-      return Interviews().insert(interview).first().then(function(newInterview){
-        return newInterview;
-      });
-    }
-    else{
-      return 'interview is already there'
-    }
-  })
+
+  return Interviews().insert(interview).then(function(newInterview){
+    return newInterview;
+  });
+
 
 }
 // update interview

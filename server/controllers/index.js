@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var locus = require('locus');
 var bcrypt = require('bcrypt');
-var knex = require('../db/knex');
+var knex = require('../../db/knex');
 var  jwt = require('jsonwebtoken');
 
 // SIGNUP
