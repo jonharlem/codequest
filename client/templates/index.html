@@ -45,16 +45,16 @@
           <div class="navbar-header">
               <a class="navbar-brand" href="#"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
           </div>
-          <ul class="nav navbar-nav">
-              
-          </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/#/about">about</a></li>
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >sign in</a></li>
-          <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
-          <li ng-if="isAuthenticated()"><a ng-click="logout()">sign Out</a></li>
+          <!-- <div id="navBtns"> -->
+            <li><a href="/#/about">about</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" id="signInBtnText">sign in</a></li>
+            <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
+            <li ng-if="isAuthenticated()"><a ng-click="logout()">sign Out</a></li>
+          <!-- </div> -->
+
         </ul>
       </div>
   </nav>
