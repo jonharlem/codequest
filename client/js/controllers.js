@@ -78,9 +78,10 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	$http.get('/interviewTypes').then(function(response) {
 		$scope.types = response.data;
 	});
+	$http.get('/tags').then(function(response) {
+		$scope.tags = response.data;
+	});
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
-  $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
-  $scope.multipleDemo = {};
 
   $scope.interview = {};
 
@@ -90,7 +91,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 
 	$scope.submitInterview = function(interviewForm) {
     $scope.interview = {};
-    $scope.multipleDemo.colors = [];
+    $scope.interview.tags = [];
     $scope.showInterviewModal = !$scope.showInterviewModal;
 	}
 });

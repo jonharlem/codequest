@@ -24,6 +24,7 @@ app.use('/api', router.index);
 app.use('/auth', router.auth);
 app.use('/users', router.users);
 app.use('/interviewTypes', router.interviewTypes);
+app.use('/tags', router.tags);
 // always redirect to angular app for routes
 // are not registered
 app.get('*', function(req,res){

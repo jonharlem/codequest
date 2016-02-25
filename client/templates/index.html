@@ -104,10 +104,10 @@
 
             <div class="form-group">
                 <label for="tags">Tags</label>
-                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true">
-                  <ui-select-match placeholder="e.g. html, css">{{$item}}</ui-select-match>
-                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                    {{color}}
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.tags" theme="bootstrap" sortable="true">
+                  <ui-select-match placeholder="e.g. html, css">{{$item.name}}</ui-select-match>
+                  <ui-select-choices repeat="tag in tags | filter:$select.search">
+                    {{tag.name}}
                   </ui-select-choices>
                 </ui-select>
             </div>
