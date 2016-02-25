@@ -55,6 +55,7 @@ var populatedDb = function(){
     });
   }
 }
+
 var makeUniqueTags = function(a) {
           return a.reduce(function(p, c) {
               if (p.indexOf(c) < 0) p.push(c);
@@ -62,11 +63,12 @@ var makeUniqueTags = function(a) {
           }, []);
         }
 
-populatedDb();
+
 module.exports = {
   allTags: Tags,
   addTag: addTag,
   updateTag: updateTag,
   deleteTag: deleteTag,
-  tag:tag
+  tag:tag,
+  populateTags: populatedDb
 }
