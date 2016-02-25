@@ -77,22 +77,19 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 app.controller('D3dashboard', function($scope, $location, $http) {
 	
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
-	           $scope.data = [1, 2, 3, 4];
 	           $scope.hovered = function(d){
 	               $scope.barValue = d;
 	               $scope.$apply();
 	           };
 	           $scope.barValue = 'None';
 
-	$scope.getCompanies = function() {
 		$http({
 			method: "GET",
 			url: "/api/companies"
 		}).then(function(companies) {
 			//array of company objects
-			companies.data;
-		})
-	};           
+			$scope.data = companies.data;
+		})  
 });
 
 app.controller('SearchController', function($scope){

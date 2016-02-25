@@ -10,13 +10,14 @@ d3.custom.barChart = function module() {
 
     var dispatch = d3.dispatch('customHover');
     function exports(_selection) {
+        console.log(_selection);
         _selection.each(function(_data) {
 
             var chartW = width - margin.left - margin.right,
                 chartH = height - margin.top - margin.bottom;
 
             var x1 = d3.scale.ordinal()
-                .domain(_data.map(function(d, i){ return i; }))
+                .domain(_data.map(function(d, i){ return d; }))
                 .rangeRoundBands([0, chartW], .1);
 
             var y1 = d3.scale.linear()
@@ -25,8 +26,9 @@ d3.custom.barChart = function module() {
 
             var xAxis = d3.svg.axis()
                 .scale(x1)
-                .tickFormat(function(d, i){
-                return "company" + d})
+                .tickValues(function(d, i){
+                    return d.name;
+                })
                 .orient('bottom');
 
             var yAxis = d3.svg.axis()
