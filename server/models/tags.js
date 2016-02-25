@@ -7,7 +7,7 @@ var Tags = function(){
 
 // create tag
 var addTag = function(tag){
-  return Tags().insert(tag).first().then(function(newTag){
+  return Tags().insert(tag).then(function(newTag){
     return newTag;
   });
 

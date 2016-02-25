@@ -7,7 +7,7 @@ var Questions = function(){
 
 // create question
 var addQuestion = function(question){
-  return Questions().insert(question).first().then(function(newQuestion){
+  return Questions().insert(question).then(function(newQuestion){
     return newQuestion;
   });
 

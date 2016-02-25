@@ -8,7 +8,7 @@ var Interviews = function(){
 // create interview
 var addInterview = function(interview){
 
-  return Interviews().insert(interview).first().then(function(newInterview){
+  return Interviews().insert(interview).then(function(newInterview){
     return newInterview;
   });
 

@@ -7,7 +7,7 @@ var Users = function(){
 
 // create user
 var addUser = function(user){
-  return Users().insert(user).first().then(function(newUser){
+  return Users().insert(user).then(function(newUser){
     return newUser;
   });
 
