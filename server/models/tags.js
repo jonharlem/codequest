@@ -33,7 +33,7 @@ var tag = function(tagID){
   });
 }
 
-var  deleteAllCompanies = function(){
+var  deleteAllTags = function(){
     knex('tags').del();
 }
 

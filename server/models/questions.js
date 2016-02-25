@@ -34,7 +34,7 @@ var question = function(questionID){
 }
 
 
-var  deleteAllCompanies = function(){
+var  deleteAllQuestions = function(){
     knex('questions').del();
 }
 
