@@ -14,6 +14,7 @@
      <!--  bootsrap, jQuery, d3.js here -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
      <link rel="stylesheet" href="client/css/BarChart.css">
+     <link rel="stylesheet" href="client/css/style.css">
      <base href="/">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -42,17 +43,18 @@
   <nav class="navbar navbar-inverse">
       <div class="container">
           <div class="navbar-header">
-              <a class="navbar-brand" href="#">CodeQuest</a>
+              <a class="navbar-brand" href="#"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
           </div>
           <ul class="nav navbar-nav">
-              <li><a href="/#/about">About</a></li>
+              
           </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >Sign In</a></li>
-          <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
-          <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
+          <li><a href="/#/about">about</a></li>
+          <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
+          <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >sign in</a></li>
+          <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
+          <li ng-if="isAuthenticated()"><a ng-click="logout()">sign Out</a></li>
         </ul>
       </div>
   </nav>
