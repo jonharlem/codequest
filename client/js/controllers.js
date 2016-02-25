@@ -74,20 +74,19 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
 
+  //  For the interview question form
 	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
-
-  	$scope.toggleModalInterview = function() {
-  		$scope.showInterviewModal = !$scope.showInterviewModal;
-  	}
-
-	$scope.submitInterview = function(interviewForm) {
-    debugger
-    $scope.showInterviewModal = !$scope.showInterviewModal;
-	}
-
   $scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
   $scope.multipleDemo = {};
+
+  $scope.toggleModalInterview = function() {
+  	$scope.showInterviewModal = !$scope.showInterviewModal;
+  }
+
+	$scope.submitInterview = function(interviewForm) {
+    $scope.showInterviewModal = !$scope.showInterviewModal;
+	}
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {

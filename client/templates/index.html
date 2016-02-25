@@ -94,6 +94,57 @@
         </form>
     </modal>
 
+    <!-- INTERVIEW FORM -->
+    <modal type="text/ng-template" id="interviewForm" title="Add a Question" visible="showInterviewModal">
+        <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
+            <div class="form-group">
+                <label for="questions">Question</label>
+                <textarea id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true">
+                  <ui-select-match placeholder="e.g. html, css">{{$item}}</ui-select-match>
+                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                    {{color}}
+                  </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="type">Type of Interview</label>
+                    <div class="radio" ng-repeat="type in types">
+                      <label>
+                        <input type="radio" name="type" ng-model="$parent.type" value="{{type}}" required>
+                        {{type}}
+                      </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="position">Position</label>
+                    <div class="radio" ng-repeat="position in positions">
+                      <label>
+                        <input type="radio" name="position" ng-model="$parent.position" value="{{position}}" required>
+                        {{position}}
+                      </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </modal>
+
 <!-- SEARCH -->
    <div class="container" ng-controller="SearchController">
       <div class="jumbotron">
@@ -169,59 +220,6 @@
       </div>
     </div>
 
-    <!-- INTERVIEW FORM -->
-    <modal type="text/ng-template" id="interviewForm" title="Add a Question" visible="showInterviewModal">
-        <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
-            <div class="form-group">
-                <label for="questions">Question</label>
-                <textarea id="questions" ng-model="interview.questions" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="tags">Tags</label>
-                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true">
-                  <ui-select-match placeholder="e.g. html, css">{{$item}}</ui-select-match>
-                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                    {{color}}
-                  </ui-select-choices>
-                </ui-select>
-            </div>
-
-            <div class="form-group">
-                <label for="companyName">Company Name</label>
-                <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="type">Type of Interview</label>
-                    <div class="radio" ng-repeat="type in types">
-                      <label>
-                        <input type="radio" name="type" ng-model="$parent.type" value="{{type}}" required>
-                        {{type}}
-                      </label>
-                    </div>
-                </div>
-
-                <div class="col-md-6">
-                    <label for="position">Position</label>
-                    <div class="radio" ng-repeat="position in positions">
-                      <label>
-                        <input type="radio" name="position" ng-model="$parent.position" value="{{position}}" required>
-                        {{position}}
-                      </label>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="modal-footer">
-                <button class="btn btn-primary" type="submit">Submit</button>
-            </div>
-
-
-        </form>
-    </modal>
     <!-- D3 DASHBOARD -->
     <div class="container">
         <div class="jumbotron text-center">
