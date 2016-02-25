@@ -80,6 +80,9 @@ function generateQuestionTagCallback(i){
   });
 }
 
+var allQuestionsWithTags = function(){
+  return knex('question_tags');
+}
 
 module.exports = {
   allQuestions: Questions,
@@ -88,5 +91,6 @@ module.exports = {
   deleteQuestion: deleteQuestion,
   question:question,
   populateQuestions:populatedDb,
-  addTagsToQuestions: addTagsToQuestions
+  addTagsToQuestions: addTagsToQuestions,
+  allQuestionsWithTags: allQuestionsWithTags
 }
