@@ -19,3 +19,10 @@ $("#searchBar").select2({
     multiple: true,
     data: tagsData
 });
+
+$("#tagSearch").select2({
+   dropdownParent: "#interviewForm",
+    tags: true,
+    multiple: true,
+    data: tagsData
+});

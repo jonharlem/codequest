@@ -2,6 +2,7 @@ var app = angular.module('codequest');
 
 app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
 
+	$scope.showInterviewModal = false;
 	$scope.showModal = false;
 	$scope.user = {};
 	$scope.posts = [];
@@ -72,33 +73,21 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
-  	$scope.open = function() {
-  		 var modalInstance = $uibModal.open({
-      templateUrl: 'interviewForm.html',
-      controller: 'InterviewController',
-    });
-
-  	}
-});
-
-app.controller('InterviewController', function($scope, $location, $http, $uibModalInstance) {
-
 	$scope.submitted = false;
+	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
+	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 
-	$scope.submit = function(interviewForm) {
+  	$scope.toggleModalInterview = function() {
+  		$scope.showInterviewModal = !$scope.showInterviewModal;
+  	}
+
+	$scope.submitInterview = function(interviewForm) {
 		$scope.submitted = true;
 
 		if (interviewForm.$valid) {
-			$uibModalInstance.close();		
+			$scope.showInterviewModal = !$scope.showInterviewModal;
 		}
 	}
-	$scope.cancel = function() {
-		$uibModalInstance.dismiss();
-	}
-	
-	$scope.types = ["Phone Screen", "Technical Phone Screen", "Coding Challenge", "Onsite"];
-
-	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
