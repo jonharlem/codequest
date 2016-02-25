@@ -11,9 +11,8 @@ var addInterview = function(interview){
   return Interviews().insert(interview).then(function(newInterview){
     return newInterview;
   });
-
-
 }
+
 // update interview
 var updateInterview = function(interview){
   return Interviews().where({
@@ -22,12 +21,14 @@ var updateInterview = function(interview){
     return updatedInterview;
   });
 }
+
 // delete interview
 var deleteInterview = function(interview){
   return Interviews().where({
     id: interview.id
   }).first().del();
 }
+
 // get interview by id
 var interview = function(interviewID){
   return Interviews().where({id: interviewID}).first().then(function(interview){
