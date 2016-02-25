@@ -53,6 +53,7 @@ app.directive('barChart', function(){
         },
         link: function(scope, element, attrs) {
             var chartEl = d3.select(element[0]);
+
             chart.on('customHover', function(d, i){
                 scope.hovered({args:d});
             });
@@ -75,14 +76,24 @@ app.directive('chartForm', function(){
         replace: true,
         controller: function AppCtrl ($scope) {
             $scope.goToTagsBar = function(d, i){ $scope.data = randomData(); };
-            $scope.goToCompaniesBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToCompaniesBar = function(d, i){ $scope.data = companiesData(); };
             $scope.goToPositionsBar = function(d, i){ $scope.data = randomData(); };
             function randomData(){
                 return d3.range(~~(Math.random()*50)+1).map(function(d, i){return ~~(Math.random()*1000);});
+            }            
+
+            function companiesData(){
+                  $http({
+                      method: "GET",
+                      url: "/api/companies"
+                  }).then(function(companies) {
+                      //array of company objects
+                      return companies.data;
+                  })
             }
         },
           template: '<div class="form">' +
-                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
+                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="getCompanies()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
                     '<br />Number of Questions: {{barValue}}</div>'
         }
 });

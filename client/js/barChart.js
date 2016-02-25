@@ -25,6 +25,8 @@ d3.custom.barChart = function module() {
 
             var xAxis = d3.svg.axis()
                 .scale(x1)
+                .tickFormat(function(d, i){
+                return "company" + d})
                 .orient('bottom');
 
             var yAxis = d3.svg.axis()
@@ -112,7 +114,3 @@ d3.custom.barChart = function module() {
     d3.rebind(exports, dispatch, 'on');
     return exports;
 };
-
-// d3.select(window).on('resize', function(){
- 
-// }); 

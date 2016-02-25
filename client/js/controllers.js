@@ -83,6 +83,16 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	               $scope.$apply();
 	           };
 	           $scope.barValue = 'None';
+
+	$scope.getCompanies = function() {
+		$http({
+			method: "GET",
+			url: "/api/companies"
+		}).then(function(companies) {
+			//array of company objects
+			companies.data;
+		})
+	};           
 });
 
 app.controller('SearchController', function($scope){

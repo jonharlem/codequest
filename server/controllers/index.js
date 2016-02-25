@@ -4,6 +4,7 @@ var locus = require('locus');
 var bcrypt = require('bcrypt');
 var knex = require('../../db/knex');
 var  jwt = require('jsonwebtoken');
+var companies = require('../models/companies');
 
 // SIGNUP
 router.post('/users', function(req, res) {
@@ -83,6 +84,14 @@ router.post('/login', function(req, res) {
             message: "Error connecting to Database"
         })
     });
+});
+
+// GET all companies
+router.get('/companies', function(req, res) {
+   	companies.AllCompanies().then(function(data){
+   		res.json(data);
+   	});
+   	
 });
 
 
