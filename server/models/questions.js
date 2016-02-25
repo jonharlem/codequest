@@ -7,17 +7,9 @@ var Questions = function(){
 
 // create question
 var addQuestion = function(question){
-  //check if question already exist
-  return Questions().where({id: question.id}).first().then(function(foundQuestion){
-    if(!foundQuestion){
-      return Interviews().insert(question).first().then(function(newQuestion){
-        return newQuestion;
-      });
-    }
-    else{
-      return 'question is already there'
-    }
-  })
+  return Questions().insert(question).first().then(function(newQuestion){
+    return newQuestion;
+  });
 
 }
 // update question

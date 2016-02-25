@@ -7,17 +7,9 @@ var Tags = function(){
 
 // create tag
 var addTag = function(tag){
-  //check if tag already exist
-  return Tags().where({id: tag.id}).first().then(function(foundTag){
-    if(!foundTag){
-      return Tags().insert(tag).first().then(function(newTag){
-        return newTag;
-      });
-    }
-    else{
-      return 'Tag is already there'
-    }
-  })
+  return Tags().insert(tag).first().then(function(newTag){
+    return newTag;
+  });
 
 }
 // update tag

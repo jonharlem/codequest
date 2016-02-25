@@ -8,16 +8,10 @@ var Users = function(){
 // create user
 var addUser = function(user){
   //check if user already exist
-  return Users().where({id: user.id}).first().then(function(foundUser){
-    if(!foundUser){
-      return Users().insert(user).first().then(function(newUser){
-        return newUser;
-      });
-    }
-    else{
-      return 'user is already there'
-    }
-  })
+
+  return Users().insert(user).first().then(function(newUser){
+    return newUser;
+  });
 
 }
 // update user
