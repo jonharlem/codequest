@@ -1,5 +1,8 @@
 var  knex = require('../../db/knex');
+var companiesData = require('./../../seeds/companies.json');
+var fs = require('fs');
 
+console.log(companiesData);
 // getting all companies
 var Companies = function(){
   return knex('companies');
@@ -8,16 +11,16 @@ var Companies = function(){
 // create company
 var addCompany = function(company){
   //check if company already exist
-  return Companies().where({id: company.id}).first().then(function(foundCompany){
-    if(!foundCompany){
-      return Companies().insert(company).first().then(function(newCompany){
+  // return Companies().where({id: company.id}).first().then(function(foundCompany){
+    // if(!foundCompany){
+      return Companies().insert(company).then(function(newCompany){
         return newCompany;
       });
-    }
-    else{
-      return 'company is already there'
-    }
-  })
+    // }
+    // else{
+    //   return 'company is already there'
+    // }
+  // })
 
 }
 // update company
