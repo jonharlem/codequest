@@ -1,5 +1,8 @@
 <div class="container">
     <div class="well well-lg" ng-repeat="question in questions">
         {{ question.question }}
+        <div align="right">
+        	<a class="btn btn-success">{{ question.tag }}</a>
+        </div>
     </div>
 </div>
