@@ -90,12 +90,12 @@ router.post('/login', function(req, res) {
 
 // GET all questions with tags
 router.get('/qtags', function(req, res) {
-   	Tags.allTags()
+    Tags.allTags()
             .innerJoin('question_tags', 'tags.id' , 'tag_id')
             .then(function(data){
-   		res.json(data);
-   	});
-   	
+        res.json(data);
+    });
+    
 });
 
 
