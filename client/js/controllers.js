@@ -159,7 +159,7 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 	// $scope.selected = { value: $scope.itemArray[0] };
 
 	$scope.search = function() {
-		SearchService.tags = $scope.multipleDemo.colors;
+		SearchService.tags = $scope.filterTags.tags;
 		$location.path('/search');
 	};
 
