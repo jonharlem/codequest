@@ -1,7 +1,8 @@
 var app = angular.module('codequest');
 
-app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
 
+	$scope.showInterviewModal = false;
 	$scope.showModal = false;
 	$scope.user = {};
 	$scope.posts = [];
@@ -72,6 +73,36 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
+
+  //  For the interview question form
+	$http.get('/interviewTypes').then(function(response) {
+		$scope.types = response.data;
+	});
+	$http.get('/tags').then(function(response) {
+		$scope.tags = response.data;
+	});
+	$http.get('/companies').then(function(response) {
+		$scope.companies = response.data;
+	})
+	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
+
+  $scope.interview = {};
+
+  $scope.toggleModalInterview = function() {
+  	$scope.showInterviewModal = !$scope.showInterviewModal;
+  }
+
+	$scope.submitInterview = function(interviewForm) {
+		$http.post('/interview', $scope.interview).then(function() {
+		    $scope.interview = {};
+		    $scope.interview.tags = [];
+		    $scope.showInterviewModal = !$scope.showInterviewModal;
+		});
+	}
+});
+
+app.controller('SettingsController', function($scope, $auth) {
+	$scope.user = $auth.getPayload();
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
