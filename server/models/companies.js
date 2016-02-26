@@ -23,9 +23,10 @@ var updateCompany = function(company){
 // delete company
 var deleteCompany = function(company){
   return Companies().where({
-    id: company.id
+    name: company.name
   }).first().del();
 }
+
 // get company by id
 var company = function(companyID){
   return Companies().where({id: companyID}).first().then(function(company){
