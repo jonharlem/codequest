@@ -101,6 +101,10 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	}
 });
 
+app.controller('SettingsController', function($scope, $auth) {
+	$scope.user = $auth.getPayload();
+});
+
 app.controller('D3dashboard', function($scope, $location, $http) {
 
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
