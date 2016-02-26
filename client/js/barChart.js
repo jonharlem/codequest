@@ -17,7 +17,7 @@ d3.custom.barChart = function module() {
                        chartH = height - margin.top - margin.bottom;
 
                 var x1 = d3.scale.ordinal()
-                       .domain(_data.map(function(d, i){return d.tagNames; }))
+                       .domain(_data.map(function(d, i){return d.tickLabel; }))
                        .rangeRoundBands([0, chartW], .1);
 
                 var y1 = d3.scale.linear()
@@ -80,7 +80,7 @@ d3.custom.barChart = function module() {
                     .ease(ease)
                     .attr({
                         width: barW,
-                        x: function(d, i) {return x1(d.tagNames) + gapSize/2; },
+                        x: function(d, i) {return x1(d.tickLabel) + gapSize/2; },
                         y: function(d, i) { return y1(d.numOfQuestions); },
                         height: function(d, i) { return chartH - y1(d.numOfQuestions); }
                     });

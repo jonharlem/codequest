@@ -111,7 +111,7 @@ app.directive('chartForm',['$http',  function($http){
                       for(var i = 0; i<tagNames.length; i++){
 
                              $scope.data.push({
-                               tagNames: tagNames[i],
+                               tickLabel: tagNames[i],
                                numOfQuestions: numOfQuestions[i]
                              });
                       }
@@ -120,24 +120,72 @@ app.directive('chartForm',['$http',  function($http){
 
             };
 
-            $scope.goToCompaniesBar = function(d, i){ $scope.data =  randomData();};
-            $scope.goToPositionsBar = function(d, i){ $scope.data = randomData();
-            };
+            $scope.companiesData = function(){           
 
-            function randomData(){
-              var rangable = ~~(Math.random()*50)+1; // int between 1 - 51
-              var d3R = d3.range(rangable);
-              var mapped =  d3R.map(function(dataPoint){
-                  return ~~(Math.random()*1000);
-                });
-              // mapped is going to be a list of elements with length = rand between 1-50
-              // and all of it's members will be random ints between 0-1000
-               
-               return mapped
-            }                   
+              $scope.data = [{
+                           tickLabel: "Facebook",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                         {
+                           tickLabel: "Yahoo?",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                         {
+                           tickLabel: "Dell" ,
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                         {
+                           tickLabel: "Apple",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "Tesla",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "IBM",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "Microsoft",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "Pivitol Tracker",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "AirBnB",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         },
+                        {
+                           tickLabel: "Uber",
+                           numOfQuestions: ~~(Math.random()*200)+1
+                         }];
+            }
+
+            $scope.positionsData = function(){
+
+                      $scope.data = [{
+                                   tickLabel: "Front End Developer ",
+                                   numOfQuestions: ~~(Math.random()*50)+1
+                                 },
+                                 {
+                                   tickLabel: "Back End Developer",
+                                   numOfQuestions: ~~(Math.random()*50)+1
+                                 },
+                                 {
+                                   tickLabel: "Full Stack Developer" ,
+                                   numOfQuestions: ~~(Math.random()*50)+1
+                                 },
+                                 {
+                                   tickLabel: "UI/UX Developer",
+                                   numOfQuestions: ~~(Math.random()*50)+1
+                                 }];
+            };                
         },
           template: '<div class="form">' +
-                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="tagsData()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
+                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="tagsData()" type="button" class="btn btn-default">Tags</button><button ng-click="companiesData()" type="button" class="btn btn-default">Companies</button> <button ng-click="positionsData()" type="button" class="btn btn-default">Positions</button></div>' +
                     '<br />Number of Questions: {{barValue}}</div>'
         }
 }]);

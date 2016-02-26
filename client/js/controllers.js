@@ -148,7 +148,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
                       for(var i = 0; i<tagNames.length; i++){
 
                              $scope.data.push({
-                               tagNames: tagNames[i],
+                               tickLabel: tagNames[i],
                                numOfQuestions: numOfQuestions[i]
                              });
                       }
