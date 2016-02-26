@@ -140,8 +140,9 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 	});
 
 	$scope.itemSelected = function(item){
-		$scope.filterTags.tags.push(item);
-		
+		if($scope.filterTags.tags.indexOf(item)){
+			$scope.filterTags.tags.push(item);
+		}
 	};
 
 	$scope.filterTags = {};
