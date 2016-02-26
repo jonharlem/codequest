@@ -1,6 +1,6 @@
 var app = angular.module('codequest');
 
-app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal, SearchService){
 
 	$scope.showInterviewModal = false;
 	$scope.showModal = false;
@@ -116,9 +116,14 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           $scope.barValue = 'None';
 });
 
+<<<<<<< HEAD
 app.controller('SearchController', function($scope, $http){
 	// $scope.availableColors = [];
 	$scope.filterTags = {};
+=======
+app.controller('SearchController', function($scope, $http, $location, SearchService){
+	$scope.multipleDemo = {};
+>>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
 	$scope.skills = [];
 	$scope.companies = [];
 
@@ -154,10 +159,41 @@ app.controller('SearchController', function($scope, $http){
 		{id: 4, name: 'fourth'},
 		{id: 5, name: 'fifth'},
 	];
+<<<<<<< HEAD
 	// $scope.selected = { value: $scope.itemArray[0] };
+=======
+	$scope.selected = { value: $scope.itemArray[0] };
+
+	$scope.search = function() {
+		SearchService.tags = $scope.multipleDemo.colors;
+		$location.path('/search')
+	};
+>>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
 	$scope.select2Options = {
 		'multiple': true,
         'simple_tags': true,
         'tags': ['tag1', 'tag2', 'tag3', 'tag4']
+<<<<<<< HEAD
 	};
 });
+=======
+	}
+})
+
+app.controller('QuestionsController', function($scope, $http, SearchService) {
+	$scope.questions = [];
+	SearchService.tags.forEach(function(tag) {
+		$http.get('/questions/' + tag).then(function(response) {
+			$scope.questions = $scope.questions.concat(response.data);
+			console.log($scope.questions);
+		});
+	});
+});
+
+
+
+
+
+
+
+>>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
