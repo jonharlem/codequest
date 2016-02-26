@@ -93,8 +93,6 @@ var allQuestionsWithTags = function(){
 }
 
 var addTagToQuestion = function(tag, question){
-  console.log(tag);
-  console.log(question);
   allQuestionsWithTags().insert({
     question_id: question.id,
     question:question.question,

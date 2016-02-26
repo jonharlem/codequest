@@ -1,15 +1,15 @@
 app.directive('modal', function () {
     return {
-      template: '<div class="modal fade">' + 
-          '<div class="modal-dialog">' + 
-            '<div class="modal-content">' + 
-              '<div class="modal-header">' + 
-                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' + 
+      template: '<div class="modal fade">' +
+          '<div class="modal-dialog">' +
+            '<div class="modal-content">' +
+              '<div class="modal-header">' +
+                '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
                 '<h4 class="modal-title">{{ title }}</h4>' + '<h6 class="modal-title">Please provide your information below</h6>'+
-              '</div>' + 
-              '<div class="modal-body" ng-transclude></div>' + 
-            '</div>' + 
-          '</div>' + 
+              '</div>' +
+              '<div class="modal-body" ng-transclude></div>' +
+            '</div>' +
+          '</div>' +
         '</div>',
       restrict: 'E',
       transclude: true,
@@ -60,12 +60,12 @@ app.directive('barChart', function(){
 
             scope.$watch('data', function (newVal, oldVal) {
                 chartEl.datum(newVal).call(chart);
-            });            
+            });
 
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
             })
-            
+
         }
     }
 });
@@ -76,7 +76,7 @@ app.directive('chartForm',['$http',  function($http){
         replace: true,
         controller: function AppCtrl ($scope) {
 
-            $scope.tagsData = function(){ 
+            $scope.tagsData = function(){
                    $http({
                       method: "GET",
                       url: "/api/qtags"
@@ -116,11 +116,11 @@ app.directive('chartForm',['$http',  function($http){
                              });
                       }
 
-            }) 
+            })
 
             };
 
-            $scope.companiesData = function(){           
+            $scope.companiesData = function(){
 
               $scope.data = [{
                            tickLabel: "Facebook",
@@ -182,7 +182,7 @@ app.directive('chartForm',['$http',  function($http){
                                    tickLabel: "UI/UX Developer",
                                    numOfQuestions: ~~(Math.random()*50)+1
                                  }];
-            };                
+            };
         },
           template: '<div class="form">' +
                     '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="tagsData()" type="button" class="btn btn-default">Tags</button><button ng-click="companiesData()" type="button" class="btn btn-default">Companies</button> <button ng-click="positionsData()" type="button" class="btn btn-default">Positions</button></div>' +
