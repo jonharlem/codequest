@@ -96,11 +96,10 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 		// console.log(interviewForm);
 		// console.log(interviewForm.tags);
 
-		$http.post('/interview', $scope.interview).then(function(data) {
-			console.log('hehe');
-			console.log(data);
-		    $scope.interview = {};
-		    $scope.interview.tags = [];
+		$http.post('/interview', interviewForm).then(function(data) {
+			console.log(interviewForm.tags);
+		    // $scope.interview = {};
+		    // $scope.interview.tags = [];
 		    $scope.showInterviewModal = !$scope.showInterviewModal;
 		});
 	};

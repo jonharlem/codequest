@@ -12,6 +12,11 @@ var addQuestion = function(question){
   });
 
 }
+
+var addQuestionWithPromise = function(question){
+   return Questions().insert(question).returning('*');
+
+}
 // update question
 var updateQuestion = function(question){
   return Questions().where({
@@ -87,6 +92,19 @@ var allQuestionsWithTags = function(){
   return knex('question_tags');
 }
 
+var addTagToQuestion = function(tag, question){
+  console.log(tag);
+  console.log(question);
+  allQuestionsWithTags().insert({
+    question_id: question.id,
+    question:question.question,
+    tag_id :tag.id,
+    tag: tag.name
+  }).catch(function(err) {
+    console.log(err);
+  });
+}
+
 module.exports = {
   allQuestions: Questions,
   addQuestion: addQuestion,
@@ -95,5 +113,7 @@ module.exports = {
   question:question,
   populateQuestions:populatedDb,
   addTagsToQuestions: addTagsToQuestions,
-  allQuestionsWithTags: allQuestionsWithTags
+  allQuestionsWithTags: allQuestionsWithTags,
+  addQuestionWithPromise: addQuestionWithPromise,
+  addTagToQuestion: addTagToQuestion
 }
