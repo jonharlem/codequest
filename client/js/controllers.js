@@ -185,7 +185,6 @@ app.controller('QuestionsController', function($scope, $http, SearchService) {
 	SearchService.tags.forEach(function(tag) {
 		$http.get('/questions/' + tag).then(function(response) {
 			$scope.questions = $scope.questions.concat(response.data);
-			console.log($scope.questions);
 		});
 	});
 });
