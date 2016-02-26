@@ -108,12 +108,12 @@ app.directive('chartForm',['$http',  function($http){
                       method: "GET",
                       url: "/api/qtags"
                   }).then(function(qtags) {
-                      // array of qtags objects
-                      // var tmp = qtags.data.map(function(dataPoint) {
-                      //   return dataPoint.id;
-                      // })
-                      // // $scope.data = qtags.data;
-                      // $scope.data = tmp;
+
+                      var tmp = qtags.data.map(function(dataPoint) {
+                        return dataPoint.name;
+                      })
+                      // $scope.data = qtags.data;
+                      $scope.data = tmp;
                   })
             }
         },

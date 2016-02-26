@@ -57,30 +57,29 @@ var addTagsToQuestions = function(){
 function generateQuestionTagCallback(i){
       var questionID, tagID;
 
-      Questions().where({
-          question: questionsData[i].question
-        }).first().then(function(question){
-           questionID = question.id;
 
-        }).then(function(){
-          knex('tags').where({
-            name: questionsData[i].tag
-
-          }).first().then(function(tag){
-            tagID = tag.id;
-
-            // add to questions_tags db
-            knex('question_tags').insert({
-              question_id: questionID,
-              tag_id: tag.id
-
-            }).then(function(){
-              console.log('tag added to Question');
-            });
-          });
-        }).catch(function(error){
-          console.log(error);
-        });
+  Questions().where({
+    question: questionsData[i].question
+  }).first().then(function(question){
+     questionID = question.id;
+    console.log(questionID);
+  }).then(function(){
+    knex('tags').where({
+      name: questionsData[i].tag
+    }).first().then(function(tag){
+      tagID = tag.id;
+      // add to questions_tags db
+      knex('question_tags').insert({
+        question_id: questionID,
+        tag_id: tag.id,
+        question:questionsData[i].question,
+        tag:questionsData[i].tag
+      }).then(function(){
+      });
+    });
+  }).catch(function(error){
+    console.log(error);
+  });
 }
 
 var allQuestionsWithTags = function(){

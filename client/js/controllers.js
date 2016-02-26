@@ -78,19 +78,11 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	//$scope.data = "This is yo mom's data";
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
 	           $scope.hovered = function(d){
+	           	    $scope.data = null;
 	               $scope.barValue = d;
 	               $scope.$apply();
 	           };
 	           $scope.barValue = 'None';
-	                 
-                  $http({
-                     method: "GET",
-                     url: "/api/qtags"
-                 }).then(function(qtags) {
-                     // array of qtags objects
-                     $scope.data = qtags.data;
-                     console.log($scope.data);
-                 })
 	      
 
 });
