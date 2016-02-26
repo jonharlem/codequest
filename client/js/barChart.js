@@ -11,27 +11,27 @@ d3.custom.barChart = function module() {
     var dispatch = d3.dispatch('customHover');
     function exports(_selection) {
         _selection.each(function(_data) {
-
             var chartW = width - margin.left - margin.right,
-                chartH = height - margin.top - margin.bottom;
+                   chartH = height - margin.top - margin.bottom;
 
-            var x1 = d3.scale.ordinal()
-                .domain(_data.map(function(d, i){ return i; }))
-                .rangeRoundBands([0, chartW], .1);
+               var x1 = d3.scale.ordinal()
+                   .domain(_data.map(function(d, i){ return i; }))
+                   .rangeRoundBands([0, chartW], .1);
 
-            var y1 = d3.scale.linear()
-                .domain([0, d3.max(_data, function(d, i){ return d; })])
-                .range([chartH, 0]);
+               var y1 = d3.scale.linear()
+                   .domain([0, d3.max(_data, function(d, i){ return d; })])
+                   .range([chartH, 0]);
 
-            var xAxis = d3.svg.axis()
-                .scale(x1)
-                .orient('bottom');
+               var xAxis = d3.svg.axis()
+                   .scale(x1)
+                   .orient('bottom');
 
-            var yAxis = d3.svg.axis()
-                .scale(y1)
-                .orient('left');
+               var yAxis = d3.svg.axis()
+                   .scale(y1)
+                   .orient('left');
 
-            var barW = chartW / _data.length;
+               var barW = chartW / _data.length;
+
 
             if(!svg) {
                 svg = d3.select(this)

@@ -75,20 +75,45 @@ app.directive('chartForm',['$http',  function($http){
         restrict: 'E',
         replace: true,
         controller: function AppCtrl ($scope) {
-            $scope.goToTagsBar = function(d, i){ $scope.data = randomData(); };
+
+            $scope.goToTagsBar = function(d, i){  tagsData(); };
             $scope.goToCompaniesBar = function(d, i){ $scope.data = companiesData(); };
-            $scope.goToPositionsBar = function(d, i){ $scope.data = randomData(); };
+            $scope.goToPositionsBar = function(d, i){ $scope.data = randomData();
+            };
+
             function randomData(){
-                return d3.range(~~(Math.random()*50)+1).map(function(d, i){return ~~(Math.random()*1000);});
+              var rangable = ~~(Math.random()*50)+1; // int between 1 - 51
+              var d3R = d3.range(rangable);
+              var mapped =  d3R.map(function(dataPoint){
+                  return ~~(Math.random()*1000);
+                });
+              // mapped is going to be a list of elements with length = rand between 1-50
+              // and all of it's members will be random ints between 0-1000
+               
+               return mapped
             }            
 
-            function companiesData(){               
-                    $http({
+            // function companiesData(){               
+            //         $http({
+            //           method: "GET",
+            //           url: "/api/companies"
+            //       }).then(function(companies) {
+            //           //array of company objects
+            //           console.log(companies.data);
+            //       })
+            // }            
+
+            function tagsData(){               
+                   $http({
                       method: "GET",
-                      url: "/api/companies"
-                  }).then(function(companies) {
-                      //array of company objects
-                      console.log(companies.data);
+                      url: "/api/qtags"
+                  }).then(function(qtags) {
+                      // array of qtags objects
+                      // var tmp = qtags.data.map(function(dataPoint) {
+                      //   return dataPoint.id;
+                      // })
+                      // // $scope.data = qtags.data;
+                      // $scope.data = tmp;
                   })
             }
         },

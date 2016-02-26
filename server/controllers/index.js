@@ -5,6 +5,8 @@ var bcrypt = require('bcrypt');
 var knex = require('../../db/knex');
 var  jwt = require('jsonwebtoken');
 var companies = require('../models/companies');
+var QwithTags = require('../models/questions')
+var Tags = require('../models/tags')
 
 // SIGNUP
 router.post('/users', function(req, res) {
@@ -86,9 +88,11 @@ router.post('/login', function(req, res) {
     });
 });
 
-// GET all companies
-router.get('/companies', function(req, res) {
-   	companies.AllCompanies().then(function(data){
+// GET all questions with tags
+router.get('/qtags', function(req, res) {
+   	Tags.allTags()
+            .innerJoin('question_tags', 'tags.id' , 'tag_id')
+            .then(function(data){
    		res.json(data);
    	});
    	
