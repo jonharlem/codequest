@@ -93,8 +93,12 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   };
 
 	$scope.submitInterview = function(interviewForm) {
-		console.log(interviewForm);
-		$http.post('/interview', $scope.interview).then(function() {
+		// console.log(interviewForm);
+		// console.log(interviewForm.tags);
+
+		$http.post('/interview', $scope.interview).then(function(data) {
+			console.log('hehe');
+			console.log(data);
 		    $scope.interview = {};
 		    $scope.interview.tags = [];
 		    $scope.showInterviewModal = !$scope.showInterviewModal;

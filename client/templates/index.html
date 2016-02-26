@@ -120,6 +120,10 @@
  <!-- INTERVIEW FORM -->
     <modal type="text/ng-template" id="interviewForm" title="Add a Question" visible="showInterviewModal">
         <form role="form" ng-submit="submitInterview(interview)" name="interview">
+          <div class="form-group">
+              <label for="title">Title</label>
+              <input type="input" id="title" ng-model="interview.title" class="form-control" type="text" placeholder="e.g. Interview for Apple" required>
+          </div>
             <div class="form-group">
                 <label for="questions">Question</label>
                 <textarea id="questions" ng-model="interview.question" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
@@ -127,7 +131,7 @@
 
             <div class="form-group">
                 <label for="tags">Tags</label>
-                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.tags" theme="bootstrap" sortable="true">
+                <ui-select multiple ng-model="interview.tags" theme="bootstrap" sortable="true" style="width: 100%;height;">
                   <ui-select-match placeholder="e.g. html, css">{{$item.name}}</ui-select-match>
                   <ui-select-choices repeat="tag in tags | filter:$select.search">
                     {{tag.name}}
@@ -138,7 +142,7 @@
             <div class="form-group">
                 <label for="companyName">Company Name</label>
                 <select class="form-control" ng-model="interview.companyName" name="companyName">
-                  <option ng-repeat="company in companies | orderBy: 'name'" value="{{ company.id }}">
+                  <option ng-repeat="company in companies | orderBy: 'name'" value="{{ company.name }}">
                     {{ company.name }}
                   </option>
                 </select>
@@ -167,7 +171,7 @@
             </div>
 
             <div class="modal-footer">
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button class="btn btn-primary" type="submit" ng-disabled="interview.$invalid">Submit</button>
             </div>
         </form>
     </modal>
@@ -181,7 +185,7 @@
         <div class="row">
           <div class="col-lg-11">
             <span class="input-group-btn">
-              <ui-select multiple ng-model="filterTags.tags" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a tag">
+              <ui-select multiple ng-model="filterTags.tags" tagging tagging-label="(custom 'new' label)" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a tag">
                 <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
                 <ui-select-choices repeat="skill in skills | filter:$select.search">
                   {{skill}}
