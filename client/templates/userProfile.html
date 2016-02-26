@@ -1,56 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    
-
-
-    <!-- user name and/or icon for user -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-2">
-            	<h4>{{ User Name }}</h4>
-            	<img src="http://placebear.com/200/200">
-            </div>
+<!-- user name and/or icon for user -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2">
+            <h4>{{ user.name }}</h4>
+            <img src="{{ user.image }}">
         </div>
     </div>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-4">
-				<h4>User Name</h4>
-				<input type="text" size="35">
-				<h4>Old Email</h4>
-				<input type="email" size="35">
-				<h4>Enter New Email</h4>
-				<input type="email" size="35">
-				<br>
-				<br>
-				<button type="button" class="btn btn-success">Update Details</button>
-			</div>
-			<div class="col-sm-4">
-				<h4>Enter Old Password</h4>
-				<input type="password" size="55">
-				<h4>Enter New Password</h4>
-				<input type="password" size="55">
-				<h4>Confirm New Password</h4>
-				<input type="password" size="55">
-				<br>
-				<br>
-				<button type="button" class="btn btn-warning">Change Password</button>
-			</div>
-		</div>		
-	</div>
-
-
-</body>
-
-</html>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>User Name</h4>
+            <input type="text" size="35" ng-model="user.name">
+            <h4>Old Email</h4>
+            <input type="email" size="35">
+            <h4>Enter New Email</h4>
+            <input type="email" size="35">
+            <br>
+            <br>
+            <button type="button" class="btn btn-success">Update Details</button>
+        </div>
+        <div class="col-sm-4">
+            <h4>Enter Old Password</h4>
+            <input type="password" size="55">
+            <h4>Enter New Password</h4>
+            <input type="password" size="55">
+            <h4>Confirm New Password</h4>
+            <input type="password" size="55">
+            <br>
+            <br>
+            <button type="button" class="btn btn-warning">Change Password</button>
+        </div>
+    </div>
+</div>

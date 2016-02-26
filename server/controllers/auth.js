@@ -13,7 +13,8 @@ var User = function() {
 function createJWT(user) {
   var payload = {
     id: user.id,
-    name: user.name
+    name: user.name,
+    image: user.image
   };
 
   return jwt.sign(payload, process.env.TOKEN_SECRET, { expiresIn: "7d" });

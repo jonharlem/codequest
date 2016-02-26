@@ -9,7 +9,7 @@
     "name":"Hiring Manager"
   },
   {
-    "name":"Per Programming"
+    "name":"Paired Programming"
   },
   {
     "name":"Developers' Team"
@@ -17,4 +17,5 @@
   {
     "name": "Timed Coding Challenge"
   }
+
 ]

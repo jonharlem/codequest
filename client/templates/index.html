@@ -20,6 +20,9 @@
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
      <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 
+     <!-- ui bootstrap for angular -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+
 
     <!-- select 2 for search functionality -->
     <link rel="stylesheet" type="text/css" href="/client/css/ui-select.css">
@@ -44,7 +47,9 @@
   <nav class="navbar navbar-inverse">
       <div class="container">
           <div class="navbar-header">
-              <a class="navbar-brand" href="#"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
+              <a class="navbar-brand" href="/#/">
+                <img src="/client/assets/codequest.png">
+              </a>
           </div>
 
         <ul class="nav navbar-nav navbar-right">
@@ -86,6 +91,8 @@
       </div>
 
       <button type="submit" class="btn btn-default" ng-click='signedIn()'>Submit</button>
+      <button class="btn btn-primary" ng-click="authenticate('github')">Sign up with GitHub</button>
+      <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign up with LinkedIn</button>
     </form>
   </modal>
 
@@ -108,19 +115,72 @@
       <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
     </form>
   </modal>
+
+ <!-- INTERVIEW FORM -->
+    <modal type="text/ng-template" id="interviewForm" title="Add a Question" visible="showInterviewModal">
+        <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
+            <div class="form-group">
+                <label for="questions">Question</label>
+                <textarea id="questions" ng-model="interview.question" class="form-control" type="text" placeholder="e.g. What is a “closure” in JavaScript?" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.tags" theme="bootstrap" sortable="true">
+                  <ui-select-match placeholder="e.g. html, css">{{$item.name}}</ui-select-match>
+                  <ui-select-choices repeat="tag in tags | filter:$select.search">
+                    {{tag.name}}
+                  </ui-select-choices>
+                </ui-select>
+            </div>
+
+            <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <select class="form-control" ng-model="interview.companyName" name="companyName">
+                  <option ng-repeat="company in companies | orderBy: 'name'" value="{{ company.id }}">
+                    {{ company.name }}
+                  </option>
+                </select>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="type">Type of Interview</label>
+                    <div class="radio" ng-repeat="type in types">
+                      <label>
+                        <input type="radio" name="type" ng-model="interview.type" value="{{type.id}}" required>
+                        {{type.name}}
+                      </label>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="position">Position</label>
+                    <div class="radio" ng-repeat="position in positions">
+                      <label>
+                        <input type="radio" name="position" ng-model="interview.position" value="{{position}}" required>
+                        {{position}}
+                      </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </form>
+    </modal>
+
 <!-- SEARCH -->
    <div class="container" ng-controller="SearchController">
       <div class="jumbotron" id="searchJumbo">
-        <div>
-          
-        </div>
         <div class="row">
           <div class="col-lg-11">
             <span class="input-group-btn">
-              <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
+              <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
                 <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
-                <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                  {{color}}
+                <ui-select-choices repeat="skill in skills | filter:$select.search">
+                  {{skill}}
                 </ui-select-choices>
               </ui-select>
             </span>
@@ -129,11 +189,12 @@
           <div class="col-lg-1">
             <button class="btn btn-default" id="searchBtn" type="button">Search</button>
           </div>
+
         </div><!-- /.row -->
         <div class="row">
           <div class="col-lg-11">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
-              
+
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Position
@@ -164,21 +225,18 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">jQuery</a></li>
-                  <li><a href="#">Node.js</a></li>
-                  <li><a href="#">Rails</a></li>
+                  <li ng-repeat="skill in skills" ng-click="itemSelected(skill)"><a href="#">{{skill}}</a></li>
                 </ul>
               </div>
-              
+
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Company
                 <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Google</a></li>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Amazon</a></li>
+                <ul class="dropdown-menu scroll">
+                  <li ng-repeat="company in companies" ng-click="itemSelected(company)"><a href="#">{{company}}</a></li>
+
                 </ul>
               </div>
 
@@ -186,6 +244,7 @@
             </div>
           </div>
         </div> <!-- / button group row -->
+<<<<<<< HEAD
 
       </div>
     </div>
@@ -197,9 +256,17 @@
               <chart-form></chart-form>
               <bar-chart height="options.height" data="data" info="info" hovered="hovered(args)"></bar-chart>
               <!--<bar-chart height="300" data="data" hovered="hovered(args)></bar-chart>-->
+=======
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <button id="addQuestionBtn" ng-click="toggleModalInterview()" type="button" class="btn">Add a Question</button>
+>>>>>>> a5ab50203f5a6843328e486dab17bdcec833927f
           </div>
+        </div>
       </div>
     </div>
+     <!-- show results here -->
+
     <!-- ng-view -->
     <div ng-view>
     </div>

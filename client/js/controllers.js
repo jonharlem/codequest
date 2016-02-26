@@ -1,7 +1,8 @@
 var app = angular.module('codequest');
 
-app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
 
+	$scope.showInterviewModal = false;
 	$scope.showModal = false;
 	$scope.user = {};
 	$scope.posts = [];
@@ -72,9 +73,40 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   $scope.isAuthenticated = function() {
     return $auth.isAuthenticated() || localStorage.getItem("jwt");
   };
+
+  //  For the interview question form
+	$http.get('/interviewTypes').then(function(response) {
+		$scope.types = response.data;
+	});
+	$http.get('/tags').then(function(response) {
+		$scope.tags = response.data;
+	});
+	$http.get('/companies').then(function(response) {
+		$scope.companies = response.data;
+	})
+	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
+
+  $scope.interview = {};
+
+  $scope.toggleModalInterview = function() {
+  	$scope.showInterviewModal = !$scope.showInterviewModal;
+  }
+
+	$scope.submitInterview = function(interviewForm) {
+		$http.post('/interview', $scope.interview).then(function() {
+		    $scope.interview = {};
+		    $scope.interview.tags = [];
+		    $scope.showInterviewModal = !$scope.showInterviewModal;
+		});
+	}
+});
+
+app.controller('SettingsController', function($scope, $auth) {
+	$scope.user = $auth.getPayload();
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
+
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
 	           $scope.hovered = function(d){
 	               $scope.barValue = d;
@@ -112,9 +144,33 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           })
 });
 
-app.controller('SearchController', function($scope){
-	$scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+app.controller('SearchController', function($scope, $http){
+	$scope.availableColors = [];
 	$scope.multipleDemo = {};
+	$scope.skills = [];
+	$scope.companies = [];
+
+	$http({
+		method:'GET',
+		url: '/companies'
+	}).then(function(data){
+		$scope.companies = data.data.map(function(company){
+			return company.name;
+		});
+	}).then(function(){
+		$http({
+			method:'GET',
+			url:'/tags'
+		}).then(function(data){
+			 $scope.skills = data.data.map(function(skill){
+				 return skill.name;
+			 });
+		});
+	});
+
+	$scope.itemSelected = function(item){
+		console.log(item);
+	}
 	// $scope.multipleDemo.colors = ['Blue','Red'];
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
@@ -124,6 +180,9 @@ app.controller('SearchController', function($scope){
 		{id: 5, name: 'fifth'},
 	];
 	$scope.selected = { value: $scope.itemArray[0] };
+	$scope.select2Options = {
+		'multiple': true,
+        'simple_tags': true,
+        'tags': ['tag1', 'tag2', 'tag3', 'tag4']
+	}
 })
-
-
