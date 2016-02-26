@@ -24,6 +24,8 @@ app.use('/api', router.index);
 app.use('/auth', router.auth);
 app.use('/users', router.users);
 app.use('/companies', router.companies);
+app.use('/tags', router.tags);
+
 
 // always redirect to angular app for routes
 // are not registered

@@ -163,9 +163,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">jQuery</a></li>
-                  <li><a href="#">Node.js</a></li>
-                  <li><a href="#">Rails</a></li>
+                  <li ng-repeat="skill in skills"><a href="#">{{skill}}</a></li>
                 </ul>
               </div>
 
@@ -175,7 +173,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu scroll">
-                  <li ng-repeat="item in items"><a href="#">{{item}}</a></li>
+                  <li ng-repeat="company in companies"><a href="#">{{company}}</a></li>
 
                 </ul>
               </div>

@@ -92,10 +92,20 @@ app.controller('SearchController', function($scope, $http){
 		method:'GET',
 		url: '/companies'
 	}).then(function(data){
-		$scope.items = data.data.map(function(company){
+		$scope.companies = data.data.map(function(company){
 			return company.name;
 		});
+	}).then(function(){
+		$http({
+			method:'GET',
+			url:'/tags'
+		}).then(function(data){
+			 $scope.skills = data.data.map(function(skill){
+				 return skill.name;
+			 });
+		});
 	});
+	
 	// $scope.multipleDemo.colors = ['Blue','Red'];
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
