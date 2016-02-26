@@ -111,7 +111,7 @@
    <div class="container" ng-controller="SearchController">
       <div class="jumbotron" id="searchJumbo">
         <div>
-          
+
         </div>
         <div class="row">
           <div class="col-lg-11">
@@ -144,7 +144,7 @@
         <div class="row">
           <div class="col-lg-11">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
-              
+
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Position
@@ -175,21 +175,18 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li><a href="#">jQuery</a></li>
-                  <li><a href="#">Node.js</a></li>
-                  <li><a href="#">Rails</a></li>
+                  <li ng-repeat="skill in skills"><a href="#">{{skill}}</a></li>
                 </ul>
               </div>
-              
+
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Company
                 <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Google</a></li>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Amazon</a></li>
+                <ul class="dropdown-menu scroll">
+                  <li ng-repeat="company in companies"><a href="#">{{company}}</a></li>
+
                 </ul>
               </div>
 
@@ -200,7 +197,7 @@
 
       </div>
     </div>
-
+     <!-- show results here -->
     <!-- D3 DASHBOARD -->
     <div class="container" >
       <div class="jumbotron text-center">

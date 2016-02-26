@@ -75,7 +75,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
-	
+
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
 	           $scope.data = [1, 2, 3, 4];
 	           $scope.hovered = function(d){
@@ -85,9 +85,27 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           $scope.barValue = 'None';
 });
 
-app.controller('SearchController', function($scope){
-	$scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
+app.controller('SearchController', function($scope, $http){
+	$scope.availableColors = [];
 	$scope.multipleDemo = {};
+	$http({
+		method:'GET',
+		url: '/companies'
+	}).then(function(data){
+		$scope.companies = data.data.map(function(company){
+			return company.name;
+		});
+	}).then(function(){
+		$http({
+			method:'GET',
+			url:'/tags'
+		}).then(function(data){
+			 $scope.skills = data.data.map(function(skill){
+				 return skill.name;
+			 });
+		});
+	});
+	
 	// $scope.multipleDemo.colors = ['Blue','Red'];
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
@@ -98,5 +116,3 @@ app.controller('SearchController', function($scope){
 	];
 	$scope.selected = { value: $scope.itemArray[0] };
 })
-
-
