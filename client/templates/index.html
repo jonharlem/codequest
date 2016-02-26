@@ -111,7 +111,7 @@
         <div class="row">
           <div class="col-lg-12">
             <span class="input-group-btn">
-                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
+                <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
                   <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
                   <ui-select-choices repeat="color in availableColors | filter:$select.search">
                     {{color}}
