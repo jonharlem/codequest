@@ -174,12 +174,10 @@ app.controller('SearchController', function($scope, $http, $location, $route,Sea
 });
 
 app.controller('QuestionsController', function($scope, $http, SearchService) {
-	console.log("Questions ctrl")
 	$scope.questions = [];
 	SearchService.tags.forEach(function(tag) {
 		$http.get('/questions/' + tag).then(function(response) {
 			$scope.questions = $scope.questions.concat(response.data);
-			console.log(tag);
 		});
 	});
 });
