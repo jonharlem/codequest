@@ -53,8 +53,8 @@ app.directive('barChart', function(){
             hovered: '&hovered'
         },
         link: function(scope, element, attrs) {
-            var chartEl = d3.select(element[0]);
 
+            var chartEl = d3.select(element[0]);
             chart.on('customHover', function(d, i){
                 scope.hovered({args:d});
             });
@@ -63,9 +63,9 @@ app.directive('barChart', function(){
                 chartEl.datum(newVal).call(chart);
             });            
 
-            // scope.$watch('info', function (newVal, oldVal) {
-            //     chartEl.datum(newVal).call(chart);
-            // });
+            scope.$watch('info', function (newVal, oldVal) {
+                chartEl.datum(newVal).call(chart);
+            });
 
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
@@ -115,7 +115,7 @@ app.directive('chartForm',['$http',  function($http){
 
             };
 
-            $scope.goToCompaniesBar = function(d, i){ $scope.data = companiesData(); };
+            $scope.goToCompaniesBar = function(d, i){ $scope.data =  randomData();};
             $scope.goToPositionsBar = function(d, i){ $scope.data = randomData();
             };
 
@@ -129,17 +129,7 @@ app.directive('chartForm',['$http',  function($http){
               // and all of it's members will be random ints between 0-1000
                
                return mapped
-            }            
-
-            // function companiesData(){               
-            //         $http({
-            //           method: "GET",
-            //           url: "/api/companies"
-            //       }).then(function(companies) {
-            //           //array of company objects
-            //           console.log(companies.data);
-            //       })
-            // }            
+            }                   
         },
           template: '<div class="form">' +
                     '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="tagsData()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +

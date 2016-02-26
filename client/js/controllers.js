@@ -118,7 +118,6 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	               method: "GET",
 	               url: "/api/qtags"
 	           }).then(function(qtags) {
-
 	               var tags = qtags.data.map(function(dataPoint) {
 	                 return dataPoint.name;
 	               })
