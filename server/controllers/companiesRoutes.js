@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-var tags = require('./../models/tags');
+var companies = require('./../models/companies');
 
 router.get('/', function(req, res){
-  tags.allTags().then(function(tagsData){
-    res.json(tagsData);
+  companies.AllCompanies().then(function(companiesData){
+    res.json(companiesData);
   });
 });
 
