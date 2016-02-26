@@ -17,6 +17,10 @@
 	color: black;
 }
 
+.navbar-inverse .navbar-nav>li>a:focus{
+	color: black;
+}
+
 #signInBtnText {
 	height: 20px;
 	color: #EF6D6D;
@@ -31,4 +35,9 @@
 	width: 100px;
 	font-weight: 600;
 	background-color: #C9C9C9;
+}
+
+.dropdown-menu.scroll{
+	overflow: scroll;
+	max-height: 200px;
 }
