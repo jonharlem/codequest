@@ -83,14 +83,14 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	});
 	$http.get('/companies').then(function(response) {
 		$scope.companies = response.data;
-	})
+	});
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 
   $scope.interview = {};
 
   $scope.toggleModalInterview = function() {
   	$scope.showInterviewModal = !$scope.showInterviewModal;
-  }
+  };
 
 	$scope.submitInterview = function(interviewForm) {
 		$http.post('/interview', $scope.interview).then(function() {
@@ -98,7 +98,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 		    $scope.interview.tags = [];
 		    $scope.showInterviewModal = !$scope.showInterviewModal;
 		});
-	}
+	};
 });
 
 app.controller('SettingsController', function($scope, $auth) {
@@ -116,14 +116,8 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           $scope.barValue = 'None';
 });
 
-<<<<<<< HEAD
-app.controller('SearchController', function($scope, $http){
-	// $scope.availableColors = [];
-	$scope.filterTags = {};
-=======
 app.controller('SearchController', function($scope, $http, $location, SearchService){
-	$scope.multipleDemo = {};
->>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
+	$scope.filterTags = {};
 	$scope.skills = [];
 	$scope.companies = [];
 
@@ -147,7 +141,7 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 
 	$scope.itemSelected = function(item){
 		console.log(item);
-	}
+	};
 
 	$scope.filterTags = {};
 	$scope.filterTags.tags = ['test'];
@@ -159,26 +153,20 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 		{id: 4, name: 'fourth'},
 		{id: 5, name: 'fifth'},
 	];
-<<<<<<< HEAD
+
 	// $scope.selected = { value: $scope.itemArray[0] };
-=======
-	$scope.selected = { value: $scope.itemArray[0] };
 
 	$scope.search = function() {
 		SearchService.tags = $scope.multipleDemo.colors;
-		$location.path('/search')
+		$location.path('/search');
 	};
->>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
+
 	$scope.select2Options = {
 		'multiple': true,
         'simple_tags': true,
         'tags': ['tag1', 'tag2', 'tag3', 'tag4']
-<<<<<<< HEAD
 	};
 });
-=======
-	}
-})
 
 app.controller('QuestionsController', function($scope, $http, SearchService) {
 	$scope.questions = [];
@@ -190,10 +178,3 @@ app.controller('QuestionsController', function($scope, $http, SearchService) {
 	});
 });
 
-
-
-
-
-
-
->>>>>>> 52a858bbd6b0029a9495b1711b54f7e3494f6c4b
