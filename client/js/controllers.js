@@ -83,14 +83,14 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	});
 	$http.get('/companies').then(function(response) {
 		$scope.companies = response.data;
-	})
+	});
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 
   $scope.interview = {};
 
   $scope.toggleModalInterview = function() {
   	$scope.showInterviewModal = !$scope.showInterviewModal;
-  }
+  };
 
 	$scope.submitInterview = function(interviewForm) {
 		$http.post('/interview', $scope.interview).then(function() {
@@ -98,7 +98,7 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 		    $scope.interview.tags = [];
 		    $scope.showInterviewModal = !$scope.showInterviewModal;
 		});
-	}
+	};
 });
 
 app.controller('SettingsController', function($scope, $auth) {
@@ -117,7 +117,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 });
 
 app.controller('SearchController', function($scope, $http, $location, SearchService){
-	$scope.multipleDemo = {};
+	$scope.filterTags = {};
 	$scope.skills = [];
 	$scope.companies = [];
 
@@ -140,9 +140,14 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 	});
 
 	$scope.itemSelected = function(item){
-		console.log(item);
-	}
-	// $scope.multipleDemo.colors = ['Blue','Red'];
+		if($scope.filterTags.tags.indexOf(item)){
+			$scope.filterTags.tags.push(item);
+		}
+	};
+
+	$scope.filterTags = {};
+	$scope.filterTags.tags = [];
+
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
 		{id: 2, name: 'second'},
@@ -150,18 +155,20 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 		{id: 4, name: 'fourth'},
 		{id: 5, name: 'fifth'},
 	];
-	$scope.selected = { value: $scope.itemArray[0] };
+
+	// $scope.selected = { value: $scope.itemArray[0] };
 
 	$scope.search = function() {
-		SearchService.tags = $scope.multipleDemo.colors;
-		$location.path('/search')
+		SearchService.tags = $scope.filterTags.tags;
+		$location.path('/search');
 	};
+
 	$scope.select2Options = {
 		'multiple': true,
         'simple_tags': true,
         'tags': ['tag1', 'tag2', 'tag3', 'tag4']
-	}
-})
+	};
+});
 
 app.controller('QuestionsController', function($scope, $http, SearchService) {
 	$scope.questions = [];
@@ -172,10 +179,4 @@ app.controller('QuestionsController', function($scope, $http, SearchService) {
 		});
 	});
 });
-
-
-
-
-
-
 
