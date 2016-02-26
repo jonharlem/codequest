@@ -71,9 +71,10 @@ function generateQuestionTagCallback(i){
       // add to questions_tags db
       knex('question_tags').insert({
         question_id: questionID,
-        tag_id: tag.id
+        tag_id: tag.id,
+        question:questionsData[i].question,
+        tag:questionsData[i].tag
       }).then(function(){
-        console.log('tag added to Question');
       });
     });
   }).catch(function(error){
