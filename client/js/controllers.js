@@ -111,6 +111,8 @@ app.controller('SettingsController', function($scope, $auth) {
 });
 
 app.controller('D3dashboard', function($scope, $location, $http) {
+	$scope.data = [
+	];
 
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
 	           $scope.hovered = function(d){
@@ -127,22 +129,22 @@ app.controller('D3dashboard', function($scope, $location, $http) {
                       var tags = qtags.data.map(function(dataPoint) {
                         return dataPoint.name;
                       })
+										// item(label) counter function
+                   function _counter(data) {
+                       var lables = [], labelCounter = [], prevLabel;
 
-                   function _counter(arr) {
-                       var a = [], b = [], prev;
-
-                       arr.sort();
-                       for ( var i = 0; i < arr.length; i++ ) {
-                           if ( arr[i] !== prev ) {
-                               a.push(arr[i]);
-                               b.push(1);
+                       data.sort();
+                       for ( var i = 0; i < data.length; i++ ) {
+                           if ( data[i] !== prevLabel ) {
+                               lables.push(data[i]);
+                               labelCounter.push(1);
                            } else {
-                               b[b.length-1]++;
+                               labelCounter[labelCounter.length-1]++;
                            }
-                           prev = arr[i];
+                           prevLabel = data[i];
                        }
 
-                       return [a, b];
+                       return [lables, labelCounter];
                    }
 
                   $scope.data = [];
@@ -158,7 +160,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
                              });
                       }
 
-            }) 
+            })
 });
 
 app.controller('SearchController', function($scope, $http, $location, $route,SearchService){
