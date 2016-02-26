@@ -142,14 +142,14 @@
                   </ui-select-choices>
                 </ui-select>
             </div>
-            
+
             <!-- add a new company -->
             <div class="form-group">
                 <label for="companyName">Company Name</label>
                 <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.companyName" theme="bootstrap" sortable="true">
                   <ui-select-match placeholder="e.g. Facebook">{{$item.name}}</ui-select-match>
                   <ui-select-choices repeat="company in companies | orderBy: 'name'">
-                    {{ company.name }} 
+                    {{ company.name }}
                   </ui-select-choices>
                 </ui-select>
             </div>
@@ -268,7 +268,6 @@
             </div>
           </div>
         </div> <!-- / button group row -->
-<<<<<<< HEAD
         <br>
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -276,19 +275,13 @@
           </div>
         </div>
         <br>
-=======
->>>>>>> d03601b572d0cc88491f52915541c64bf6acf868
-      </div>
+            </div>
     </div>
 
     <!-- ng-view -->
     <div ng-view>
     </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> d03601b572d0cc88491f52915541c64bf6acf868
 </body>
 
 </html>
