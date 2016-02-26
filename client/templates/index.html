@@ -11,19 +11,21 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-resource.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.js"></script>
 
-    <!--  bootsrap, jQuery, d3.js here -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="client/css/BarChart.css">
-    <base href="/">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
+     <!--  bootsrap, jQuery, d3.js here -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/client/css/BarChart.css">
+     <link rel="stylesheet" href="/client/css/style.css">
+     <base href="/">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 
-    <!-- ui bootstrap for angular -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+     <!-- ui bootstrap for angular -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.1.2/ui-bootstrap-tpls.js"></script>
+
 
     <!-- select 2 for search functionality -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/ui-select.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
@@ -35,66 +37,82 @@
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
     <script src="/client/js/directives.js"></script>
+
+
+
 </head>
 
 <body ng-controller="NavbarController">
-    <nav class="navbar navbar-inverse">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">CodeQuest</a>
-            </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/#/about">About</a></li>
-                <li><a ng-click="toggleModalInterview()">Add Question</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
-                <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()">Sign In</a></li>
-                <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
-                <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Sign up form -->
-    <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showModal">
-        <form role="form" ng-submit="signup()">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" ng-model="user.name" class="form-control" type="text" name="username" placeholder="Name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input id="email" ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Confirm Password</label>
-                <input id="password" ng-model="user.passwordConfirm" class="form-control" type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-default" ng-click='signedIn()'>Submit</button>
-        </form>
-    </modal>
-    <!-- Sign in Form -->
-    <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showSignInModal">
-        <form role="form" ng-submit="login()">
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input id="email" ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btn btn-default" ng-click="signedIn()">Submit</button>
-            <button class="btn btn-primary" ng-click="authenticate('github')">Sign in with GitHub</button>
-            <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
-        </form>
-    </modal>
+  <nav class="navbar navbar-inverse">
+      <div class="container">
+          <div class="navbar-header">
+              <a class="navbar-brand" href="#"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
+          </div>
 
-    <!-- INTERVIEW FORM -->
+        <ul class="nav navbar-nav navbar-right">
+          <!-- <div id="navBtns"> -->
+            <li><a href="/#/about">about</a></li>
+            <li><a ng-click="toggleModalInterview()">Add a Question</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" id="signInBtnText">sign in</a></li>
+            <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
+            <li ng-if="isAuthenticated()"><a ng-click="logout()">sign Out</a></li>
+          <!-- </div> -->
+
+        </ul>
+      </div>
+  </nav>
+
+  <!-- Sign up form -->
+  <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showModal">
+
+    <form role="form" ng-submit="signup()">
+
+      <div  class="form-group">
+        <label for="name">Name</label>
+         <input id="name"  ng-model="user.name" class="form-control" type="text" name="username" placeholder="Name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email" >E-mail</label>
+         <input id="email"  ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" ng-model="user.password" class="form-control" type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password" >Confirm Password</label>
+        <input id="password" ng-model="user.passwordConfirm" class="form-control" type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="btn btn-default" ng-click='signedIn()'>Submit</button>
+    </form>
+  </modal>
+
+  <!-- Sign in Form -->
+  <modal title="Welcome to CodeQuest" subtitle="Please provide your information below" visible="showSignInModal">
+    <form role="form" ng-submit="login()">
+
+      <div class="form-group">
+          <label for="email" >E-mail</label>
+          <input id="email"  ng-model="user.email" class="form-control" type="email" name="email" placeholder="email@mail.com" required>
+      </div>
+
+      <div class="form-group">
+          <label for="password">Password</label>
+          <input id="password"  ng-model="user.password"  class="form-control" type="password" name="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="btn btn-default" ng-click="signedIn()">Submit</button>
+      <button class="btn btn-primary" ng-click="authenticate('github')">Sign in with GitHub</button>
+      <button class="btn btn-primary" ng-click="authenticate('linkedin')">Sign in with LinkedIn</button>
+    </form>
+  </modal>
+
+ <!-- INTERVIEW FORM -->
     <modal type="text/ng-template" id="interviewForm" title="Add a Question" visible="showInterviewModal">
         <form role="form" ng-submit="submitInterview(interviewForm)" name="interviewForm">
             <div class="form-group">
@@ -114,7 +132,11 @@
 
             <div class="form-group">
                 <label for="companyName">Company Name</label>
-                <input id="companyName" ng-model="interview.companyName" class="form-control" type="text" placeholder="e.g. Google or Apple" required>
+                <select class="form-control" ng-model="interview.companyName" name="companyName">
+                  <option ng-repeat="company in companies | orderBy: 'name'" value="{{ company.id }}">
+                    {{ company.name }}
+                  </option>
+                </select>
             </div>
 
             <div class="row">
@@ -147,24 +169,30 @@
 
 <!-- SEARCH -->
    <div class="container" ng-controller="SearchController">
-      <div class="jumbotron">
+      <div class="jumbotron" id="searchJumbo">
+        <div>
+          
+        </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-11">
             <span class="input-group-btn">
-                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
-                  <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
-                  <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                    {{color}}
-                  </ui-select-choices>
-                </ui-select>
-                <button class="btn btn-default" type="button">Go!</button>
-              </span>
-          </div><!-- / .col-lg-12 -->
+              <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
+                <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
+                <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                  {{color}}
+                </ui-select-choices>
+              </ui-select>
+            </span>
+          </div>
+          <!-- / .col-lg-11 -->
+          <div class="col-lg-1">
+            <button class="btn btn-default" id="searchBtn" type="button">Search</button>
+          </div>
         </div><!-- /.row -->
-        <div class="row" style="width: 96%">
-          <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-11">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
-
+              
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Position
@@ -200,7 +228,7 @@
                   <li><a href="#">Rails</a></li>
                 </ul>
               </div>
-
+              
               <div class="btn-group" role="group">
                 <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Company
@@ -216,19 +244,20 @@
 
             </div>
           </div>
-        </div>
+        </div> <!-- / button group row -->
+
       </div>
     </div>
 
     <!-- D3 DASHBOARD -->
-    <div class="container">
-        <div class="jumbotron text-center">
-            <div ng-controller="D3dashboard">
-                <chart-form></chart-form>
-                <bar-chart height="options.height" data="data" hovered="hovered(args)"></bar-chart>
-                <!--<bar-chart height="300" data="data" hovered="hovered(args)></bar-chart>-->
-            </div>
-        </div>
+    <div class="container" >
+      <div class="jumbotron text-center">
+          <div ng-controller="D3dashboard">
+              <chart-form></chart-form>
+              <bar-chart height="options.height" data="data" hovered="hovered(args)"></bar-chart>
+              <!--<bar-chart height="300" data="data" hovered="hovered(args)></bar-chart>-->
+          </div>
+      </div>
     </div>
     <!-- ng-view -->
     <div ng-view>

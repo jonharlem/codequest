@@ -1,0 +1,29 @@
+/*NAV BAR*/
+
+.navbar-inverse {
+	background-color: white;
+	border-color: white;
+	min-height: 50px;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+	color: #4A4A4A;
+	font-size: 1.5em;
+	line-height: 40px;
+}
+
+#signInBtnText {
+	height: 20px;
+	color: #EF6D6D;
+}
+
+/*SEARCH*/
+#searchJumbo {
+	background-color: #698cbb;
+}
+
+#searchBtn {
+	width: 100px;
+	font-weight: 600;
+	background-color: #C9C9C9;
+}

@@ -81,6 +81,9 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
 	$http.get('/tags').then(function(response) {
 		$scope.tags = response.data;
 	});
+	$http.get('/companies').then(function(response) {
+		$scope.companies = response.data;
+	})
 	$scope.positions = ["Front End Developer", "Back End Developer", "Full Stack Developer", "UI/UX Developer"];
 
   $scope.interview = {};
