@@ -37,6 +37,8 @@
     <script src="/client/js/services.js"></script>
     <script src="/client/js/filters.js"></script>
     <script src="/client/js/directives.js"></script>
+    <script type="text/javascript" src="/client/js/barChart.js"></script>
+    <script type="text/javascript" src="/client/js/search.js"></script>
 
     <script type="text/javascript" src="/client/js/search.js"></script>
     <script type="text/javascript" src="/client/js/barChart.js"></script>
@@ -187,7 +189,7 @@
           </div>
           <!-- / .col-lg-11 -->
           <div class="col-lg-1">
-            <button class="btn btn-default" id="searchBtn" type="button">Search</button>
+            <button class="btn btn-default" id="searchBtn" type="button" ng-click="search()">Search</button>
           </div>
 
         </div><!-- /.row -->
@@ -250,7 +252,6 @@
     <!-- ng-view -->
     <div ng-view>
     </div>
-
 
 </body>
 
