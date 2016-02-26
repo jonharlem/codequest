@@ -7,17 +7,11 @@ var Interviews = function(){
 
 // create interview
 var addInterview = function(interview){
-  //check if interview already exist
-  return Interviews().where({id: interview.id}).first().then(function(foundInterview){
-    if(!foundInterview){
-      return Interviews().insert(interview).first().then(function(newInterview){
-        return newInterview;
-      });
-    }
-    else{
-      return 'interview is already there'
-    }
-  })
+
+  return Interviews().insert(interview).then(function(newInterview){
+    return newInterview;
+  });
+
 
 }
 // update interview
@@ -40,6 +34,17 @@ var interview = function(interviewID){
     return interview;
   });
 }
+
+ var addInterviewWithCompany= function(interview){
+   // add new interview
+   // get interview ID when done
+  // check if company exits
+  // if not, add new company then get the id
+  // if exits, get the company and it's ID
+  // get array of questions
+  // create questions for each one
+
+ }
 
 module.exports = {
   allInterviews: Interviews,

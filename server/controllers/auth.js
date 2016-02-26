@@ -4,7 +4,7 @@ var qs = require('querystring');
 var request = require("request");
 var jwt = require('jsonwebtoken');
 
-var knex = require("../db/knex");
+var knex = require("../../db/knex");
 var User = function() {
   return knex('users');
 }

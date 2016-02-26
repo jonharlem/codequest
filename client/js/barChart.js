@@ -112,3 +112,7 @@ d3.custom.barChart = function module() {
     d3.rebind(exports, dispatch, 'on');
     return exports;
 };
+
+// d3.select(window).on('resize', function(){
+ 
+// }); 

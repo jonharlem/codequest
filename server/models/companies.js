@@ -1,4 +1,5 @@
 var  knex = require('../../db/knex');
+var companiesData = require('./../../seeds/companies.json');
 
 // getting all companies
 var Companies = function(){
@@ -7,17 +8,8 @@ var Companies = function(){
 
 // create company
 var addCompany = function(company){
-  //check if company already exist
-  return Companies().where({id: company.id}).first().then(function(foundCompany){
-    if(!foundCompany){
-      return Companies().insert(company).first().then(function(newCompany){
-        return newCompany;
-      });
-    }
-    else{
-      return 'company is already there'
-    }
-  })
+  Companies().insert(company).then(function(newCompany){
+  });
 
 }
 // update company
@@ -41,10 +33,29 @@ var company = function(companyID){
   });
 }
 
+var  deleteAllCompanies = function(){
+    knex('companies').del();
+}
+
+// populated comapanies table with node server/models/companies
+var populatedDb = function(){
+  for(var i =0; i < companiesData.length; i++){
+    addCompany({
+      name: companiesData[i].name,
+      contactInfo: companiesData[i].contactInfo,
+      logo: companiesData[i].logo,
+      size: companiesData[i].size.toString(),
+      industry: companiesData[i].industry
+    });
+  }
+}
+
+
 module.exports = {
   AllCompanies: Companies,
   addCompany: addCompany,
   updateCompany: updateCompany,
   deleteCompany: deleteCompany,
-  company:company
+  company:company,
+  populateCompanies: populatedDb
 }

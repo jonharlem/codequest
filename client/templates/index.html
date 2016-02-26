@@ -13,7 +13,8 @@
 
      <!--  bootsrap, jQuery, d3.js here -->
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-     <link rel="stylesheet" href="client/css/BarChart.css">
+     <link rel="stylesheet" href="/client/css/BarChart.css">
+     <link rel="stylesheet" href="/client/css/style.css">
      <base href="/">
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -21,7 +22,7 @@
 
 
     <!-- select 2 for search functionality -->
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.css">
+    <link rel="stylesheet" type="text/css" href="/client/css/ui-select.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/css/select2.min.css" rel="stylesheet" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
@@ -42,17 +43,18 @@
   <nav class="navbar navbar-inverse">
       <div class="container">
           <div class="navbar-header">
-              <a class="navbar-brand" href="#">CodeQuest</a>
+              <a class="navbar-brand" href="#"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
           </div>
-          <ul class="nav navbar-nav">
-              <li><a href="/#/about">About</a></li>
-          </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">Sign Up</a></li>
-          <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" >Sign In</a></li>
-          <li ng-if="isAuthenticated()"><a href="/#/settings">Settings</a></li>
-          <li ng-if="isAuthenticated()"><a ng-click="logout()">Sign Out</a></li>
+          <!-- <div id="navBtns"> -->
+            <li><a href="/#/about">about</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
+            <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" id="signInBtnText">sign in</a></li>
+            <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
+            <li ng-if="isAuthenticated()"><a ng-click="logout()">sign Out</a></li>
+          <!-- </div> -->
+
         </ul>
       </div>
   </nav>
@@ -107,10 +109,14 @@
   </modal>
 <!-- SEARCH -->
    <div class="container" ng-controller="SearchController">
-      <div class="jumbotron">
+      <div class="jumbotron" id="searchJumbo">
+        <div>
+          
+        </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-11">
             <span class="input-group-btn">
+<<<<<<< HEAD
                 <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 90%;" title="Choose a color">
                   <ui-select-match placeholder="Search tags...">{{$item}}</ui-select-match>
                   <ui-select-choices repeat="color in availableColors | filter:$select.search">
@@ -120,9 +126,23 @@
                 <button class="btn btn-default" type="button">Go!</button>
               </span>
           </div><!-- / .col-lg-12 -->
+=======
+              <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
+                <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
+                <ui-select-choices repeat="color in availableColors | filter:$select.search">
+                  {{color}}
+                </ui-select-choices>
+              </ui-select>
+            </span>
+          </div>
+          <!-- / .col-lg-11 -->
+          <div class="col-lg-1">
+            <button class="btn btn-default" id="searchBtn" type="button">Search</button>
+          </div>
+>>>>>>> 585d5eeeb1028c152ff652cff1f133596df367d0
         </div><!-- /.row -->
-        <div class="row" style="width: 96%">
-          <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-11">
             <div class="btn-group btn-group-justified" role="group" aria-label="..." style="width: 100%">
               
               <div class="btn-group" role="group">
@@ -176,7 +196,8 @@
 
             </div>
           </div>
-        </div>
+        </div> <!-- / button group row -->
+
       </div>
     </div>
 
