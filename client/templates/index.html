@@ -141,7 +141,7 @@
                 <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.companyName" theme="bootstrap" sortable="true">
                   <ui-select-match placeholder="e.g. Facebook">{{$item.name}}</ui-select-match>
                   <ui-select-choices repeat="company in companies | orderBy: 'name'">
-                    {{ company.name }}
+                    {{ company.name }} 
                   </ui-select-choices>
                 </ui-select>
             </div>
