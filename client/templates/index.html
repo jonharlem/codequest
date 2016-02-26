@@ -118,8 +118,8 @@
             <span class="input-group-btn">
               <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
                 <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
-                <ui-select-choices repeat="color in availableColors | filter:$select.search">
-                  {{color}}
+                <ui-select-choices repeat="skill in skills | filter:$select.search">
+                  {{skill}}
                 </ui-select-choices>
               </ui-select>
             </span>
@@ -163,7 +163,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu">
-                  <li ng-repeat="skill in skills"><a href="#">{{skill}}</a></li>
+                  <li ng-repeat="skill in skills" ng-click="itemSelected(skill)"><a href="#">{{skill}}</a></li>
                 </ul>
               </div>
 
@@ -173,7 +173,7 @@
                 <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu scroll">
-                  <li ng-repeat="company in companies"><a href="#">{{company}}</a></li>
+                  <li ng-repeat="company in companies" ng-click="itemSelected(company)"><a href="#">{{company}}</a></li>
 
                 </ul>
               </div>

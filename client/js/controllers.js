@@ -88,6 +88,9 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 app.controller('SearchController', function($scope, $http){
 	$scope.availableColors = [];
 	$scope.multipleDemo = {};
+	$scope.skills = [];
+	$scope.companies = [];
+
 	$http({
 		method:'GET',
 		url: '/companies'
@@ -105,7 +108,10 @@ app.controller('SearchController', function($scope, $http){
 			 });
 		});
 	});
-	
+
+	$scope.itemSelected = function(item){
+		console.log(item);
+	}
 	// $scope.multipleDemo.colors = ['Blue','Red'];
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
@@ -115,4 +121,9 @@ app.controller('SearchController', function($scope, $http){
 		{id: 5, name: 'fifth'},
 	];
 	$scope.selected = { value: $scope.itemArray[0] };
+	$scope.select2Options = {
+		'multiple': true,
+        'simple_tags': true,
+        'tags': ['tag1', 'tag2', 'tag3', 'tag4']
+	}
 })
