@@ -9,7 +9,7 @@ router.get('/', function(req, res){
 });
 
 module.exports = router;
-=======
+
 var tags = require('../models/tags');
 var express = require('express');
 var router = express.Router();

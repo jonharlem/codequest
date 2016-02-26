@@ -11,7 +11,7 @@ module.exports = {
   auth: auth,
   users: users,
   companies: companies,
-  tags: tag,
+  tags: tags,
   interviewTypes: interviewTypes,
   interview: interview,
 }
