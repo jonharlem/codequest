@@ -114,33 +114,46 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           };
 	           $scope.barValue = 'None';
 
-	            $http({
-	               method: "GET",
-	               url: "/api/qtags"
-	           }).then(function(qtags) {
-	               var tags = qtags.data.map(function(dataPoint) {
-	                 return dataPoint.name;
-	               })
-	                function _counter(arr) {
-	                    var a = [], b = [], prev;
+                   $http({
+                      method: "GET",
+                      url: "/api/qtags"
+                  }).then(function(qtags) {
 
-	                    arr.sort();
-	                    for ( var i = 0; i < arr.length; i++ ) {
-	                        if ( arr[i] !== prev ) {
-	                            a.push(arr[i]);
-	                            b.push(1);
-	                        } else {
-	                            b[b.length-1]++;
-	                        }
-	                        prev = arr[i];
-	                    }
+                      var tags = qtags.data.map(function(dataPoint) {
+                        return dataPoint.name;
+                      })
 
-	                    return [a, b];
-	                }
-	                
-	               $scope.data = _counter(tags)[1];
-	               $scope.info = _counter(tags)[0];
-	           })
+                   function _counter(arr) {
+                       var a = [], b = [], prev;
+
+                       arr.sort();
+                       for ( var i = 0; i < arr.length; i++ ) {
+                           if ( arr[i] !== prev ) {
+                               a.push(arr[i]);
+                               b.push(1);
+                           } else {
+                               b[b.length-1]++;
+                           }
+                           prev = arr[i];
+                       }
+
+                       return [a, b];
+                   }
+
+                  $scope.data = [];
+
+                  var numOfQuestions = _counter(tags)[1];
+                  var tagNames = _counter(tags)[0];
+
+                      for(var i = 0; i<tagNames.length; i++){
+
+                             $scope.data.push({
+                               tagNames: tagNames[i],
+                               numOfQuestions: numOfQuestions[i]
+                             });
+                      }
+
+            }) 
 });
 
 app.controller('SearchController', function($scope, $http, $location, SearchService){

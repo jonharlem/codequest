@@ -1,5 +1,4 @@
 d3.custom = {};
-var info = ["algorithm", "angularjs", "css", "data structures", "html", "javascript", "mysql", "ruby", "sql"];
 
 d3.custom.barChart = function module() {
     var margin = {top: 20, right: 20, bottom: 40, left: 40},
@@ -13,28 +12,20 @@ d3.custom.barChart = function module() {
 
     function exports (_selection) {
         _selection.each(function(_data) {
-            //#TODO: Need to find a way to uniquely identify all three charts
-            if(typeof _data[0] === "string"){
-                    var info = _data;
-            }else{
-                var info = ["algorithm", "angularjs", "css", "data structures", "html", "javascript", "mysql", "ruby", "sql"];
 
                 var chartW = width - margin.left - margin.right,
                        chartH = height - margin.top - margin.bottom;
 
                 var x1 = d3.scale.ordinal()
-                       .domain(_data.map(function(d, i){ return i; }))
+                       .domain(_data.map(function(d, i){return d.tagNames; }))
                        .rangeRoundBands([0, chartW], .1);
 
                 var y1 = d3.scale.linear()
-                       .domain([0, d3.max(_data, function(d, i){ return d; })])
+                       .domain([0, d3.max(_data, function(d, i){ return d.numOfQuestions; })])
                        .range([chartH, 0]);
 
                 var xAxis = d3.svg.axis()
                        .scale(x1)
-                       .tickFormat(function(d, i){
-                            return info[i];
-                       })
                        .orient('bottom');
 
                 var yAxis = d3.svg.axis()
@@ -89,14 +80,13 @@ d3.custom.barChart = function module() {
                     .ease(ease)
                     .attr({
                         width: barW,
-                        x: function(d, i) { return x1(i) + gapSize/2; },
-                        y: function(d, i) { return y1(d); },
-                        height: function(d, i) { return chartH - y1(d); }
+                        x: function(d, i) {return x1(d.tagNames) + gapSize/2; },
+                        y: function(d, i) { return y1(d.numOfQuestions); },
+                        height: function(d, i) { return chartH - y1(d.numOfQuestions); }
                     });
                 bars.exit().transition().style({opacity: 0}).remove();
 
                 duration = 500;
-           }
         });
     }
 
@@ -104,6 +94,7 @@ d3.custom.barChart = function module() {
         if (!arguments.length) return width;
         width = parseInt(_x);
         return this;
+        debugger;
     };
     exports.height = function(_x) {
         if (!arguments.length) return height;

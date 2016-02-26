@@ -49,23 +49,18 @@ app.directive('barChart', function(){
         scope:{
             height: '=height',
             data: '=data',
-            info: '=info',
             hovered: '&hovered'
         },
         link: function(scope, element, attrs) {
 
             var chartEl = d3.select(element[0]);
             chart.on('customHover', function(d, i){
-                scope.hovered({args:d});
+                scope.hovered({args:d.numOfQuestions});
             });
 
             scope.$watch('data', function (newVal, oldVal) {
                 chartEl.datum(newVal).call(chart);
             });            
-
-            scope.$watch('info', function (newVal, oldVal) {
-                chartEl.datum(newVal).call(chart);
-            });
 
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
@@ -108,8 +103,18 @@ app.directive('chartForm',['$http',  function($http){
                        return [a, b];
                    }
 
-                   $scope.data = _counter(tags)[1];
-                   $scope.info = _counter(tags)[0];
+                  $scope.data = [];
+
+                  var numOfQuestions = _counter(tags)[1];
+                  var tagNames = _counter(tags)[0];
+
+                      for(var i = 0; i<tagNames.length; i++){
+
+                             $scope.data.push({
+                               tagNames: tagNames[i],
+                               numOfQuestions: numOfQuestions[i]
+                             });
+                      }
 
             }) 
 
