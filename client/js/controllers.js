@@ -116,7 +116,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           $scope.barValue = 'None';
 });
 
-app.controller('SearchController', function($scope, $http, $location, SearchService){
+app.controller('SearchController', function($scope, $http, $location, $route,SearchService){
 	$scope.filterTags = {};
 	$scope.skills = [];
 	$scope.companies = [];
@@ -160,7 +160,10 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 
 	$scope.search = function() {
 		SearchService.tags = $scope.filterTags.tags;
+		$scope.filterTags.tags = [];
+
 		$location.path('/search');
+		$route.reload();
 	};
 
 	$scope.select2Options = {
@@ -171,11 +174,12 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 });
 
 app.controller('QuestionsController', function($scope, $http, SearchService) {
+	console.log("Questions ctrl")
 	$scope.questions = [];
 	SearchService.tags.forEach(function(tag) {
 		$http.get('/questions/' + tag).then(function(response) {
 			$scope.questions = $scope.questions.concat(response.data);
-			console.log($scope.questions);
+			console.log(tag);
 		});
 	});
 });
