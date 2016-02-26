@@ -32,3 +32,8 @@
 	font-weight: 600;
 	background-color: #C9C9C9;
 }
+
+.dropdown-menu.scroll{
+	overflow: scroll;
+	max-height: 200px;
+}

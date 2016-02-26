@@ -23,9 +23,11 @@ app.use(bodyParser.urlencoded({ extended: false}));
 app.use('/api', router.index);
 app.use('/auth', router.auth);
 app.use('/users', router.users);
+app.use('/companies', router.companies);
+
 // always redirect to angular app for routes
 // are not registered
-app.get('*', function(req,res){
+app.get('/', function(req,res){
   res.sendFile(path.join(__dirname,'../client/templates', 'index.html'));
 });
 
