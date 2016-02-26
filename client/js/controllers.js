@@ -143,6 +143,7 @@ app.controller('SearchController', function($scope, $http, $location, $route,Sea
 		if($scope.filterTags.tags.indexOf(item)){
 			$scope.filterTags.tags.push(item);
 		}
+		console.log($scope.filterTags.tags)
 	};
 
 	$scope.filterTags = {};
@@ -165,6 +166,15 @@ app.controller('SearchController', function($scope, $http, $location, $route,Sea
 		$location.path('/search');
 		$route.reload();
 	};
+
+	$scope.$watch('filterTags.tags', function(newValue, oldValue) {
+		// set $scope.filterTags.tags to old
+		var allUnique = newValue.length === _.uniq(newValue).length;
+		if(!allUnique) {
+			$scope.filterTags.tags = oldValue;
+		}
+	});
+
 
 	$scope.select2Options = {
 		'multiple': true,
