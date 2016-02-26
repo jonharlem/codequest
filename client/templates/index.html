@@ -46,13 +46,14 @@
   <nav class="navbar navbar-inverse">
       <div class="container">
           <div class="navbar-header">
-              <a class="navbar-brand" href="/#/"><img src="/client/assets/codequest.png" <style="width: 100px"></style></a>
+              <a class="navbar-brand" href="/#/">
+                <img src="/client/assets/codequest.png">
+              </a>
           </div>
 
         <ul class="nav navbar-nav navbar-right">
           <!-- <div id="navBtns"> -->
             <li><a href="/#/about">about</a></li>
-            <li><a ng-click="toggleModalInterview()">Add a Question</a></li>
             <li ng-if="!isAuthenticated()"><a ng-click="toggleModal()">sign up</a></li>
             <li ng-if="!isAuthenticated()"><a ng-click="toggleModalSignIn()" id="signInBtnText">sign in</a></li>
             <li ng-if="isAuthenticated()"><a href="/#/settings">settings</a></li>
@@ -172,9 +173,6 @@
 <!-- SEARCH -->
    <div class="container" ng-controller="SearchController">
       <div class="jumbotron" id="searchJumbo">
-        <div>
-
-        </div>
         <div class="row">
           <div class="col-lg-11">
             <span class="input-group-btn">
@@ -245,7 +243,11 @@
             </div>
           </div>
         </div> <!-- / button group row -->
-
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <button id="addQuestionBtn" ng-click="toggleModalInterview()" type="button" class="btn">Add a Question</button>
+          </div>
+        </div>
       </div>
     </div>
      <!-- show results here -->
