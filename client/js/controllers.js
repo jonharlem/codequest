@@ -140,11 +140,12 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 	});
 
 	$scope.itemSelected = function(item){
-		console.log(item);
+		$scope.filterTags.tags.push(item);
+		
 	};
 
 	$scope.filterTags = {};
-	$scope.filterTags.tags = ['test'];
+	$scope.filterTags.tags = [];
 
 	$scope.itemArray = [
 		{id: 1, name: 'first'},
