@@ -176,7 +176,7 @@
         <div class="row">
           <div class="col-lg-11">
             <span class="input-group-btn">
-              <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
+              <ui-select multiple ng-model="filterTags.tags" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a tag">
                 <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
                 <ui-select-choices repeat="skill in skills | filter:$select.search">
                   {{skill}}
