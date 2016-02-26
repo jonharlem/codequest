@@ -12,6 +12,11 @@
 	line-height: 40px;
 }
 
+.navbar-inverse .navbar-nav>li>a:hover{
+	text-decoration: underline;
+	color: black;
+}
+
 #signInBtnText {
 	height: 20px;
 	color: #EF6D6D;
