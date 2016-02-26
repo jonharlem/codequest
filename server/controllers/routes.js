@@ -5,6 +5,7 @@ var companies = require('./companiesRoutes');
 var tags = require('./tagsRoutes');
 var interviewTypes = require('./interviewTypesRoutes');
 var interview = require('./interviewRoutes');
+var questions = require('./questionsRoutes');
 
 module.exports = {
   index: index,
@@ -14,4 +15,5 @@ module.exports = {
   tags: tags,
   interviewTypes: interviewTypes,
   interview: interview,
+  questions: questions
 }
