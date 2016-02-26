@@ -1,5 +1,5 @@
 d3.custom = {};
-
+var info = ["algorithm", "angularjs", "css", "data structures", "html", "javascript", "mysql", "ruby", "sql"];
 d3.custom.barChart = function module() {
     var margin = {top: 20, right: 20, bottom: 40, left: 40},
         width = 700,
@@ -9,28 +9,30 @@ d3.custom.barChart = function module() {
     var svg, duration = 500;
 
     var dispatch = d3.dispatch('customHover');
-    function exports(_selection) {
+    function exports (_selection) {
+
         _selection.each(function(_data) {
+    
             var chartW = width - margin.left - margin.right,
                    chartH = height - margin.top - margin.bottom;
 
-               var x1 = d3.scale.ordinal()
+            var x1 = d3.scale.ordinal()
                    .domain(_data.map(function(d, i){ return i; }))
                    .rangeRoundBands([0, chartW], .1);
 
-               var y1 = d3.scale.linear()
+            var y1 = d3.scale.linear()
                    .domain([0, d3.max(_data, function(d, i){ return d; })])
                    .range([chartH, 0]);
 
-               var xAxis = d3.svg.axis()
+            var xAxis = d3.svg.axis()
                    .scale(x1)
                    .orient('bottom');
 
-               var yAxis = d3.svg.axis()
+            var yAxis = d3.svg.axis()
                    .scale(y1)
                    .orient('left');
 
-               var barW = chartW / _data.length;
+            var barW = chartW / _data.length;
 
 
             if(!svg) {
@@ -88,6 +90,7 @@ d3.custom.barChart = function module() {
 
         });
     }
+
     exports.width = function(_x) {
         if (!arguments.length) return width;
         width = parseInt(_x);
@@ -109,6 +112,8 @@ d3.custom.barChart = function module() {
         ease = _x;
         return this;
     };
+
+
     d3.rebind(exports, dispatch, 'on');
     return exports;
 };

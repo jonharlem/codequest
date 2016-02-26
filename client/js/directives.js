@@ -49,6 +49,7 @@ app.directive('barChart', function(){
         scope:{
             height: '=height',
             data: '=data',
+            info: '=info',
             hovered: '&hovered'
         },
         link: function(scope, element, attrs) {
@@ -60,7 +61,11 @@ app.directive('barChart', function(){
 
             scope.$watch('data', function (newVal, oldVal) {
                 chartEl.datum(newVal).call(chart);
-            });
+            });            
+
+            // scope.$watch('info', function (newVal, oldVal) {
+            //     chartEl.datum(newVal).call(chart);
+            // });
 
             scope.$watch('height', function(d, i){
                 chartEl.call(chart.height(scope.height));
@@ -76,7 +81,40 @@ app.directive('chartForm',['$http',  function($http){
         replace: true,
         controller: function AppCtrl ($scope) {
 
-            $scope.goToTagsBar = function(d, i){  tagsData(); };
+            $scope.tagsData = function(){ 
+                   $http({
+                      method: "GET",
+                      url: "/api/qtags"
+                  }).then(function(qtags) {
+
+                      var tags = qtags.data.map(function(dataPoint) {
+                        return dataPoint.name;
+                      })
+
+                   function _counter(arr) {
+                       var a = [], b = [], prev;
+
+                       arr.sort();
+                       for ( var i = 0; i < arr.length; i++ ) {
+                           if ( arr[i] !== prev ) {
+                               a.push(arr[i]);
+                               b.push(1);
+                           } else {
+                               b[b.length-1]++;
+                           }
+                           prev = arr[i];
+                       }
+
+                       return [a, b];
+                   }
+
+                   $scope.data = _counter(tags)[1];
+                   $scope.info = _counter(tags)[0];
+
+            }) 
+
+            };
+
             $scope.goToCompaniesBar = function(d, i){ $scope.data = companiesData(); };
             $scope.goToPositionsBar = function(d, i){ $scope.data = randomData();
             };
@@ -102,23 +140,9 @@ app.directive('chartForm',['$http',  function($http){
             //           console.log(companies.data);
             //       })
             // }            
-
-            function tagsData(){               
-                   $http({
-                      method: "GET",
-                      url: "/api/qtags"
-                  }).then(function(qtags) {
-
-                      var tmp = qtags.data.map(function(dataPoint) {
-                        return dataPoint.name;
-                      })
-                      // $scope.data = qtags.data;
-                      $scope.data = tmp;
-                  })
-            }
         },
           template: '<div class="form">' +
-                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="goToTagsBar()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
+                    '<br /><div class="btn-group " role="group" aria-label="..."><button ng-click="tagsData()" type="button" class="btn btn-default">Tags</button><button ng-click="goToCompaniesBar()" type="button" class="btn btn-default">Companies</button> <button ng-click="goToPositionsBar()" type="button" class="btn btn-default">Positions</button></div>' +
                     '<br />Number of Questions: {{barValue}}</div>'
         }
 }]);
