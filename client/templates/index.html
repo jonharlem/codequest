@@ -30,6 +30,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
 
+  <!-- underscore.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
     <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
@@ -40,7 +43,8 @@
     <script type="text/javascript" src="/client/js/barChart.js"></script>
     <script type="text/javascript" src="/client/js/search.js"></script>
 
-
+    <script type="text/javascript" src="/client/js/search.js"></script>
+    <script type="text/javascript" src="/client/js/barChart.js"></script>
 
 </head>
 
@@ -138,15 +142,27 @@
                   </ui-select-choices>
                 </ui-select>
             </div>
-
+            
+            <!-- add a new company -->
             <div class="form-group">
+                <label for="companyName">Company Name</label>
+                <ui-select multiple tagging tagging-label="(custom 'new' label)" ng-model="interview.companyName" theme="bootstrap" sortable="true">
+                  <ui-select-match placeholder="e.g. Facebook">{{$item.name}}</ui-select-match>
+                  <ui-select-choices repeat="company in companies | orderBy: 'name'">
+                    {{ company.name }} 
+                  </ui-select-choices>
+                </ui-select>
+            </div>
+            <!-- end -->
+
+<!--             <div class="form-group">
                 <label for="companyName">Company Name</label>
                 <select class="form-control" ng-model="interview.companyName" name="companyName">
                   <option ng-repeat="company in companies | orderBy: 'name'" value="{{ company.name }}">
                     {{ company.name }}
                   </option>
                 </select>
-            </div>
+            </div> -->
 
             <div class="row">
                 <div class="col-md-6">
@@ -252,6 +268,7 @@
             </div>
           </div>
         </div> <!-- / button group row -->
+<<<<<<< HEAD
         <br>
         <div class="row">
           <div class="col-lg-12 text-center">
@@ -259,15 +276,19 @@
           </div>
         </div>
         <br>
+=======
+>>>>>>> d03601b572d0cc88491f52915541c64bf6acf868
       </div>
     </div>
-     <!-- show results here -->
 
     <!-- ng-view -->
     <div ng-view>
     </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d03601b572d0cc88491f52915541c64bf6acf868
 </body>
 
 </html>

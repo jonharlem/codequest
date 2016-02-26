@@ -56,7 +56,8 @@ var addTagsToQuestions = function(){
 }
 
 function generateQuestionTagCallback(i){
-  var questionID, tagID;
+      var questionID, tagID;
+
 
   Questions().where({
     question: questionsData[i].question

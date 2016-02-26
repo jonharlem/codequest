@@ -113,15 +113,55 @@ app.controller('SettingsController', function($scope, $auth) {
 app.controller('D3dashboard', function($scope, $location, $http) {
 
 	$scope.options = {width: 500, height: 375, 'bar': 'aaa'};
-	           $scope.data = [1, 2, 3, 4];
 	           $scope.hovered = function(d){
 	               $scope.barValue = d;
 	               $scope.$apply();
 	           };
 	           $scope.barValue = 'None';
+
+                   $http({
+                      method: "GET",
+                      url: "/api/qtags"
+                  }).then(function(qtags) {
+
+                      var tags = qtags.data.map(function(dataPoint) {
+                        return dataPoint.name;
+                      })
+
+                   function _counter(arr) {
+                       var a = [], b = [], prev;
+
+                       arr.sort();
+                       for ( var i = 0; i < arr.length; i++ ) {
+                           if ( arr[i] !== prev ) {
+                               a.push(arr[i]);
+                               b.push(1);
+                           } else {
+                               b[b.length-1]++;
+                           }
+                           prev = arr[i];
+                       }
+
+                       return [a, b];
+                   }
+
+                  $scope.data = [];
+
+                  var numOfQuestions = _counter(tags)[1];
+                  var tagNames = _counter(tags)[0];
+
+                      for(var i = 0; i<tagNames.length; i++){
+
+                             $scope.data.push({
+                               tickLabel: tagNames[i],
+                               numOfQuestions: numOfQuestions[i]
+                             });
+                      }
+
+            }) 
 });
 
-app.controller('SearchController', function($scope, $http, $location, SearchService){
+app.controller('SearchController', function($scope, $http, $location, $route,SearchService){
 	$scope.filterTags = {};
 	$scope.skills = [];
 	$scope.companies = [];
@@ -148,6 +188,7 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 		if($scope.filterTags.tags.indexOf(item)){
 			$scope.filterTags.tags.push(item);
 		}
+		console.log($scope.filterTags.tags)
 	};
 
 	$scope.filterTags = {};
@@ -165,8 +206,20 @@ app.controller('SearchController', function($scope, $http, $location, SearchServ
 
 	$scope.search = function() {
 		SearchService.tags = $scope.filterTags.tags;
+		$scope.filterTags.tags = [];
+
 		$location.path('/search');
+		$route.reload();
 	};
+
+	$scope.$watch('filterTags.tags', function(newValue, oldValue) {
+		// set $scope.filterTags.tags to old
+		var allUnique = newValue.length === _.uniq(newValue).length;
+		if(!allUnique) {
+			$scope.filterTags.tags = oldValue;
+		}
+	});
+
 
 	$scope.select2Options = {
 		'multiple': true,
@@ -180,7 +233,6 @@ app.controller('QuestionsController', function($scope, $http, SearchService) {
 	SearchService.tags.forEach(function(tag) {
 		$http.get('/questions/' + tag).then(function(response) {
 			$scope.questions = $scope.questions.concat(response.data);
-			console.log($scope.questions);
 		});
 	});
 });
