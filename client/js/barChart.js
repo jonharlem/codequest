@@ -26,6 +26,9 @@ d3.custom.barChart = function module() {
 
             var xAxis = d3.svg.axis()
                    .scale(x1)
+                   .tickFormat(function(d, i){
+                        return info[i];
+                   })
                    .orient('bottom');
 
             var yAxis = d3.svg.axis()
