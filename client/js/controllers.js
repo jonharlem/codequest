@@ -93,11 +93,18 @@ app.controller('NavbarController', function($scope, $auth, $location, $routePara
   };
 
 	$scope.submitInterview = function(interviewForm) {
+		// debugger;
 
 		$http.post('/interview', interviewForm).then(function(data) {
-			interviewForm = {};
-		    $scope.interview = {};
-		    $scope.interview.tags = [];
+			console.log('you you');
+		    // $scope.interview = {};
+		    // $scope.interview.tags = [];
+				interviewForm.tags = [];
+				interviewForm.title = "";
+				interviewForm.companyName = "";
+				interviewForm.position = "";
+				interviewForm.question = "";
+				interviewForm.type = "";
 		    $scope.showInterviewModal = !$scope.showInterviewModal;
 		});
 	};
