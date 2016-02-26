@@ -30,6 +30,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2-rc.1/js/select2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.14.9/select.js"></script>
 
+  <!-- underscore.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+
     <!--  scripts here -->
     <script src="//cdn.jsdelivr.net/satellizer/0.13.4/satellizer.min.js"></script>
     <script src="/client/app.js"></script>
@@ -179,7 +182,7 @@
         <div class="row">
           <div class="col-lg-11">
             <span class="input-group-btn">
-              <ui-select multiple ng-model="multipleDemo.colors" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a color">
+              <ui-select multiple ng-model="filterTags.tags" theme="bootstrap" sortable="true" ng-disabled="disabled" style="width: 100%;" title="Choose a tag">
                 <ui-select-match placeholder="Search tags..." style="width: 35px;">{{$item}}</ui-select-match>
                 <ui-select-choices repeat="skill in skills | filter:$select.search">
                   {{skill}}
