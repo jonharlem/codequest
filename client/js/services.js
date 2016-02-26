@@ -15,6 +15,12 @@ app.service("Interceptor", function($window,$location,$q){
   };
 });
 
+app.service("SearchService", function() {
+	return {
+		tags: []
+	}
+});
+
 //allows for responsive D3 barChart
 // app.service('viewportUtils', function ($window) {
 //     var utils = {

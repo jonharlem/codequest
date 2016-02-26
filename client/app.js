@@ -7,8 +7,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
   .when('/', {
     templateUrl: '/client/templates/d3Dashboard.html',
     controller: 'D3dashboard'
-  })
-  .when('/about', {
+  }).when('/search', {
+    templateUrl: '/client/templates/questions.html'
+    
+  }).when('/about', {
     templateUrl: '/client/templates/about.html'
   }).when('/settings', {
     templateUrl: '/client/templates/userProfile.html',

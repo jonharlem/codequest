@@ -1,6 +1,6 @@
 var app = angular.module('codequest');
 
-app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal){
+app.controller('NavbarController', function($scope, $auth, $location, $routeParams, $http, $uibModal, SearchService){
 
 	$scope.showInterviewModal = false;
 	$scope.showModal = false;
@@ -116,7 +116,7 @@ app.controller('D3dashboard', function($scope, $location, $http) {
 	           $scope.barValue = 'None';
 });
 
-app.controller('SearchController', function($scope){
+app.controller('SearchController', function($scope, SearchService){
 	$scope.availableColors = ['Red','Green','Blue','Yellow','Magenta','Maroon','Umbra','Turquoise'];
 	$scope.multipleDemo = {};
 	// $scope.multipleDemo.colors = ['Blue','Red'];
@@ -128,5 +128,8 @@ app.controller('SearchController', function($scope){
 		{id: 5, name: 'fifth'},
 	];
 	$scope.selected = { value: $scope.itemArray[0] };
+	$scope.search = function() {
+		
+	};
 })
 
