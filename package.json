@@ -42,10 +42,5 @@
     "protractor": "^3.1.1",
     "supertest": "^1.2.0",
     "webdriver-manager": "^8.0.0"
-  },
-  "engines": {
-    "node": "5.0.0"
-},
-"scripts": {
-    "start": "node server.js"
+  }
 }
