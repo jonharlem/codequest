@@ -35,6 +35,10 @@ module.exports = {
     connection: process.env.DB_key,
     migrations: {
       tableName: 'knex_migrations'
+    },
+    pool: {
+      min: 2,
+      max: 10
     }
   }
 
