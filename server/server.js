@@ -35,7 +35,7 @@ app.get('/', function(req,res){
 });
 
 //set a port to listen to
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 
 //tune in to that port
 app.listen(port, function(){

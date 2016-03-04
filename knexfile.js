@@ -31,14 +31,14 @@ module.exports = {
   },
 
   production: {
-    client: 'postgresql',
+    client: 'pg',
     connection: process.env.DB_key,
     migrations: {
       tableName: 'knex_migrations'
     },
     pool: {
-      min: 2,
-      max: 10
+      min: 0,
+      max: 1
     }
   }
 
