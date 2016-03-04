@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'codequest'
+      database: 'codequester'
     },
     debug: true,
     pool: {
@@ -31,7 +31,7 @@ module.exports = {
   },
 
   production: {
-    client: 'pg',
+    client: 'postgresql',
     connection: process.env.DB_key,
     migrations: {
       tableName: 'knex_migrations'
