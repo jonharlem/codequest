@@ -33,7 +33,7 @@
     "locus": "^1.2.0",
     "method-override": "^2.3.5",
     "path": "^0.12.7",
-    "pg": "^4.4.6",
+    "pg": "4.5.1",
     "querystring": "^0.2.0",
     "request": "^2.69.0",
     "select2-bootstrap-css": "^1.4.6"
@@ -46,5 +46,5 @@
   },
   "engines": {
     "node": "4.2.6"
-}
+  }
 }
